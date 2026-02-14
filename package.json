@@ -1,0 +1,12 @@
+{
+  "name": "leon",
+  "version": "0.1.0",
+  "description": "Curated collection of Agent Skills for AI coding agents",
+  "license": "MIT",
+  "scripts": {
+    "sync": "bun run scripts/sync-upstream.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.9"
+  }
+}

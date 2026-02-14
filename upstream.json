@@ -1,0 +1,16 @@
+{
+  "upstreams": [
+    {
+      "repo": "softaworks/agent-toolkit",
+      "branch": "main",
+      "skills": [
+        {
+          "remotePath": "skills/commit-work",
+          "localPath": "skills/commit-work",
+          "sha": "62b5df50daf75a28d3c0c626d6147539287575fc",
+          "lastSync": "2026-02-14T05:44:39.059Z"
+        }
+      ]
+    }
+  ]
+}
