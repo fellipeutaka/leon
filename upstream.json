@@ -8,7 +8,67 @@
           "remotePath": "skills/commit-work",
           "localPath": "skills/commit-work",
           "sha": "62b5df50daf75a28d3c0c626d6147539287575fc",
-          "lastSync": "2026-02-14T05:44:39.059Z"
+          "lastSync": "2026-02-14T06:07:17.602Z"
+        }
+      ]
+    },
+    {
+      "repo": "vercel-labs/agent-skills",
+      "branch": "main",
+      "skills": [
+        {
+          "remotePath": "skills/composition-patterns",
+          "localPath": "skills/composition-patterns",
+          "sha": "e23951b8cad2f4b1e7e176c5731127c1263fe86f",
+          "lastSync": "2026-02-14T06:07:18.253Z"
+        }
+      ]
+    },
+    {
+      "repo": "vercel-labs/agent-skills",
+      "branch": "main",
+      "skills": [
+        {
+          "remotePath": "skills/react-best-practices",
+          "localPath": "skills/react-best-practices",
+          "sha": "e23951b8cad2f4b1e7e176c5731127c1263fe86f",
+          "lastSync": "2026-02-14T06:07:19.071Z"
+        }
+      ]
+    },
+    {
+      "repo": "vercel-labs/agent-skills",
+      "branch": "main",
+      "skills": [
+        {
+          "remotePath": "skills/react-native-skills",
+          "localPath": "skills/react-native-skills",
+          "sha": "e23951b8cad2f4b1e7e176c5731127c1263fe86f",
+          "lastSync": "2026-02-14T06:07:19.758Z"
+        }
+      ]
+    },
+    {
+      "repo": "vercel-labs/agent-skills",
+      "branch": "main",
+      "skills": [
+        {
+          "remotePath": "skills/web-design-guidelines",
+          "localPath": "skills/web-design-guidelines",
+          "sha": "e23951b8cad2f4b1e7e176c5731127c1263fe86f",
+          "lastSync": "2026-02-14T06:07:19.936Z"
+        }
+      ]
+    },
+    {
+      "repo": "vercel-labs/agent-browser",
+      "branch": "main",
+      "skills": [
+        {
+          "remotePath": "skills/agent-browser",
+          "localPath": "skills/agent-browser",
+          "sha": "9cbb363190bb39c0f5b4149327d0371cd3fb17ec",
+          "lastSync": "2026-02-14T06:07:22.213Z"
         }
       ]
     }
