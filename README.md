@@ -31,6 +31,8 @@ bun sync --new-only  # sync only skills without a prior sync
 | [motion](skills/motion/) | React animations with Motion (Framer Motion) | [jezweb/claude-skills](https://github.com/jezweb/claude-skills) |
 | [react-best-practices](skills/react-best-practices/) | React/Next.js performance optimization | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) |
 | [react-native-skills](skills/react-native-skills/) | React Native and Expo best practices | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) |
+| [tanstack-query](skills/tanstack-query/) | TanStack Query v5 data fetching, caching, and mutations | Curated |
+| [tanstack-router](skills/tanstack-router/) | TanStack Router type-safe routing, search params, and data loading | Curated |
 | [web-design-guidelines](skills/web-design-guidelines/) | Web Interface Guidelines compliance review | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) |
 
 ### Backend
