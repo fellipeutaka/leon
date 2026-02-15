@@ -7,10 +7,18 @@ interface SkillEntry {
   lastSync?: string;
 }
 
+interface ReferenceEntry {
+  remotePath: string;
+  description: string;
+  sha?: string;
+  lastSync?: string;
+}
+
 interface UpstreamEntry {
   repo: string;
   branch: string;
   skills: SkillEntry[];
+  references?: ReferenceEntry[];
 }
 
 interface UpstreamManifest {
@@ -109,8 +117,10 @@ try {
   const manifest: UpstreamManifest = await Bun.file(MANIFEST_PATH).json();
 
   const upstreams = newOnly
-    ? manifest.upstreams.filter((u) =>
-        u.skills.some((s) => !s.lastSync)
+    ? manifest.upstreams.filter(
+        (u) =>
+          u.skills.some((s) => !s.lastSync) ||
+          u.references?.some((r) => !r.lastSync)
       )
     : manifest.upstreams;
 
@@ -136,6 +146,13 @@ try {
         skill.lastSync = new Date().toISOString();
       })
     );
+
+    // Update references (track SHA only, no file sync)
+    for (const ref of upstream.references ?? []) {
+      ref.sha = sha;
+      ref.lastSync = new Date().toISOString();
+      console.log(`  Reference updated: ${ref.remotePath}`);
+    }
   }
 
   await Bun.write(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + "\n");
