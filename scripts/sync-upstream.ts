@@ -26,6 +26,7 @@ interface GitHubContent {
 
 const ROOT = join(import.meta.dir, "..");
 const MANIFEST_PATH = join(ROOT, "upstream.json");
+const newOnly = process.argv.includes("--new-only");
 
 async function fetchDirectory(
   repo: string,
@@ -104,13 +105,28 @@ async function syncSkill(
 try {
   const manifest: UpstreamManifest = await Bun.file(MANIFEST_PATH).json();
 
-  for (const upstream of manifest.upstreams) {
+  const upstreams = newOnly
+    ? manifest.upstreams.filter((u) =>
+        u.skills.some((s) => !s.lastSync)
+      )
+    : manifest.upstreams;
+
+  if (newOnly && upstreams.length === 0) {
+    console.log("No new upstreams to sync.");
+    process.exit(0);
+  }
+
+  for (const upstream of upstreams) {
     console.log(`\nUpstream: ${upstream.repo} (${upstream.branch})`);
 
     const sha = await getLatestSha(upstream.repo, upstream.branch);
     console.log(`  Latest SHA: ${sha.slice(0, 8)}`);
 
-    for (const skill of upstream.skills) {
+    const skills = newOnly
+      ? upstream.skills.filter((s) => !s.lastSync)
+      : upstream.skills;
+
+    for (const skill of skills) {
       await syncSkill(upstream, skill);
       skill.sha = sha;
       skill.lastSync = new Date().toISOString();

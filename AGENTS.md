@@ -22,6 +22,7 @@ Each skill is a directory inside `skills/` following the [Agent Skills](https://
 Some skills are synced from external repos. Tracked in `upstream.json`.
 
 - Sync all: `bun sync`
+- Sync new only: `bun sync --new-only` (skips skills that already have a `lastSync`)
 - Synced skills can be locally modified — just know re-syncing overwrites local changes
 - Set `GITHUB_TOKEN` env var to avoid API rate limits
 

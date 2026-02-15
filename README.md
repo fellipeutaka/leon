@@ -16,6 +16,7 @@ Some skills are synced from external repos. Tracked in `upstream.json`.
 
 ```bash
 bun sync
+bun sync --new-only  # sync only skills without a prior sync
 ```
 
 ## Skills
