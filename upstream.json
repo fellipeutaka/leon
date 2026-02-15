@@ -21,37 +21,19 @@
           "localPath": "skills/composition-patterns",
           "sha": "e23951b8cad2f4b1e7e176c5731127c1263fe86f",
           "lastSync": "2026-02-15T05:28:53.799Z"
-        }
-      ]
-    },
-    {
-      "repo": "vercel-labs/agent-skills",
-      "branch": "main",
-      "skills": [
+        },
         {
           "remotePath": "skills/react-best-practices",
           "localPath": "skills/react-best-practices",
           "sha": "e23951b8cad2f4b1e7e176c5731127c1263fe86f",
           "lastSync": "2026-02-15T05:29:05.005Z"
-        }
-      ]
-    },
-    {
-      "repo": "vercel-labs/agent-skills",
-      "branch": "main",
-      "skills": [
+        },
         {
           "remotePath": "skills/react-native-skills",
           "localPath": "skills/react-native-skills",
           "sha": "e23951b8cad2f4b1e7e176c5731127c1263fe86f",
           "lastSync": "2026-02-15T05:29:12.814Z"
-        }
-      ]
-    },
-    {
-      "repo": "vercel-labs/agent-skills",
-      "branch": "main",
-      "skills": [
+        },
         {
           "remotePath": "skills/web-design-guidelines",
           "localPath": "skills/web-design-guidelines",
@@ -81,25 +63,13 @@
           "localPath": "skills/next-best-practices",
           "sha": "d428df588da726a7a54bf879962e8b911850ee44",
           "lastSync": "2026-02-15T05:29:20.056Z"
-        }
-      ]
-    },
-    {
-      "repo": "vercel-labs/next-skills",
-      "branch": "main",
-      "skills": [
+        },
         {
           "remotePath": "skills/next-cache-components",
           "localPath": "skills/next-cache-components",
           "sha": "d428df588da726a7a54bf879962e8b911850ee44",
           "lastSync": "2026-02-15T05:29:20.635Z"
-        }
-      ]
-    },
-    {
-      "repo": "vercel-labs/next-skills",
-      "branch": "main",
-      "skills": [
+        },
         {
           "remotePath": "skills/next-upgrade",
           "localPath": "skills/next-upgrade",
