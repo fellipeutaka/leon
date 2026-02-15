@@ -49,6 +49,12 @@ bun sync --new-only  # sync only skills without a prior sync
 | [next-cache-components](skills/next-cache-components/) | Next.js 16 cache components and PPR | [vercel-labs/next-skills](https://github.com/vercel-labs/next-skills) |
 | [next-upgrade](skills/next-upgrade/) | Upgrade Next.js to latest version | [vercel-labs/next-skills](https://github.com/vercel-labs/next-skills) |
 
+### DevOps
+
+| Skill | Description | Source |
+|-------|-------------|--------|
+| [docker](skills/docker/) | Docker containerization, security, and Compose orchestration | Curated |
+
 ### Tooling
 
 | Skill | Description | Source |
