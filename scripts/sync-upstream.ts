@@ -48,19 +48,22 @@ async function fetchDirectory(
   }
 
   const items: GitHubContent[] = await res.json();
-  const files: { path: string; content: string }[] = [];
 
-  for (const item of items) {
-    if (item.type === "file" && item.download_url) {
-      const content = await fetch(item.download_url).then((r) => r.text());
-      files.push({ path: item.path, content });
-    } else if (item.type === "dir") {
-      const subFiles = await fetchDirectory(repo, branch, item.path);
-      files.push(...subFiles);
-    }
-  }
+  const results = await Promise.all(
+    items.map(async (item) => {
+      if (item.type === "file" && item.download_url) {
+        return await fetch(item.download_url)
+          .then((r) => r.text())
+          .then((content) => [{ path: item.path, content }]);
+      }
+      if (item.type === "dir") {
+        return await fetchDirectory(repo, branch, item.path);
+      }
+      return [];
+    })
+  );
 
-  return files;
+  return results.flat();
 }
 
 async function getLatestSha(repo: string, branch: string): Promise<string> {
@@ -126,11 +129,13 @@ try {
       ? upstream.skills.filter((s) => !s.lastSync)
       : upstream.skills;
 
-    for (const skill of skills) {
-      await syncSkill(upstream, skill);
-      skill.sha = sha;
-      skill.lastSync = new Date().toISOString();
-    }
+    await Promise.all(
+      skills.map(async (skill) => {
+        await syncSkill(upstream, skill);
+        skill.sha = sha;
+        skill.lastSync = new Date().toISOString();
+      })
+    );
   }
 
   await Bun.write(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + "\n");
