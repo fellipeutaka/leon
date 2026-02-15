@@ -179,6 +179,18 @@
           "lastSync": "2026-02-15T05:29:44.997Z"
         }
       ]
+    },
+    {
+      "repo": "jezweb/claude-skills",
+      "branch": "main",
+      "skills": [
+        {
+          "remotePath": "skills/motion",
+          "localPath": "skills/motion",
+          "sha": "10a1f16679a5aab8e0c2f4d04e8560402f34d04b",
+          "lastSync": "2026-02-15T05:39:41.053Z"
+        }
+      ]
     }
   ]
 }

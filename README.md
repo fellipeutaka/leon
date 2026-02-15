@@ -30,6 +30,7 @@ bun sync --new-only  # sync only skills without a prior sync
 | [elysia](skills/elysia/) | Type-safe, high-performance backend with ElysiaJS | [elysiajs/skills](https://github.com/elysiajs/skills) |
 | [hono](skills/hono/) | Develop Hono applications using Hono CLI | [yusukebe/hono-skill](https://github.com/yusukebe/hono-skill) |
 | [kanpeki](skills/kanpeki/) | Accessible UI components with Kanpeki library | [fellipeutaka/kanpeki](https://github.com/fellipeutaka/kanpeki) |
+| [motion](skills/motion/) | React animations with Motion (Framer Motion) | [jezweb/claude-skills](https://github.com/jezweb/claude-skills) |
 | [next-best-practices](skills/next-best-practices/) | Next.js best practices and conventions | [vercel-labs/next-skills](https://github.com/vercel-labs/next-skills) |
 | [next-cache-components](skills/next-cache-components/) | Next.js 16 cache components and PPR | [vercel-labs/next-skills](https://github.com/vercel-labs/next-skills) |
 | [next-upgrade](skills/next-upgrade/) | Upgrade Next.js to latest version | [vercel-labs/next-skills](https://github.com/vercel-labs/next-skills) |
