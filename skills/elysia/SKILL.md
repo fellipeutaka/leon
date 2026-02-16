@@ -15,7 +15,7 @@ ElysiaJS is a TypeScript framework for building Bun-first (but not limited to Bu
 
 Trigger this skill when the user asks to:
 - Create or modify ElysiaJS routes, handlers, or servers
-- Setup validation with TypeBox or other schema libraries (Zod, Valibot)
+- Setup validation with any Standard Schema library (Zod, Valibot, ArkType) or TypeBox
 - Implement authentication (JWT, session-based, macros, guards)
 - Add plugins (CORS, OpenAPI, Static files, JWT)
 - Integrate with external services (Drizzle ORM, Better Auth, Next.js, Eden Treaty)
@@ -34,30 +34,30 @@ bun create elysia app
 import { Elysia, t, status } from 'elysia'
 
 const app = new Elysia()
-  	.get('/', () => 'Hello World')
-   	.post('/user', ({ body }) => body, {
-    	body: t.Object({
-      		name: t.String(),
-        	age: t.Number()
-     	})
+  .get('/', () => 'Hello World')
+  .post('/user', ({ body }) => body, {
+    body: t.Object({
+      name: t.String(),
+      age: t.Number()
     })
-    .get('/id/:id', ({ params: { id } }) => {
-   		if(id > 1_000_000) return status(404, 'Not Found')
-     
-     	return id
-    }, {
-    	params: t.Object({
-     		id: t.Number({
-       			minimum: 1
-       		})
-     	}),
-     	response: {
-      		200: t.Number(),
-        	404: t.Literal('Not Found')
-      	}
-    })
-    .listen(3000)
+  })
+  .get('/id/:id', ({ params: { id } }) => {
+    if(id > 1_000_000) return status(404, 'Not Found')
+
+    return id
+  }, {
+    params: t.Object({
+      id: t.Number({ minimum: 1 })
+    }),
+    response: {
+      200: t.Number(),
+      404: t.Literal('Not Found')
+    }
+  })
+  .listen(3000)
 ```
+
+> **Note:** This example uses TypeBox (`t`) for brevity. If your project uses Zod, Valibot, or another Standard Schema library, use that instead. See the "Validation" section below.
 
 ## Basic Usage
 
@@ -97,96 +97,121 @@ new Elysia()
 .get('/', ({ headers }) => headers.authorization)
 ```
 
-## TypeBox Validation
+## Validation (Standard Schema)
 
-### Basic Types
+Elysia natively supports any schema library that implements the [Standard Schema](https://standardschema.dev/) spec — **Zod, Valibot, ArkType, Effect Schema, Yup**, and others. You can also use the built-in TypeBox (`t` from `'elysia'`). Mix and match validators freely within the same handler.
+
+**IMPORTANT:** When the user's project already uses a Standard Schema library (Zod, Valibot, etc.), prefer that library over TypeBox. Only use TypeBox (`t`) if the project has no existing schema library or explicitly uses TypeBox.
+
+### With Zod
+```typescript
+import { Elysia } from 'elysia'
+import { z } from 'zod'
+
+new Elysia()
+  .post('/user', ({ body }) => body, {
+    body: z.object({
+      name: z.string(),
+      age: z.number().min(0),
+      email: z.string().email(),
+      website: z.string().url().optional()
+    })
+  })
+```
+
+### With Valibot
+```typescript
+import { Elysia } from 'elysia'
+import * as v from 'valibot'
+
+new Elysia()
+  .post('/user', ({ body }) => body, {
+    body: v.object({
+      name: v.string(),
+      age: v.pipe(v.number(), v.minValue(0)),
+      email: v.pipe(v.string(), v.email())
+    })
+  })
+```
+
+### Mixing Validators
+```typescript
+import { z } from 'zod'
+import * as v from 'valibot'
+
+new Elysia()
+  .get('/id/:id', ({ params, query }) => params.id, {
+    params: z.object({ id: z.coerce.number() }),
+    query: v.object({ name: v.literal('Lilith') })
+  })
+```
+
+### With TypeBox (Built-in)
 ```typescript
 import { Elysia, t } from 'elysia'
 
-.post('/user', ({ body }) => body, {
-  body: t.Object({
-    name: t.String(),
-    age: t.Number(),
-    email: t.String({ format: 'email' }),
-    website: t.Optional(t.String({ format: 'uri' }))
-  })
-})
-```
-
-### Nested Objects
-```typescript
-body: t.Object({
-  user: t.Object({
-    name: t.String(),
-    address: t.Object({
-      street: t.String(),
-      city: t.String()
+new Elysia()
+  .post('/user', ({ body }) => body, {
+    body: t.Object({
+      name: t.String(),
+      age: t.Number(),
+      email: t.String({ format: 'email' }),
+      website: t.Optional(t.String({ format: 'uri' }))
     })
   })
-})
-```
-
-### Arrays
-```typescript
-body: t.Object({
-  tags: t.Array(t.String()),
-  users: t.Array(t.Object({
-    id: t.String(),
-    name: t.String()
-  }))
-})
 ```
 
 ### File Upload
 ```typescript
+// With TypeBox
 .post('/upload', ({ body }) => body.file, {
   body: t.Object({
-    file: t.File({
-      type: 'image',              // image/* mime types
-      maxSize: '5m'               // 5 megabytes
-    }),
-    files: t.Files({              // Multiple files
-      type: ['image/png', 'image/jpeg']
-    })
+    file: t.File({ type: 'image', maxSize: '5m' }),
+    files: t.Files({ type: ['image/png', 'image/jpeg'] })
+  })
+})
+
+// With Standard Schema — use fileType() for secure content-type validation
+import { fileType } from 'elysia'
+import { z } from 'zod'
+
+.post('/upload', ({ body }) => body.file, {
+  body: z.object({
+    file: z.file().refine((file) => fileType(file, 'image/jpeg'))
   })
 })
 ```
 
 ### Response Validation
 ```typescript
+// Works with any schema library
 .get('/user/:id', ({ params: { id } }) => ({
   id,
   name: 'John',
   email: 'john@example.com'
 }), {
-  params: t.Object({
-    id: t.Number()
-  }),
+  params: z.object({ id: z.coerce.number() }),
   response: {
-    200: t.Object({
-      id: t.Number(),
-      name: t.String(),
-      email: t.String()
+    200: z.object({
+      id: z.number(),
+      name: z.string(),
+      email: z.string()
     }),
-    404: t.String()
+    404: z.string()
   }
 })
 ```
 
-## Standard Schema (Zod, Valibot, ArkType)
+### TypeBox vs Standard Schema
 
-### Zod
-```typescript
-import { z } from 'zod'
-
-.post('/user', ({ body }) => body, {
-  body: z.object({
-    name: z.string(),
-    age: z.number().min(0),
-    email: z.string().email()
-  })
-})
-```
+| Feature | TypeBox (`t`) | Standard Schema (Zod, etc.) |
+|---------|---------------|----------------------------|
+| Runtime validation | Yes | Yes |
+| Type inference | Yes | Yes |
+| OpenAPI schema generation | Automatic | Not supported |
+| Reference Models (`'modelName'`) | Yes | Not supported |
+| File validation (`t.File`) | Built-in | Use `fileType()` utility |
+| Auto-coercion (params/query) | Automatic | Library-dependent (e.g., `z.coerce`) |
 
 ## Error Handling
 
@@ -205,10 +230,17 @@ import { z } from 'zod'
 ## Guards (Apply to Multiple Routes)
 
 ```typescript
+// With TypeBox
 .guard({
-  params: t.Object({
-    id: t.Number()
-  })
+  params: t.Object({ id: t.Number() })
+}, app => app
+  .get('/user/:id', ({ params: { id } }) => id)
+  .delete('/user/:id', ({ params: { id } }) => id)
+)
+
+// With Zod
+.guard({
+  params: z.object({ id: z.coerce.number() })
 }, app => app
   .get('/user/:id', ({ params: { id } }) => id)
   .delete('/user/:id', ({ params: { id } }) => id)
@@ -420,7 +452,7 @@ Detailed documentation split by topic:
 - `plugin.md` - Decouple part of Elysia into a standalone component
 - `route.md` - Elysia foundation building block: Routing, Handler and Context
 - `testing.md` - Unit tests with examples
-- `validation.md` - Setup input/output validation and list of all custom validation rules
+- `validation.md` - Validation with Standard Schema (Zod, Valibot, ArkType, etc.) and TypeBox, including all custom validation rules
 - `websocket.md` - Real-time features
 
 ### plugins/ 

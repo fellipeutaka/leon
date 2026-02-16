@@ -1,9 +1,100 @@
-# Validation Schema - SKILLS.md
+# Validation Schema
 
 ## What It Is
-Runtime validation + type inference + OpenAPI schema from single source. TypeBox-based with Standard Schema support.
+Runtime validation + type inference from a single schema definition. Elysia supports any [Standard Schema](https://standardschema.dev/) library natively — **Zod, Valibot, ArkType, Effect Schema, Yup, Joi** — alongside its built-in TypeBox (`t`).
 
-## Basic Usage
+**IMPORTANT:** When the user's project already uses a Standard Schema library (Zod, Valibot, etc.), prefer that library over TypeBox. Only default to TypeBox if the project has no existing schema library or explicitly uses TypeBox.
+
+## Schema Types
+Third parameter of HTTP method:
+- **body** - HTTP message
+- **query** - URL query params
+- **params** - Path params
+- **headers** - Request headers
+- **cookie** - Request cookies
+- **response** - Response (per status)
+
+## Standard Schema Usage
+
+Any Standard Schema-compatible library works directly in Elysia route schemas:
+
+### Zod
+```typescript
+import { Elysia } from 'elysia'
+import { z } from 'zod'
+
+new Elysia()
+  .post('/user', ({ body }) => body, {
+    body: z.object({
+      name: z.string(),
+      age: z.number().min(0),
+      email: z.string().email()
+    }),
+    response: {
+      200: z.object({ id: z.number(), name: z.string() }),
+      400: z.object({ error: z.string() })
+    }
+  })
+  .get('/id/:id', ({ params }) => params.id, {
+    params: z.object({ id: z.coerce.number() })
+  })
+```
+
+### Valibot
+```typescript
+import { Elysia } from 'elysia'
+import * as v from 'valibot'
+
+new Elysia()
+  .post('/user', ({ body }) => body, {
+    body: v.object({
+      name: v.string(),
+      age: v.pipe(v.number(), v.minValue(0)),
+      email: v.pipe(v.string(), v.email())
+    })
+  })
+```
+
+### Mixing Validators
+You can mix different validators within the same handler:
+```typescript
+import { z } from 'zod'
+import * as v from 'valibot'
+
+new Elysia()
+  .get('/', ({ params, query }) => params.id, {
+    params: z.object({ id: z.coerce.number() }),
+    query: v.object({ name: v.literal('Lilith') })
+  })
+```
+
+### File Upload (Standard Schema)
+Standard Schema libraries don't have built-in file validation. Use Elysia's `fileType` utility for secure content-type validation (checks magic numbers, not just MIME):
+
+```typescript
+import { Elysia, fileType } from 'elysia'
+import { z } from 'zod'
+
+new Elysia()
+  .post('/upload', ({ body }) => body.file, {
+    body: z.object({
+      file: z.file().refine((file) => fileType(file, 'image/jpeg'))
+    })
+  })
+```
+
+### TypeBox vs Standard Schema
+
+| Feature | TypeBox (`t`) | Standard Schema (Zod, etc.) |
+|---------|---------------|----------------------------|
+| Runtime validation | Yes | Yes |
+| Type inference | Yes | Yes |
+| OpenAPI schema generation | Automatic | Not supported |
+| Reference Models (`'modelName'`) | Yes | Not supported |
+| File validation (`t.File`) | Built-in | Use `fileType()` utility |
+| Auto-coercion (params/query) | Automatic | Library-dependent (e.g., `z.coerce`) |
+
+## TypeBox Basic Usage
 ```typescript
 import { Elysia, t } from 'elysia'
 
@@ -16,29 +107,6 @@ new Elysia()
     }
   })
 ```
-
-## Schema Types
-Third parameter of HTTP method:
-- **body** - HTTP message
-- **query** - URL query params
-- **params** - Path params
-- **headers** - Request headers
-- **cookie** - Request cookies
-- **response** - Response (per status)
-
-## Standard Schema Support
-Use Zod, Valibot, ArkType, Effect, Yup, Joi:
-```typescript
-import { z } from 'zod'
-import * as v from 'valibot'
-
-.get('/', ({ params, query }) => params.id, {
-  params: z.object({ id: z.coerce.number() }),
-  query: v.object({ name: v.literal('Lilith') })
-})
-```
-
-Mix validators in same handler.
 
 ## Body
 ```typescript

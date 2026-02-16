@@ -141,10 +141,10 @@
     {
       "repo": "elysiajs/skills",
       "branch": "main",
-      "skills": [
+      "skills": [],
+      "references": [
         {
           "remotePath": "elysia",
-          "localPath": "skills/elysia",
           "sha": "8fd8031b83bce42e903ed0e38e6170213876c20e",
           "lastSync": "2026-02-15T05:45:04.571Z"
         }
