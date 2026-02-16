@@ -179,6 +179,12 @@
           "description": "Used as reference for skills/tanstack-router",
           "sha": "41718b4641040de55236bcbf2ef60a0e205bdfb3",
           "lastSync": "2026-02-15T05:45:08.256Z"
+        },
+        {
+          "remotePath": "skills/tanstack-start",
+          "description": "Used as reference for skills/tanstack-start",
+          "sha": "41718b4641040de55236bcbf2ef60a0e205bdfb3",
+          "lastSync": "2026-02-15T05:45:08.256Z"
         }
       ]
     },
@@ -197,6 +203,12 @@
         {
           "remotePath": "skills/tanstack-query",
           "description": "Used as reference for skills/tanstack-query",
+          "sha": "10a1f16679a5aab8e0c2f4d04e8560402f34d04b",
+          "lastSync": "2026-02-15T05:45:08.256Z"
+        },
+        {
+          "remotePath": "skills/tanstack-start",
+          "description": "Used as reference for skills/tanstack-start",
           "sha": "10a1f16679a5aab8e0c2f4d04e8560402f34d04b",
           "lastSync": "2026-02-15T05:45:08.256Z"
         }

@@ -50,6 +50,7 @@ bun sync --new-only  # sync only skills without a prior sync
 | [next-best-practices](skills/next-best-practices/) | Next.js best practices and conventions | [vercel-labs/next-skills](https://github.com/vercel-labs/next-skills) |
 | [next-cache-components](skills/next-cache-components/) | Next.js 16 cache components and PPR | [vercel-labs/next-skills](https://github.com/vercel-labs/next-skills) |
 | [next-upgrade](skills/next-upgrade/) | Upgrade Next.js to latest version | [vercel-labs/next-skills](https://github.com/vercel-labs/next-skills) |
+| [tanstack-start](skills/tanstack-start/) | TanStack Start full-stack React framework with SSR, server functions, and streaming | Curated |
 
 ### DevOps
 
