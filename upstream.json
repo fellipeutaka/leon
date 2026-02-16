@@ -158,8 +158,14 @@
         {
           "remotePath": "skills/docker-expert",
           "description": "Used as reference for skills/docker",
-          "sha": "4e87d6e393f955efd9548de5da37532654526877",
-          "lastSync": "2026-02-15T05:45:08.256Z"
+          "sha": "c06d53137d83b6b89a34b8495d23363b3c5d79fd",
+          "lastSync": "2026-02-16T21:32:44.267Z"
+        },
+        {
+          "remotePath": "skills/clean-code",
+          "description": "Used as reference for skills/clean-code",
+          "sha": "c06d53137d83b6b89a34b8495d23363b3c5d79fd",
+          "lastSync": "2026-02-16T21:32:44.267Z"
         }
       ]
     },

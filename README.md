@@ -57,6 +57,14 @@ bun sync --new-only  # sync only skills without a prior sync
 | [next-upgrade](skills/next-upgrade/) | Upgrade Next.js to latest version | [vercel-labs/next-skills](https://github.com/vercel-labs/next-skills) |
 | [tanstack-start](skills/tanstack-start/) | TanStack Start full-stack React framework with SSR, server functions, and streaming | Curated |
 
+### Software Design
+
+| Skill | Description | Source |
+|-------|-------------|--------|
+| [clean-code](skills/clean-code/) | Clean Code principles — naming, functions, formatting, error handling, code smells, Object Calisthenics | Curated |
+| [design-patterns](skills/design-patterns/) | All 22 Gang of Four design patterns with TypeScript implementations | Curated |
+| [solid](skills/solid/) | SOLID principles — SRP, OCP, LSP, ISP, DIP with detection heuristics and examples | Curated |
+
 ### DevOps
 
 | Skill | Description | Source |
