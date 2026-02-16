@@ -197,6 +197,12 @@
           "localPath": "skills/motion",
           "sha": "10a1f16679a5aab8e0c2f4d04e8560402f34d04b",
           "lastSync": "2026-02-15T05:45:08.256Z"
+        },
+        {
+          "remotePath": "skills/react-hook-form-zod",
+          "localPath": "skills/react-hook-form-zod",
+          "sha": "10a1f16679a5aab8e0c2f4d04e8560402f34d04b",
+          "lastSync": "2026-02-16T18:36:05.033Z"
         }
       ],
       "references": [
@@ -204,13 +210,13 @@
           "remotePath": "skills/tanstack-query",
           "description": "Used as reference for skills/tanstack-query",
           "sha": "10a1f16679a5aab8e0c2f4d04e8560402f34d04b",
-          "lastSync": "2026-02-15T05:45:08.256Z"
+          "lastSync": "2026-02-16T18:36:05.033Z"
         },
         {
           "remotePath": "skills/tanstack-start",
           "description": "Used as reference for skills/tanstack-start",
           "sha": "10a1f16679a5aab8e0c2f4d04e8560402f34d04b",
-          "lastSync": "2026-02-15T05:45:08.256Z"
+          "lastSync": "2026-02-16T18:36:05.033Z"
         }
       ]
     },
@@ -223,6 +229,18 @@
           "localPath": "skills/fastify",
           "sha": "1bf188b37a66de04de5588faf58bee6b6a88fe50",
           "lastSync": "2026-02-15T05:45:12.260Z"
+        }
+      ]
+    },
+    {
+      "repo": "vercel/ai",
+      "branch": "main",
+      "skills": [
+        {
+          "remotePath": "skills/use-ai-sdk",
+          "localPath": "skills/ai-sdk",
+          "sha": "fdf8b86bb7646653e5dec30a780cfd16b0b5ab7c",
+          "lastSync": "2026-02-16T18:43:02.452Z"
         }
       ]
     }
