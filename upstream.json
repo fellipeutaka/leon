@@ -249,6 +249,30 @@
           "lastSync": "2026-02-16T18:43:02.452Z"
         }
       ]
+    },
+    {
+      "repo": "coreyhaines31/marketingskills",
+      "branch": "main",
+      "skills": [
+        {
+          "remotePath": "skills/seo-audit",
+          "localPath": "skills/seo-audit",
+          "sha": "a04cb61a577a20d9ab0f3da2a2d99c17a0476ded",
+          "lastSync": "2026-02-17T06:40:47.977Z"
+        }
+      ]
+    },
+    {
+      "repo": "antfu/skills",
+      "branch": "main",
+      "skills": [
+        {
+          "remotePath": "skills/pnpm",
+          "localPath": "skills/pnpm",
+          "sha": "3fb90f01f5298b00de0a2500aab1ddd1357e6eb2",
+          "lastSync": "2026-02-17T17:39:25.164Z"
+        }
+      ]
     }
   ]
 }
