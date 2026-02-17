@@ -44,9 +44,11 @@ bun sync --new-only  # sync only skills without a prior sync
 
 | Skill | Description | Source |
 |-------|-------------|--------|
+| [drizzle-orm](skills/drizzle-orm/) | Drizzle ORM type-safe lightweight TypeScript ORM for SQL databases | Curated |
 | [elysia](skills/elysia/) | Type-safe, high-performance backend with ElysiaJS | [elysiajs/skills](https://github.com/elysiajs/skills) |
 | [fastify](skills/fastify/) | Fastify development best practices | [mcollina/skills](https://github.com/mcollina/skills) |
 | [hono](skills/hono/) | Develop Hono applications using Hono CLI | [yusukebe/hono-skill](https://github.com/yusukebe/hono-skill) |
+| [prisma](skills/prisma/) | Prisma ORM type-safe database toolkit with schema-first approach | Curated |
 
 ### Full-Stack Frameworks
 
