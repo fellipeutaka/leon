@@ -45,6 +45,7 @@ bun sync --new-only  # sync only skills without a prior sync
 | Skill | Description | Source |
 |-------|-------------|--------|
 | [drizzle-orm](skills/drizzle-orm/) | Drizzle ORM type-safe lightweight TypeScript ORM for SQL databases | Curated |
+| [better-auth](skills/better-auth/) | Framework-agnostic TypeScript auth & authorization — email/password, OAuth, passkeys, 2FA, orgs, plugins | Curated |
 | [elysia](skills/elysia/) | Type-safe, high-performance backend with ElysiaJS | [elysiajs/skills](https://github.com/elysiajs/skills) |
 | [fastify](skills/fastify/) | Fastify development best practices | [mcollina/skills](https://github.com/mcollina/skills) |
 | [hono](skills/hono/) | Develop Hono applications using Hono CLI | [yusukebe/hono-skill](https://github.com/yusukebe/hono-skill) |
@@ -80,6 +81,9 @@ bun sync --new-only  # sync only skills without a prior sync
 | [agent-browser](skills/agent-browser/) | Browser automation CLI for AI agents | [vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser) |
 | [commit-work](skills/commit-work/) | High-quality git commits | [softaworks/agent-toolkit](https://github.com/softaworks/agent-toolkit) |
 | [react-email](skills/react-email/) | HTML email templates with React components | [resend/react-email](https://github.com/resend/react-email) |
+| [bun](skills/bun/) | Bun runtime, package manager, bundler, and test runner | Curated |
+| [pnpm](skills/pnpm/) | Node.js package manager with strict dependency resolution, workspaces, catalogs | [antfu/skills](https://github.com/antfu/skills) |
+| [seo-audit](skills/seo-audit/) | SEO audit, technical SEO diagnostics, meta tags review, on-page SEO health check | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) |
 | [turborepo](skills/turborepo/) | Turborepo monorepo build system guidance | [vercel/turborepo](https://github.com/vercel/turborepo) |
 
 ## License
