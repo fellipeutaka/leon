@@ -47,6 +47,7 @@ bun sync --new-only  # sync only skills without a prior sync
 | Skill | Description | Source |
 |-------|-------------|--------|
 | [drizzle-orm](skills/drizzle-orm/) | Drizzle ORM type-safe lightweight TypeScript ORM for SQL databases | Curated |
+| [nestjs](skills/nestjs/) | NestJS best practices for production-ready REST APIs, GraphQL APIs, and microservices | Curated |
 | [better-auth](skills/better-auth/) | Framework-agnostic TypeScript auth & authorization — email/password, OAuth, passkeys, 2FA, orgs, plugins | Curated |
 | [elysia](skills/elysia/) | Type-safe, high-performance backend with ElysiaJS | [elysiajs/skills](https://github.com/elysiajs/skills) |
 | [fastify](skills/fastify/) | Fastify development best practices | [mcollina/skills](https://github.com/mcollina/skills) |
