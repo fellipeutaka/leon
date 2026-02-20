@@ -303,10 +303,10 @@
       "branch": "main",
       "skills": [
         {
-          "remotePath": "plugins/frontend-design",
+          "remotePath": "plugins/frontend-design/skills/frontend-design",
           "localPath": "skills/frontend-design",
-          "sha": "5d5da7f8b1df4685944727580eee7ef70d934a30",
-          "lastSync": "2026-02-20T21:36:08.151Z"
+          "sha": "3bd61bab4d6b858c5d3af8adf14b917ce853e4c5",
+          "lastSync": "2026-02-20T23:13:36.489Z"
         }
       ]
     }
