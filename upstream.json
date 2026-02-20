@@ -273,6 +273,42 @@
           "lastSync": "2026-02-18T03:04:44.166Z"
         }
       ]
+    },
+    {
+      "repo": "mattpocock/skills",
+      "branch": "main",
+      "skills": [
+        {
+          "remotePath": "tdd",
+          "localPath": "skills/tdd",
+          "sha": "28d7822c112f22cf499099881856fdec07bc83a8",
+          "lastSync": "2026-02-20T21:14:58.027Z"
+        }
+      ]
+    },
+    {
+      "repo": "Dammyjay93/interface-design",
+      "branch": "main",
+      "skills": [
+        {
+          "remotePath": ".claude/skills/interface-design",
+          "localPath": "skills/interface-design",
+          "sha": "3c1c18ac9f9732a8be68cb8504bf234fdafcf5c8",
+          "lastSync": "2026-02-20T21:36:06.906Z"
+        }
+      ]
+    },
+    {
+      "repo": "anthropics/claude-code",
+      "branch": "main",
+      "skills": [
+        {
+          "remotePath": "plugins/frontend-design",
+          "localPath": "skills/frontend-design",
+          "sha": "5d5da7f8b1df4685944727580eee7ef70d934a30",
+          "lastSync": "2026-02-20T21:36:08.151Z"
+        }
+      ]
     }
   ]
 }

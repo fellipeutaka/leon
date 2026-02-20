@@ -28,19 +28,25 @@ bun sync --new-only  # sync only skills without a prior sync
 | [ai-sdk](skills/ai-sdk/) | AI SDK for building AI-powered features — generateText, streamText, useChat, tool calling | [vercel/ai](https://github.com/vercel/ai) |
 | [composition-patterns](skills/composition-patterns/) | React composition patterns that scale | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) |
 | [denji](skills/denji/) | Manage SVG icons as framework components | [fellipeutaka/denji](https://github.com/fellipeutaka/denji) |
+| [frontend-design](skills/frontend-design/) | Create distinctive, production-grade frontend interfaces with high design quality | [anthropics/claude-code](https://github.com/anthropics/claude-code) |
+| [interface-design](skills/interface-design/) | Interface design for dashboards, admin panels, and interactive products | [Dammyjay93/interface-design](https://github.com/Dammyjay93/interface-design) |
 | [kanpeki](skills/kanpeki/) | Accessible UI components with Kanpeki library | [fellipeutaka/kanpeki](https://github.com/fellipeutaka/kanpeki) |
 | [motion](skills/motion/) | React animations with Motion (Framer Motion) | [jezweb/claude-skills](https://github.com/jezweb/claude-skills) |
 | [nuqs](skills/nuqs/) | Type-safe URL query state management with nuqs 2.x | Curated |
 | [react-best-practices](skills/react-best-practices/) | React/Next.js performance optimization | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) |
 | [react-hook-form-zod](skills/react-hook-form-zod/) | Type-safe forms with React Hook Form v7 and Zod v4 | [jezweb/claude-skills](https://github.com/jezweb/claude-skills) |
 | [react-native-skills](skills/react-native-skills/) | React Native and Expo best practices | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) |
+| [tanstack-ai](skills/tanstack-ai/) | Build AI-powered chat applications with TanStack AI and React | Curated |
 | [tanstack-form](skills/tanstack-form/) | TanStack Form type-safe form management, validation, and composition | Curated |
+| [tanstack-hotkeys](skills/tanstack-hotkeys/) | Type-safe keyboard shortcut management for React | Curated |
 | [tanstack-query](skills/tanstack-query/) | TanStack Query v5 data fetching, caching, and mutations | Curated |
+| [tanstack-react-store](skills/tanstack-react-store/) | Global state management in React apps using TanStack Store | Curated |
 | [tanstack-router](skills/tanstack-router/) | TanStack Router type-safe routing, search params, and data loading | Curated |
 | [tanstack-virtual](skills/tanstack-virtual/) | TanStack Virtual headless virtualization for large lists and grids | Curated |
 | [tanstack-pacer](skills/tanstack-pacer/) | TanStack Pacer execution control — debouncing, throttling, rate limiting, queuing, batching | Curated |
 | [tanstack-table](skills/tanstack-table/) | TanStack Table headless data grid with sorting, filtering, and pagination | Curated |
 | [web-design-guidelines](skills/web-design-guidelines/) | Web Interface Guidelines compliance review | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) |
+| [zustand](skills/zustand/) | Global state management for React/TypeScript applications | Curated |
 
 ### Backend
 
@@ -70,6 +76,7 @@ bun sync --new-only  # sync only skills without a prior sync
 | [clean-code](skills/clean-code/) | Clean Code principles — naming, functions, formatting, error handling, code smells, Object Calisthenics | Curated |
 | [design-patterns](skills/design-patterns/) | All 22 Gang of Four design patterns with TypeScript implementations | Curated |
 | [solid](skills/solid/) | SOLID principles — SRP, OCP, LSP, ISP, DIP with detection heuristics and examples | Curated |
+| [tdd](skills/tdd/) | Test-driven development with red-green-refactor loop | [mattpocock/skills](https://github.com/mattpocock/skills) |
 
 ### DevOps
 
@@ -83,6 +90,7 @@ bun sync --new-only  # sync only skills without a prior sync
 |-------|-------------|--------|
 | [agent-browser](skills/agent-browser/) | Browser automation CLI for AI agents | [vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser) |
 | [commit-work](skills/commit-work/) | High-quality git commits | [softaworks/agent-toolkit](https://github.com/softaworks/agent-toolkit) |
+| [playwright](skills/playwright/) | Write, debug, and maintain Playwright end-to-end tests for web applications | Curated |
 | [react-email](skills/react-email/) | HTML email templates with React components | [resend/react-email](https://github.com/resend/react-email) |
 | [bun](skills/bun/) | Bun runtime, package manager, bundler, and test runner | Curated |
 | [pnpm](skills/pnpm/) | Node.js package manager with strict dependency resolution, workspaces, catalogs | [antfu/skills](https://github.com/antfu/skills) |
