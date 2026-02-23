@@ -83,6 +83,7 @@ bun sync --new-only  # sync only skills without a prior sync
 | Skill | Description | Source |
 |-------|-------------|--------|
 | [docker](skills/docker/) | Docker containerization, security, and Compose orchestration | Curated |
+| [nginx](skills/nginx/) | Nginx web server and reverse proxy — configuration, load balancing, SSL/TLS, caching, and security hardening | Curated |
 
 ### Tooling
 
