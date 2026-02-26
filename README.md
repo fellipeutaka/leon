@@ -37,6 +37,7 @@ bun sync --new-only  # sync only skills without a prior sync
 | [react-hook-form-zod](skills/react-hook-form-zod/) | Type-safe forms with React Hook Form v7 and Zod v4 | [jezweb/claude-skills](https://github.com/jezweb/claude-skills) |
 | [react-native-skills](skills/react-native-skills/) | React Native and Expo best practices | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) |
 | [tanstack-ai](skills/tanstack-ai/) | Build AI-powered chat applications with TanStack AI and React | Curated |
+| [tanstack-db](skills/tanstack-db/) | TanStack DB local-first database with live queries and optimistic mutations | Curated |
 | [tanstack-form](skills/tanstack-form/) | TanStack Form type-safe form management, validation, and composition | Curated |
 | [tanstack-hotkeys](skills/tanstack-hotkeys/) | Type-safe keyboard shortcut management for React | Curated |
 | [tanstack-query](skills/tanstack-query/) | TanStack Query v5 data fetching, caching, and mutations | Curated |
@@ -48,7 +49,7 @@ bun sync --new-only  # sync only skills without a prior sync
 | [web-design-guidelines](skills/web-design-guidelines/) | Web Interface Guidelines compliance review | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) |
 | [zustand](skills/zustand/) | Global state management for React/TypeScript applications | Curated |
 
-### Backend
+### Backend & Systems
 
 | Skill | Description | Source |
 |-------|-------------|--------|
@@ -59,6 +60,7 @@ bun sync --new-only  # sync only skills without a prior sync
 | [fastify](skills/fastify/) | Fastify development best practices | [mcollina/skills](https://github.com/mcollina/skills) |
 | [hono](skills/hono/) | Develop Hono applications using Hono CLI | [yusukebe/hono-skill](https://github.com/yusukebe/hono-skill) |
 | [prisma](skills/prisma/) | Prisma ORM type-safe database toolkit with schema-first approach | Curated |
+| [rust](skills/rust/) | Memory-safe, high-performance Rust — ownership, async/Tokio, traits, error handling | Curated |
 
 ### Full-Stack Frameworks
 
@@ -96,6 +98,7 @@ bun sync --new-only  # sync only skills without a prior sync
 | [bun](skills/bun/) | Bun runtime, package manager, bundler, and test runner | Curated |
 | [pnpm](skills/pnpm/) | Node.js package manager with strict dependency resolution, workspaces, catalogs | [antfu/skills](https://github.com/antfu/skills) |
 | [seo-audit](skills/seo-audit/) | SEO audit, technical SEO diagnostics, meta tags review, on-page SEO health check | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) |
+| [tauri](skills/tauri/) | Cross-platform desktop/mobile apps with Rust backends and web frontends | Curated |
 | [turborepo](skills/turborepo/) | Turborepo monorepo build system guidance | [vercel/turborepo](https://github.com/vercel/turborepo) |
 
 ## License
