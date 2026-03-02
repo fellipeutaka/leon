@@ -146,30 +146,42 @@ try {
 
 		await Promise.all(
 			skills.map(async (skill) => {
-				const sha = await getPathSha(
-					upstream.repo,
-					upstream.branch,
-					skill.remotePath,
-				);
-				console.log(`  ${skill.remotePath} SHA: ${sha.slice(0, 8)}`);
-				await syncSkill(upstream, skill);
-				skill.sha = sha;
-				skill.lastSync = new Date().toISOString();
+				try {
+					const sha = await getPathSha(
+						upstream.repo,
+						upstream.branch,
+						skill.remotePath,
+					);
+					console.log(`  ${skill.remotePath} SHA: ${sha.slice(0, 8)}`);
+					await syncSkill(upstream, skill);
+					skill.sha = sha;
+					skill.lastSync = new Date().toISOString();
+				} catch (err) {
+					console.error(
+						`  ✗ Failed to sync ${skill.remotePath}: ${err instanceof Error ? err.message : err}`,
+					);
+				}
 			}),
 		);
 
 		// Update references (track SHA only, no file sync)
 		for (const ref of upstream.references ?? []) {
-			const sha = await getPathSha(
-				upstream.repo,
-				upstream.branch,
-				ref.remotePath,
-			);
-			ref.sha = sha;
-			ref.lastSync = new Date().toISOString();
-			console.log(
-				`  Reference updated: ${ref.remotePath} (${sha.slice(0, 8)})`,
-			);
+			try {
+				const sha = await getPathSha(
+					upstream.repo,
+					upstream.branch,
+					ref.remotePath,
+				);
+				ref.sha = sha;
+				ref.lastSync = new Date().toISOString();
+				console.log(
+					`  Reference updated: ${ref.remotePath} (${sha.slice(0, 8)})`,
+				);
+			} catch (err) {
+				console.error(
+					`  ✗ Failed to update reference ${ref.remotePath}: ${err instanceof Error ? err.message : err}`,
+				);
+			}
 		}
 	}
 
