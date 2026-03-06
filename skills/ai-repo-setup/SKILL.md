@@ -43,25 +43,55 @@ Interview user or extract from existing docs. Structure:
 ```markdown
 # Requirements
 
+## Status Reference
+
+| Status | Meaning |
+|--------|---------|
+| `draft` | Written but not yet reviewed — may still be vague or incomplete |
+| `refined` | Reviewed and clarified by user, ready to be implemented |
+| `in-progress` | Actively being implemented by the agent |
+| `implemented` | Code written by agent, awaiting user review |
+| `verified` | User reviewed and approved — source of truth |
+| `deferred` | Intentionally postponed, not abandoned |
+| `cancelled` | No longer relevant, kept for historical context |
+
 ## Functional Requirements
 
 ### [Feature Area]
-- FR-001: [Requirement description]
-- FR-002: [Requirement description]
+
+#### FR-001: [Requirement title]
+- **Status**: `draft`
+- **Description**: [What the system should do]
+
+#### FR-002: [Requirement title]
+- **Status**: `verified`
+- **Description**: [What the system should do]
 
 ## Non-Functional Requirements
 
 ### Performance
-- NFR-001: [Constraint]
+
+#### NFR-001: [Constraint title]
+- **Status**: `draft`
+- **Description**: [Measurable constraint, e.g. "API responses must be < 200ms at p99"]
 
 ### Security
-- NFR-002: [Constraint]
+
+#### NFR-002: [Constraint title]
+- **Status**: `draft`
+- **Description**: [Constraint]
 
 ### Scalability
-- NFR-003: [Constraint]
+
+#### NFR-003: [Constraint title]
+- **Status**: `draft`
+- **Description**: [Constraint]
 ```
 
-Keep requirements specific, testable, and numbered for traceability.
+Keep requirements specific, testable, and numbered for traceability. The agent
+sets status to `implemented` after completing work; the user sets it to
+`verified` after review. Never skip `verified` — `implemented` means the agent
+is done, not that the feature is correct.
 
 ### 3. Create `docs/BUSINESS-RULES.md`
 
@@ -70,21 +100,52 @@ Interview user or extract from existing code. Structure:
 ```markdown
 # Business Rules
 
+## Status Reference
+
+| Status | Meaning |
+|--------|---------|
+| `draft` | Written but not yet reviewed — may still be vague or incomplete |
+| `refined` | Reviewed and clarified by user, ready to be implemented |
+| `in-progress` | Actively being implemented by the agent |
+| `implemented` | Code written by agent, awaiting user review |
+| `verified` | User reviewed and approved — source of truth |
+| `deferred` | Intentionally postponed, not abandoned |
+| `cancelled` | No longer relevant, kept for historical context |
+
 ## [Domain Area]
 
 ### BR-001: [Rule name]
+- **Status**: `draft`
 - **When**: [Trigger condition]
 - **Then**: [Expected behavior]
 - **Rationale**: [Why this rule exists]
 
 ### BR-002: [Rule name]
+- **Status**: `verified`
 - **When**: [Trigger condition]
 - **Then**: [Expected behavior]
 - **Rationale**: [Why this rule exists]
 ```
 
 Focus on domain logic that isn't obvious from code. Number rules for
-cross-referencing with tests.
+cross-referencing with tests. Business rules typically reach `verified` only
+when both the rule is enforced in code **and** a test explicitly names the rule
+ID (e.g. `it("BR-001: ...")`).
+
+## Agent Workflow for Requirements & Business Rules
+
+This is the intended lifecycle for keeping docs in sync with the codebase:
+
+1. **Draft** — user or agent adds a new item with `status: draft`
+2. **Refine** — agent clarifies the description until it is specific and
+   testable; user confirms; status → `refined`
+3. **Implement** — user asks agent to implement a specific ID; agent
+   implements it; status → `implemented`
+4. **Verify** — user reviews the implementation; if approved, status →
+   `verified`; if rejected, status → `in-progress` with a note
+
+The agent must never set status to `verified` — only the user does.
+The agent must update status to `implemented` before closing a session.
 
 ### 4. Generate minimal `AGENTS.md`
 
