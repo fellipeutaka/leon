@@ -92,6 +92,7 @@ bun sync --new-only  # sync only skills without a prior sync
 | Skill | Description | Source |
 |-------|-------------|--------|
 | [agent-browser](skills/agent-browser/) | Browser automation CLI for AI agents | [vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser) |
+| [ai-repo-setup](skills/ai-repo-setup/) | Set up repositories for AI agents — AGENTS.md, CLAUDE.md, docs/REQUIREMENTS.md, docs/BUSINESS-RULES.md, feedback loops, deterministic enforcement | Curated |
 | [commit-work](skills/commit-work/) | High-quality git commits | [softaworks/agent-toolkit](https://github.com/softaworks/agent-toolkit) |
 | [playwright](skills/playwright/) | Write, debug, and maintain Playwright end-to-end tests for web applications | Curated |
 | [react-email](skills/react-email/) | HTML email templates with React components | [resend/react-email](https://github.com/resend/react-email) |
