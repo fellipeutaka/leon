@@ -12,12 +12,12 @@ Only what is **undiscoverable AND globally relevant**:
 | Content | Include? | Why |
 |---------|----------|-----|
 | One-sentence project description | Yes | Anchors every decision |
-| Package manager (if not npm) | Yes | Agent can't reliably guess |
-| Non-standard commands | Yes | Not discoverable from source |
-| Pointers to docs/ | Yes | Enables progressive disclosure |
+| Pointers to docs/ + sync rule | Yes | Enables progressive disclosure; sync rule is mandatory for the status lifecycle to work |
+| Behavioral instructions | Yes | Plan style, communication preferences, recurring workflow habits — undiscoverable from source |
+| Package manager | No | Discoverable from lock files (`pnpm-lock.yaml`, `yarn.lock`, etc.), `packageManager` field in `package.json`, or enforcement hooks |
+| Commands / scripts | No | Discoverable from `package.json` scripts |
 | Architecture descriptions | No | Discoverable from imports/configs |
 | File listings | No | Discoverable from file system |
-| Command dumps from package.json | No | Agent reads package.json directly |
 | Framework explanations | No | Discoverable from dependencies |
 | Implementation patterns | No | Only relevant to subset of sessions |
 | File path references | No | Paths change; misleads agent |
@@ -85,15 +85,22 @@ Same content, both tools work.
 
 SaaS platform for team retrospectives with real-time collaboration.
 
-## Stack
-- pnpm
-- `pnpm typecheck` — type check all packages
-- `pnpm test` — run all tests
-
 ## Docs
+
 - `docs/REQUIREMENTS.md` — functional and non-functional requirements
 - `docs/BUSINESS-RULES.md` — domain rules and constraints
+
+When implementing features or fixing bugs, update the relevant requirement/rule
+status in these docs to keep them synced with the codebase.
+
+## Plan Mode
+
+- Make the plan extremely concise. Sacrifice grammar for the sake of concision.
+- At the end of each plan, give me a list of unresolved questions to answer, if any.
 ```
 
 That's it. Everything else is discoverable or belongs in progressive disclosure
-files.
+files. Package manager comes from lock files, `packageManager` field, or
+enforcement hooks. Commands come from `package.json` scripts. The sync rule and
+behavioral instructions (like plan mode) are the most valuable lines — they're
+impossible to discover from source.
