@@ -122,29 +122,86 @@ Local plugins are auto-loaded from `.opencode/plugins/`. For npm plugins:
 }
 ```
 
-### Plugin template
+### TypeScript setup
 
-```ts title=".opencode/plugins/enforce-pkg-manager.ts"
-export const EnforcePkgManager = async ({ project, client, $, directory, worktree }) => {
-  return {
-    "tool.execute.before": async (input, output) => {
-      if (input.tool === "bash" && /^npm /.test(output.args.command)) {
-        throw new Error("Blocked: use pnpm instead of npm")
-      }
-    },
+For type safety, install `@opencode-ai/plugin` in `.opencode/`:
+
+```json title=".opencode/package.json"
+{
+  "devDependencies": {
+    "@opencode-ai/plugin": "^1.2.21"
   }
 }
+```
+
+Then run your package manager in `.opencode/`:
+
+```bash
+bun install   # or npm/yarn/pnpm depending on project preference
+```
+
+Import the `Plugin` type in your plugin files:
+
+```ts
+import type { Plugin } from "@opencode-ai/plugin"
+```
+
+### Plugin template
+
+```ts title=".opencode/plugins/enforcement.ts"
+import type { Plugin } from "@opencode-ai/plugin";
+
+const WRONG_PKG_MANAGERS = /^(npm|yarn|pnpm) /;
+
+const DANGEROUS_GIT_PATTERNS = [
+  /git push/,
+  /git reset --hard/,
+  /git clean -f/,
+  /git branch -D/,
+  /git checkout \./,
+  /git restore \./,
+  /push --force/,
+  /reset --hard/,
+];
+
+export const Enforcement: Plugin = async () => {
+  return {
+    "tool.execute.before": async (input, output) => {
+      if (input.tool !== "bash") {
+        return;
+      }
+
+      const cmd = output.args.command as string;
+
+      if (WRONG_PKG_MANAGERS.test(cmd)) {
+        throw new Error("BLOCKED: use bun instead of npm/yarn/pnpm.");
+      }
+
+      for (const pattern of DANGEROUS_GIT_PATTERNS) {
+        if (pattern.test(cmd)) {
+          throw new Error(
+            `BLOCKED: '${cmd}' matches dangerous pattern '${pattern}'. Ask user for confirmation first.`
+          );
+        }
+      }
+    },
+  };
+};
 ```
 
 ### Setup
 
 1. Create `.opencode/plugins/` directory
-2. Write plugin files (`.ts` or `.js`)
-3. Restart OpenCode
+2. Create `.opencode/package.json` with `@opencode-ai/plugin` dev dependency
+3. Run `bun install` (or preferred package manager) inside `.opencode/`
+4. Write plugin files (`.ts` or `.js`)
+5. Restart OpenCode
 
 ### Example: block dangerous git commands
 
 ```ts title=".opencode/plugins/git-guardrails.ts"
+import type { Plugin } from "@opencode-ai/plugin"
+
 const DANGEROUS_PATTERNS = [
   /git push/,
   /git reset --hard/,
@@ -156,12 +213,12 @@ const DANGEROUS_PATTERNS = [
   /reset --hard/,
 ]
 
-export const GitGuardrails = async ({ project, client, $, directory, worktree }) => {
+export const GitGuardrails: Plugin = async () => {
   return {
     "tool.execute.before": async (input, output) => {
       if (input.tool !== "bash") return
 
-      const cmd = output.args.command
+      const cmd = output.args.command as string
       for (const pattern of DANGEROUS_PATTERNS) {
         if (pattern.test(cmd)) {
           throw new Error(
@@ -177,10 +234,12 @@ export const GitGuardrails = async ({ project, client, $, directory, worktree })
 ### Example: protect .env files
 
 ```ts title=".opencode/plugins/env-protection.ts"
-export const EnvProtection = async ({ project, client, $, directory, worktree }) => {
+import type { Plugin } from "@opencode-ai/plugin"
+
+export const EnvProtection: Plugin = async () => {
   return {
     "tool.execute.before": async (input, output) => {
-      if (input.tool === "read" && output.args.filePath.includes(".env")) {
+      if (input.tool === "read" && (output.args.filePath as string).includes(".env")) {
         throw new Error("Blocked: do not read .env files")
       }
     },
