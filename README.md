@@ -33,6 +33,7 @@ bun sync --new-only  # sync only skills without a prior sync
 | [kanpeki](skills/kanpeki/) | Accessible UI components with Kanpeki library | [fellipeutaka/kanpeki](https://github.com/fellipeutaka/kanpeki) |
 | [motion](skills/motion/) | React animations with Motion (Framer Motion) | [jezweb/claude-skills](https://github.com/jezweb/claude-skills) |
 | [nuqs](skills/nuqs/) | Type-safe URL query state management with nuqs 2.x | Curated |
+| [paraglide-js](skills/paraglide-js/) | Compiler-based i18n library — compiled message functions, locale strategies, i18n routing, SSR/SSG | Curated |
 | [react-best-practices](skills/react-best-practices/) | React/Next.js performance optimization | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) |
 | [react-hook-form-zod](skills/react-hook-form-zod/) | Type-safe forms with React Hook Form v7 and Zod v4 | [jezweb/claude-skills](https://github.com/jezweb/claude-skills) |
 | [react-native-skills](skills/react-native-skills/) | React Native and Expo best practices | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) |
