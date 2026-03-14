@@ -37,6 +37,7 @@ bun sync --new-only  # sync only skills without a prior sync
 | [react-best-practices](skills/react-best-practices/) | React/Next.js performance optimization | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) |
 | [react-hook-form-zod](skills/react-hook-form-zod/) | Type-safe forms with React Hook Form v7 and Zod v4 | [jezweb/claude-skills](https://github.com/jezweb/claude-skills) |
 | [react-native-skills](skills/react-native-skills/) | React Native and Expo best practices | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) |
+| [shadcn](skills/shadcn/) | shadcn/ui component management — adding, searching, fixing, styling, and composing UI components | [shadcn-ui/ui](https://github.com/shadcn-ui/ui) |
 | [tanstack-ai](skills/tanstack-ai/) | Build AI-powered chat applications with TanStack AI and React | Curated |
 | [tanstack-db](skills/tanstack-db/) | TanStack DB local-first database with live queries and optimistic mutations | Curated |
 | [tanstack-form](skills/tanstack-form/) | TanStack Form type-safe form management, validation, and composition | Curated |

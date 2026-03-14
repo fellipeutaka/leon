@@ -308,6 +308,18 @@
           "lastSync": "2026-03-14T09:16:58.426Z"
         }
       ]
+    },
+    {
+      "repo": "shadcn-ui/ui",
+      "branch": "main",
+      "skills": [
+        {
+          "remotePath": "skills/shadcn",
+          "localPath": "skills/shadcn",
+          "sha": "f0f39ab1bf720d40fee4b012e807ce25aff8746b",
+          "lastSync": "2026-03-14T09:20:57.888Z"
+        }
+      ]
     }
   ]
 }
