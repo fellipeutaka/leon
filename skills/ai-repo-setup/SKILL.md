@@ -130,6 +130,9 @@ The agent must update status to `implemented` before closing a session.
 
 **Team mode lifecycle (tracker integration):**
 
+When bulk-creating issues from requirements, follow the pre-flight checklist and
+patterns in [references/tracker-issue-patterns.md](references/tracker-issue-patterns.md).
+
 When asked to implement a requirement:
 
 1. **Check `**Issue**:` field**
@@ -229,6 +232,9 @@ When implementing a requirement:
 - If status is in-progress, warn the user and stop — do not proceed silently.
 - Discover available statuses via MCP; infer the mapping — do not hardcode it.
 - Never query all requirements at session start — query only what you're about to work on.
+
+When bulk-creating issues from requirements, follow the pre-flight checklist in
+`references/tracker-issue-patterns.md` before creating anything.
 ```
 
 Replace `Linear` with the actual tracker. Remove the "MCP available" note if
