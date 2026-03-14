@@ -128,7 +128,7 @@ For type safety, install `@opencode-ai/plugin` in `.opencode/`:
 
 ```json title=".opencode/package.json"
 {
-  "devDependencies": {
+  "dependencies": {
     "@opencode-ai/plugin": "^1.2.21"
   }
 }
