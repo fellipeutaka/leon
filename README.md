@@ -88,6 +88,12 @@ bun sync --new-only  # sync only skills without a prior sync
 | [docker](skills/docker/) | Docker containerization, security, and Compose orchestration | Curated |
 | [nginx](skills/nginx/) | Nginx web server and reverse proxy — configuration, load balancing, SSL/TLS, caching, and security hardening | Curated |
 
+### Validation & Type Safety
+
+| Skill | Description | Source |
+|-------|-------------|--------|
+| [zod](skills/zod/) | Zod 4 TypeScript-first schema validation with static type inference | Curated |
+
 ### Tooling
 
 | Skill | Description | Source |
