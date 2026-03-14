@@ -44,6 +44,33 @@ Match the level of specificity to the task's fragility and variability:
 
 Think of Claude as exploring a path: a narrow bridge with cliffs needs specific guardrails (low freedom), while an open field allows many routes (high freedom).
 
+### Skills Are Not Documentation Mirrors
+
+A skill should teach procedural knowledge, patterns, and anti-patterns — not
+replicate a tool's official documentation.
+
+**The test**: "Can the agent get this from the tool's official docs or a
+documentation retrieval tool like Context7?" If yes, the skill is wasting
+context budget on information already available on demand.
+
+**Common anti-pattern**: cloning a library's docs repo and asking an agent to
+"create a skill from these docs." This produces a condensed copy of API
+references, CLI flags, and format specs the model is already trained on. The
+result costs tokens every session but adds no procedural value.
+
+**What a good skill adds beyond docs**:
+
+- When to use tool X vs. tool Y (decision guidance)
+- Patterns that work in practice but aren't in official docs
+- Anti-patterns and pitfalls learned from real usage
+- Opinionated workflows that combine multiple tools
+- Domain-specific constraints the docs don't cover
+
+**Example**: A "React Testing" skill should not list the Testing Library API
+(that's in the docs). It should teach: when to use unit vs. integration vs.
+E2E tests, which query methods to prefer and why, common testing anti-patterns
+in React codebases, and how to structure test files for discoverability.
+
 ### Anatomy of a Skill
 
 Every skill consists of a required SKILL.md file and optional bundled resources:
