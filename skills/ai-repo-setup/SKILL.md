@@ -35,14 +35,14 @@ Only document what is undiscoverable and globally relevant.
 - Check for existing AGENTS.md, CLAUDE.md, docs/
 - Note what's already discoverable from source (don't re-document it)
 
-### 2. Create or convert `docs/REQUIREMENTS.md`
+### 2. Create or convert `docs/REQUIREMENTS.md` and `docs/BUSINESS-RULES.md`
 
-If `docs/REQUIREMENTS.md` already exists, ask the user whether to convert it to
-the status-based format. Preserve all existing content — only restructure the
-format and add status fields. If creating from scratch, interview user or extract
-from existing code.
+If these files already exist, ask the user whether to convert them to the
+status-based format. Preserve all existing content — only restructure the format
+and add status fields. If creating from scratch, interview user or extract from
+existing code.
 
-Structure:
+Structure for `docs/REQUIREMENTS.md`:
 
 ```markdown
 # Requirements
@@ -51,11 +51,11 @@ Structure:
 
 | Status | Meaning |
 |--------|---------|
-| `draft` | Written but not yet reviewed — may still be vague or incomplete |
-| `refined` | Reviewed and clarified by user, ready to be implemented |
+| `draft` | Written but not yet reviewed — may be vague or incomplete |
+| `refined` | Reviewed and clarified by user, ready to implement |
 | `in-progress` | Actively being implemented by the agent |
 | `implemented` | Code written by agent, awaiting user review |
-| `verified` | User reviewed and approved — source of truth |
+| `verified` | User reviewed and approved — only the user sets this |
 | `deferred` | Intentionally postponed, not abandoned |
 | `cancelled` | No longer relevant, kept for historical context |
 
@@ -64,84 +64,32 @@ Structure:
 ### [Feature Area]
 
 #### FR-001: [Requirement title]
+
 - **Status**: `draft`
 - **Description**: [What the system should do]
-
-#### FR-002: [Requirement title]
-- **Status**: `verified`
-- **Description**: [What the system should do]
-
-## Non-Functional Requirements
-
-### Performance
-
-#### NFR-001: [Constraint title]
-- **Status**: `draft`
-- **Description**: [Measurable constraint, e.g. "API responses must be < 200ms at p99"]
-
-### Security
-
-#### NFR-002: [Constraint title]
-- **Status**: `draft`
-- **Description**: [Constraint]
-
-### Scalability
-
-#### NFR-003: [Constraint title]
-- **Status**: `draft`
-- **Description**: [Constraint]
 ```
 
-Keep requirements specific, testable, and numbered for traceability. The agent
-sets status to `implemented` after completing work; the user sets it to
-`verified` after review. Never skip `verified` — `implemented` means the agent
-is done, not that the feature is correct.
-
-### 3. Create or convert `docs/BUSINESS-RULES.md`
-
-If `docs/BUSINESS-RULES.md` already exists, ask the user whether to convert it
-to the status-based format. Preserve all existing content — only restructure the
-format and add status fields. If creating from scratch, interview user or extract
-from existing code.
-
-Structure:
+Structure for `docs/BUSINESS-RULES.md`:
 
 ```markdown
 # Business Rules
 
-## Status Reference
-
-| Status | Meaning |
-|--------|---------|
-| `draft` | Written but not yet reviewed — may still be vague or incomplete |
-| `refined` | Reviewed and clarified by user, ready to be implemented |
-| `in-progress` | Actively being implemented by the agent |
-| `implemented` | Code written by agent, awaiting user review |
-| `verified` | User reviewed and approved — source of truth |
-| `deferred` | Intentionally postponed, not abandoned |
-| `cancelled` | No longer relevant, kept for historical context |
-
 ## [Domain Area]
 
 ### BR-001: [Rule name]
-- **Status**: `draft`
-- **When**: [Trigger condition]
-- **Then**: [Expected behavior]
-- **Rationale**: [Why this rule exists]
 
-### BR-002: [Rule name]
-- **Status**: `verified`
+- **Status**: `draft`
 - **When**: [Trigger condition]
 - **Then**: [Expected behavior]
 - **Rationale**: [Why this rule exists]
 ```
 
-Focus on domain logic that isn't obvious from code. Number rules for
-cross-referencing with tests. Business rules typically reach `verified` only
-when both the rule is enforced in code **and** a test explicitly names the rule
-ID (e.g. `it("BR-001: ...")`).
+`docs/BUSINESS-RULES.md` uses the same status values. Include the status
+reference table in both docs.
 
-### Agent Workflow for Requirements & Business Rules
+Keep requirements specific, testable, and numbered for traceability.
+
+#### Agent Workflow for Requirements & Business Rules
 
 This is the intended lifecycle for keeping docs in sync with the codebase:
 
@@ -149,12 +97,21 @@ This is the intended lifecycle for keeping docs in sync with the codebase:
 2. **Refine** — agent clarifies the description until it is specific and
    testable; user confirms; status → `refined`
 3. **Implement** — user asks agent to implement a specific ID; agent
-   implements it; status → `implemented`
+   implements it and updates status → `implemented`
 4. **Verify** — user reviews the implementation; if approved, status →
    `verified`; if rejected, status → `in-progress` with a note
 
 The agent must never set status to `verified` — only the user does.
 The agent must update status to `implemented` before closing a session.
+
+### 3. Create context docs per deployment layer (if multi-layer project)
+
+For projects with multiple independent layers (backend, frontend, mobile, etc.),
+create per-layer context docs that track implementation status separately.
+
+See [references/multi-layer-guide.md](references/multi-layer-guide.md) for the
+full guide: directory structures, context doc rules, monorepo vs separate repo
+layouts, and agent workflow with layered docs.
 
 ### 4. Generate minimal `AGENTS.md`
 
@@ -174,7 +131,7 @@ The file must be **as small as possible**. Only include:
    - **Workflow habits**: any recurring instructions they find themselves
      repeating across sessions
 
-Example:
+Example (single-layer project):
 
 ```markdown
 # Project Name
@@ -194,6 +151,10 @@ status in these docs to keep them synced with the codebase.
 - Make the plan extremely concise. Sacrifice grammar for the sake of concision.
 - At the end of each plan, give me a list of unresolved questions to answer, if any.
 ```
+
+For multi-layer projects, see the
+[multi-layer guide](references/multi-layer-guide.md#agentsmd-example) for an
+AGENTS.md example.
 
 **Do NOT include**: package manager (discoverable from lock files,
 `packageManager` field in `package.json`, or enforcement hooks), commands
@@ -251,8 +212,10 @@ in AGENTS.md.
 
 ## Deliverables
 
-- [ ] `docs/REQUIREMENTS.md` — numbered functional + non-functional requirements
-- [ ] `docs/BUSINESS-RULES.md` — numbered business rules with triggers/behavior
+- [ ] `docs/REQUIREMENTS.md` — numbered functional + non-functional requirements (definitions only)
+- [ ] `docs/BUSINESS-RULES.md` — numbered business rules with triggers/behavior (definitions only)
+- [ ] `docs/[layer]/REQUIREMENTS.md` — per-layer status + implementation scope (if multi-layer)
+- [ ] `docs/[layer]/BUSINESS-RULES.md` — per-layer enforcement status (if multi-layer)
 - [ ] `AGENTS.md` — minimal, hand-crafted, globally relevant only
 - [ ] `CLAUDE.md` — symlink to AGENTS.md
 - [ ] Feedback loops configured (if opted in)
@@ -271,3 +234,7 @@ in AGENTS.md.
 - **Global rules for local concerns** — use progressive disclosure or skills instead
 - **Missing docs sync rule** — without telling agents to update requirement/rule
   statuses, the entire lifecycle system is unused
+- **Layer status in root docs** — when using layered docs, agents must not update
+  the root doc status to reflect only their own layer's progress. Root status is
+  aggregated (all layers done → root promoted). Updating it prematurely misleads
+  other layers into thinking the feature is complete across the whole system.
