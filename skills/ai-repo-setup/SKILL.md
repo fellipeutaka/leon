@@ -169,18 +169,18 @@ The file must be **as small as possible**. Only include:
 2. Pointers to docs/ with the sync rule (mandatory — without this, the status
    lifecycle is dead on arrival since agents start fresh every session)
 3. Behavioral instructions (agent workflow preferences that are undiscoverable
-   from source). Ask the user if they have preferences for:
-   - **Plan mode**: how agents should present plans (e.g., concise vs detailed,
-     listing unresolved questions)
-   - **Communication style**: brevity, formality, language
-    - **Docs lookup**: whether agents should consult a documentation retrieval
-      tool (e.g., Context7) before implementing with external libraries, to
-      avoid hallucinating outdated APIs
-    - **Tracker integration**: whether the team uses an external issue tracker
-      (Linear, Jira, GitHub Issues, etc.) and agents should create/sync issues
-      automatically when implementing requirements
-    - **Workflow habits**: any recurring instructions they find themselves
-      repeating across sessions
+   from source). Ask the user about **each** of these individually — do not
+   collapse them into a single vague question:
+   - **Plan mode**: "How should I present plans? Concise or detailed? Should I
+     list unresolved questions at the end?"
+   - **Communication style**: "Any preferences for brevity, formality, or
+     language?"
+   - **Docs lookup**: "Should I consult Context7 (or similar) for up-to-date
+     library docs before writing code, instead of relying on training data?"
+   - **Tracker integration**: "Does the team use an external issue tracker
+     (Linear, Jira, GitHub Issues)? Should I create/sync issues automatically?"
+   - **Workflow habits**: "Any recurring instructions you find yourself
+     repeating across sessions? (e.g., commit style, test expectations)"
 
 Example (single-layer project):
 
