@@ -12,12 +12,12 @@ tests, the agent retries. This makes feedback loops extremely powerful.
 
 ## 1. TypeScript Type Checking
 
-Add a `typecheck` script to `package.json`:
+Add a `type-check` script to `package.json`:
 
 ```json
 {
   "scripts": {
-    "typecheck": "tsc --noEmit"
+    "type-check": "tsc --noEmit"
   }
 }
 ```
@@ -27,7 +27,7 @@ If using a monorepo with Turborepo:
 ```json
 {
   "scripts": {
-    "typecheck": "turbo typecheck"
+    "type-check": "turbo run type-check"
   }
 }
 ```
@@ -111,17 +111,8 @@ a single tool via `lefthook.yml`.
 #### Install
 
 ```bash
-# pnpm
-pnpm add -D @evilmartians/lefthook
-pnpm exec lefthook install
-
-# npm
-npm install --save-dev @evilmartians/lefthook
+npm install --save-dev lefthook
 npx lefthook install
-
-# bun
-bun add -D @evilmartians/lefthook
-bunx lefthook install
 ```
 
 #### Configure `lefthook.yml`
@@ -140,8 +131,8 @@ pre-commit:
       glob: "*.{ts,tsx,js,jsx,json,css}"
       stage_fixed: true
 
-    - name: typecheck
-      run: npm run typecheck
+    - name: type-check
+      run: npm run type-check
 
     - name: test
       run: npm run test
@@ -160,24 +151,15 @@ Two tools: Husky manages Git hooks, lint-staged runs commands on staged files.
 #### Install
 
 ```bash
-# pnpm
-pnpm add -D husky lint-staged
-pnpm exec husky init
-
-# npm
 npm install --save-dev husky lint-staged
 npx husky init
-
-# bun
-bun add -D husky lint-staged
-bunx husky init
 ```
 
 #### Configure `.husky/pre-commit`
 
 ```bash
 npx lint-staged
-npm run typecheck
+npm run type-check
 npm run test
 ```
 
@@ -205,14 +187,7 @@ JavaScript-based alternatives.
 #### Install
 
 ```bash
-# pnpm
-pnpm add -D oxlint oxfmt
-
-# npm
 npm install --save-dev oxlint oxfmt
-
-# bun
-bun add -D oxlint oxfmt
 ```
 
 #### Initialize configs
@@ -241,7 +216,7 @@ formatter config.
 ### Option B: Biome (fast, single tool for lint + format)
 
 ```bash
-pnpm add -D @biomejs/biome
+npm install --save-dev @biomejs/biome
 npx biome init
 ```
 
@@ -255,10 +230,6 @@ npx biome init
 ```
 
 ### Option C: ESLint + Prettier (most mature ecosystem)
-
-```bash
-pnpm add -D eslint prettier
-```
 
 ```json
 {
@@ -276,9 +247,9 @@ pnpm add -D eslint prettier
 When all four layers work together:
 
 1. AI writes code
-2. AI runs `typecheck` — catches type errors
+2. AI runs `type-check` — catches type errors
 3. AI runs `test` — catches logic errors
-4. AI commits — pre-commit hook runs lint + format + typecheck + tests
+4. AI commits — pre-commit hook runs lint + format + type-check + tests
 5. If anything fails, AI sees error and retries
 
 The agent self-corrects without human intervention. This is what makes AFK

@@ -137,7 +137,7 @@ For type safety, install `@opencode-ai/plugin` in `.opencode/`:
 Then run your package manager in `.opencode/`:
 
 ```bash
-bun install   # or npm/yarn/pnpm depending on project preference
+npm install   # or bun/pnpm/yarn depending on project preference
 ```
 
 Import the `Plugin` type in your plugin files:

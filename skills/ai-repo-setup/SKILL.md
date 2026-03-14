@@ -24,6 +24,7 @@ Only document what is undiscoverable and globally relevant.
 - Functional requirements (what the system should do)
 - Non-functional requirements (performance, security, scalability constraints)
 - Business rules (domain logic, validation rules, constraints)
+- External issue tracker (Linear, Jira, GitHub Issues, ClickUp, etc.) — if used by the team
 - Behavioral preferences for agents (see step 4 for what to ask)
 
 ## Workflow
@@ -42,7 +43,11 @@ status-based format. Preserve all existing content — only restructure the form
 and add status fields. If creating from scratch, interview user or extract from
 existing code.
 
-Structure for `docs/REQUIREMENTS.md`:
+**Choose the correct template based on whether the team uses an external tracker:**
+
+#### Solo mode (no external tracker)
+
+Status lives in the doc. Single source of truth = docs.
 
 ```markdown
 # Requirements
@@ -69,7 +74,28 @@ Structure for `docs/REQUIREMENTS.md`:
 - **Description**: [What the system should do]
 ```
 
-Structure for `docs/BUSINESS-RULES.md`:
+#### Team mode (external tracker: Linear, Jira, GitHub Issues, etc.)
+
+No `**Status**:` field in docs — status lives in the tracker. Single source of
+truth = tracker. The `**Issue**:` field links to the tracker item.
+
+```markdown
+# Requirements
+
+## Functional Requirements
+
+### [Feature Area]
+
+#### FR-001: [Requirement title]
+
+- **Issue**: (none yet)
+- **Description**: [What the system should do]
+```
+
+When `**Issue**:` is `(none yet)`, the agent creates the issue in the tracker
+and writes back the ID (e.g., `LINEAR-123`, `PROJ-42`, `#123`).
+
+Structure for `docs/BUSINESS-RULES.md` (same pattern in both modes):
 
 ```markdown
 # Business Rules
@@ -78,31 +104,47 @@ Structure for `docs/BUSINESS-RULES.md`:
 
 ### BR-001: [Rule name]
 
-- **Status**: `draft`
+- **Status**: `draft`          ← solo mode
+- **Issue**: (none yet)        ← team mode (use one, not both)
 - **When**: [Trigger condition]
 - **Then**: [Expected behavior]
 - **Rationale**: [Why this rule exists]
 ```
 
-`docs/BUSINESS-RULES.md` uses the same status values. Include the status
-reference table in both docs.
-
 Keep requirements specific, testable, and numbered for traceability.
 
 #### Agent Workflow for Requirements & Business Rules
 
-This is the intended lifecycle for keeping docs in sync with the codebase:
+**Solo mode lifecycle:**
 
 1. **Draft** — user or agent adds a new item with `status: draft`
-2. **Refine** — agent clarifies the description until it is specific and
-   testable; user confirms; status → `refined`
+2. **Refine** — agent clarifies until specific and testable; user confirms;
+   status → `refined`
 3. **Implement** — user asks agent to implement a specific ID; agent
    implements it and updates status → `implemented`
-4. **Verify** — user reviews the implementation; if approved, status →
-   `verified`; if rejected, status → `in-progress` with a note
+4. **Verify** — user reviews; if approved, status → `verified`; if rejected,
+   status → `in-progress` with a note
 
 The agent must never set status to `verified` — only the user does.
 The agent must update status to `implemented` before closing a session.
+
+**Team mode lifecycle (tracker integration):**
+
+When asked to implement a requirement:
+
+1. **Check `**Issue**:` field**
+   - If `(none yet)` → create an issue in the tracker via MCP (title =
+     requirement title, description = requirement body), write back the ID
+   - If an ID exists → query the tracker for current status before proceeding
+2. **Check tracker status**
+   - If `in-progress` (or equivalent) → **warn the user and stop**. Do not
+     proceed silently. The user decides whether to continue, reassign, or skip.
+   - Otherwise → transition to in-progress in the tracker, then implement
+3. **After implementation** → transition tracker status to the equivalent of
+   `implemented`/`done` (discover available statuses via MCP; infer the mapping
+   — do not hardcode it)
+4. **Never query all requirements at session start** — query only the specific
+   item being worked on (lazy query)
 
 ### 3. Create context docs per deployment layer (if multi-layer project)
 
@@ -128,11 +170,14 @@ The file must be **as small as possible**. Only include:
    - **Plan mode**: how agents should present plans (e.g., concise vs detailed,
      listing unresolved questions)
    - **Communication style**: brevity, formality, language
-   - **Docs lookup**: whether agents should consult a documentation retrieval
-     tool (e.g., Context7) before implementing with external libraries, to
-     avoid hallucinating outdated APIs
-   - **Workflow habits**: any recurring instructions they find themselves
-     repeating across sessions
+    - **Docs lookup**: whether agents should consult a documentation retrieval
+      tool (e.g., Context7) before implementing with external libraries, to
+      avoid hallucinating outdated APIs
+    - **Tracker integration**: whether the team uses an external issue tracker
+      (Linear, Jira, GitHub Issues, etc.) and agents should create/sync issues
+      automatically when implementing requirements
+    - **Workflow habits**: any recurring instructions they find themselves
+      repeating across sessions
 
 Example (single-layer project):
 
@@ -165,6 +210,30 @@ For multi-layer projects, see the
 [multi-layer guide](references/multi-layer-guide.md#agentsmd-example) for an
 AGENTS.md example.
 
+**Team mode addition** — if the team uses an external tracker, add a Tracker
+section to AGENTS.md instead of a Docs sync rule:
+
+```markdown
+## Docs
+
+- `docs/REQUIREMENTS.md` — functional and non-functional requirements
+- `docs/BUSINESS-RULES.md` — domain rules and constraints
+
+## Tracker
+
+Issue tracker: Linear (MCP available in this session).
+
+When implementing a requirement:
+- If `**Issue**:` is `(none yet)`, create an issue and write back the ID.
+- If an ID exists, query the tracker for current status before proceeding.
+- If status is in-progress, warn the user and stop — do not proceed silently.
+- Discover available statuses via MCP; infer the mapping — do not hardcode it.
+- Never query all requirements at session start — query only what you're about to work on.
+```
+
+Replace `Linear` with the actual tracker. Remove the "MCP available" note if
+the team doesn't use an MCP integration for that tracker.
+
 **Do NOT include**: package manager (discoverable from lock files,
 `packageManager` field in `package.json`, or enforcement hooks), commands
 (discoverable from `package.json` scripts), architecture descriptions, file
@@ -185,7 +254,7 @@ See [references/feedback-loops.md](references/feedback-loops.md) for details.
 
 Ask user which feedback loops to set up:
 
-- [ ] TypeScript `typecheck` script in package.json
+- [ ] TypeScript `type-check` script in package.json
 - [ ] Test runner (`vitest`, `jest`, `bun test`)
 - [ ] E2E tests (`playwright`, `cypress`) — for frontend projects
 - [ ] Pre-commit hooks: Lefthook (recommended) or Husky + lint-staged
@@ -247,3 +316,6 @@ in AGENTS.md.
   the root doc status to reflect only their own layer's progress. Root status is
   aggregated (all layers done → root promoted). Updating it prematurely misleads
   other layers into thinking the feature is complete across the whole system.
+- **Dual source of truth for status** — in team mode, never put `**Status**:`
+  in docs alongside `**Issue**:`. The tracker is the single source of truth.
+  Keeping both leads to divergence and confusion about which one is authoritative.
