@@ -128,6 +128,9 @@ The file must be **as small as possible**. Only include:
    - **Plan mode**: how agents should present plans (e.g., concise vs detailed,
      listing unresolved questions)
    - **Communication style**: brevity, formality, language
+   - **Docs lookup**: whether agents should consult a documentation retrieval
+     tool (e.g., Context7) before implementing with external libraries, to
+     avoid hallucinating outdated APIs
    - **Workflow habits**: any recurring instructions they find themselves
      repeating across sessions
 
@@ -145,6 +148,12 @@ SaaS platform for team retrospectives with real-time collaboration.
 
 When implementing features or fixing bugs, update the relevant requirement/rule
 status in these docs to keep them synced with the codebase.
+
+## Docs Lookup
+
+When implementing or fixing bugs involving external libraries, always consult
+Context7 for up-to-date documentation before writing code. Never rely on
+training data for library APIs.
 
 ## Plan Mode
 
