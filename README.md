@@ -19,6 +19,52 @@ bun sync
 bun sync --new-only  # sync only skills without a prior sync
 ```
 
+## Recommended Skills by Stack
+
+Quick reference for adding skills based on your tech stack:
+
+### Next.js
+
+```bash
+npx skills add fellipeutaka/leon --skill baseline-ui clean-code commit-work composition-patterns denji design-lab fixing-accessibility fixing-metadata fixing-motion-performance frontend-design interaction-design motion next-best-practices next-cache-components next-upgrade nuqs paraglide-js react-hook-form-zod seo-audit shadcn tanstack-query tanstack-router wcag-audit-patterns web-design-guidelines zod zustand
+```
+
+### React (non-Next.js)
+
+```bash
+npx skills add fellipeutaka/leon --skill baseline-ui clean-code commit-work composition-patterns denji design-lab fixing-accessibility fixing-motion-performance frontend-design interaction-design motion react-best-practices react-hook-form-zod shadcn tanstack-query tanstack-router wcag-audit-patterns web-design-guidelines zod zustand
+```
+
+### React Native / Expo
+
+```bash
+npx skills add fellipeutaka/leon --skill baseline-ui clean-code commit-work design-lab fixing-accessibility frontend-design interaction-design react-hook-form-zod react-native-skills tanstack-query tdd ui-ux-pro-max wcag-audit-patterns zod zustand
+```
+
+### SwiftUI (iOS)
+
+```bash
+npx skills add fellipeutaka/leon --skill clean-code commit-work swiftui-ui-patterns tdd wcag-audit-patterns
+```
+
+### Full-Stack / Monorepo
+
+```bash
+npx skills add fellipeutaka/leon --skill ai-sdk better-auth bun clean-code commit-work design-patterns docker drizzle-orm next-best-practices playwright prisma solid tanstack-start tdd turborepo zod
+```
+
+### Backend (Node.js)
+
+```bash
+npx skills add fellipeutaka/leon --skill better-auth bun clean-code commit-work design-patterns docker drizzle-orm elysia fastify nestjs nginx prisma solid tdd zod
+```
+
+### Backend (Rust)
+
+```bash
+npx skills add fellipeutaka/leon --skill clean-code commit-work docker nginx rust tdd
+```
+
 ## Skills
 
 ### Frontend
@@ -26,10 +72,17 @@ bun sync --new-only  # sync only skills without a prior sync
 | Skill | Description | Source |
 |-------|-------------|--------|
 | [ai-sdk](skills/ai-sdk/) | AI SDK for building AI-powered features — generateText, streamText, useChat, tool calling | [vercel/ai](https://github.com/vercel/ai) |
+| [baseline-ui](skills/baseline-ui/) | Validates animation durations, enforces typography scale, checks component accessibility, prevents layout anti-patterns in Tailwind CSS | [ibelick/ui-skills](https://github.com/ibelick/ui-skills) |
+| [canvas-design](skills/canvas-design/) | Create beautiful visual art in .png and .pdf using design philosophy | Curated |
 | [composition-patterns](skills/composition-patterns/) | React composition patterns that scale | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) |
 | [denji](skills/denji/) | Manage SVG icons as framework components | [fellipeutaka/denji](https://github.com/fellipeutaka/denji) |
+| [design-lab](skills/design-lab/) | Conduct design interviews, generate five distinct UI variations, collect feedback, produce implementation plans | Curated |
+| [fixing-accessibility](skills/fixing-accessibility/) | Audit and fix HTML accessibility — ARIA labels, keyboard navigation, focus management, color contrast, form errors | [ibelick/ui-skills](https://github.com/ibelick/ui-skills) |
+| [fixing-metadata](skills/fixing-metadata/) | Audit and fix HTML metadata — page titles, meta descriptions, canonical URLs, Open Graph, Twitter cards, JSON-LD | [ibelick/ui-skills](https://github.com/ibelick/ui-skills) |
+| [fixing-motion-performance](skills/fixing-motion-performance/) | Audit and fix animation performance — layout thrashing, compositor properties, scroll-linked motion, blur effects | [ibelick/ui-skills](https://github.com/ibelick/ui-skills) |
 | [frontend-design](skills/frontend-design/) | Create distinctive, production-grade frontend interfaces with high design quality | [anthropics/claude-code](https://github.com/anthropics/claude-code) |
 | [interface-design](skills/interface-design/) | Interface design for dashboards, admin panels, and interactive products | [Dammyjay93/interface-design](https://github.com/Dammyjay93/interface-design) |
+| [interaction-design](skills/interaction-design/) | Design microinteractions, motion design, transitions, and user feedback patterns | Curated |
 | [kanpeki](skills/kanpeki/) | Accessible UI components with Kanpeki library | [fellipeutaka/kanpeki](https://github.com/fellipeutaka/kanpeki) |
 | [motion](skills/motion/) | React animations with Motion (Framer Motion) | [jezweb/claude-skills](https://github.com/jezweb/claude-skills) |
 | [nuqs](skills/nuqs/) | Type-safe URL query state management with nuqs 2.x | Curated |
@@ -48,6 +101,7 @@ bun sync --new-only  # sync only skills without a prior sync
 | [tanstack-virtual](skills/tanstack-virtual/) | TanStack Virtual headless virtualization for large lists and grids | Curated |
 | [tanstack-pacer](skills/tanstack-pacer/) | TanStack Pacer execution control — debouncing, throttling, rate limiting, queuing, batching | Curated |
 | [tanstack-table](skills/tanstack-table/) | TanStack Table headless data grid with sorting, filtering, and pagination | Curated |
+| [ui-ux-pro-max](skills/ui-ux-pro-max/) | UI/UX design intelligence — 50+ styles, 161 color palettes, 57 font pairings, 99 UX guidelines | Curated |
 | [web-design-guidelines](skills/web-design-guidelines/) | Web Interface Guidelines compliance review | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) |
 | [zustand](skills/zustand/) | Global state management for React/TypeScript applications | Curated |
 
@@ -89,10 +143,17 @@ bun sync --new-only  # sync only skills without a prior sync
 | [docker](skills/docker/) | Docker containerization, security, and Compose orchestration | Curated |
 | [nginx](skills/nginx/) | Nginx web server and reverse proxy — configuration, load balancing, SSL/TLS, caching, and security hardening | Curated |
 
+### Mobile
+
+| Skill | Description | Source |
+|-------|-------------|--------|
+| [swiftui-ui-patterns](skills/swiftui-ui-patterns/) | Best practices for SwiftUI — navigation hierarchies, custom view modifiers, responsive layouts, @State/@Binding | Curated |
+
 ### Validation & Type Safety
 
 | Skill | Description | Source |
 |-------|-------------|--------|
+| [wcag-audit-patterns](skills/wcag-audit-patterns/) | WCAG 2.2 accessibility audits with automated testing, manual verification, and remediation guidance | Curated |
 | [zod](skills/zod/) | Zod 4 TypeScript-first schema validation with static type inference | Curated |
 
 ### Tooling
