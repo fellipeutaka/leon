@@ -8,7 +8,7 @@
           "remotePath": "skills/commit-work",
           "localPath": "skills/commit-work",
           "sha": "ac7c2ea0f24eb668f5b80e4f237efa4a90f12312",
-          "lastSync": "2026-03-14T09:16:43.153Z"
+          "lastSync": "2026-03-29T16:43:33.265Z"
         }
       ]
     },
@@ -20,25 +20,25 @@
           "remotePath": "skills/composition-patterns",
           "localPath": "skills/composition-patterns",
           "sha": "bf90d0a4b83ea054653350f9c67f6de235d3a368",
-          "lastSync": "2026-03-14T09:16:43.916Z"
+          "lastSync": "2026-03-29T16:43:34.028Z"
         },
         {
           "remotePath": "skills/react-best-practices",
           "localPath": "skills/react-best-practices",
-          "sha": "18a9a6d17d5958d4ab10405883b80960644dbd5b",
-          "lastSync": "2026-03-14T09:16:44.304Z"
+          "sha": "bd8feeee219216aac928d1d8e5c61a928dba23dc",
+          "lastSync": "2026-03-29T16:43:34.397Z"
         },
         {
           "remotePath": "skills/react-native-skills",
           "localPath": "skills/react-native-skills",
           "sha": "8b4c6a51914e2111ab6f4f00cb81778652aa241d",
-          "lastSync": "2026-03-14T09:16:44.323Z"
+          "lastSync": "2026-03-29T16:43:34.300Z"
         },
         {
           "remotePath": "skills/web-design-guidelines",
           "localPath": "skills/web-design-guidelines",
           "sha": "3116f3e62dbd02b44a598b1aa690d2a8938e8f89",
-          "lastSync": "2026-03-14T09:16:43.722Z"
+          "lastSync": "2026-03-29T16:43:33.825Z"
         }
       ]
     },
@@ -49,8 +49,8 @@
         {
           "remotePath": "skills/agent-browser",
           "localPath": "skills/agent-browser",
-          "sha": "9fa6850b305ad7237ffe61fc12f9e3d2d9c3d990",
-          "lastSync": "2026-03-14T09:16:45.120Z"
+          "sha": "2406f5d1c14a6727a0b628bf84e7485e0f76f8de",
+          "lastSync": "2026-03-29T16:43:35.113Z"
         }
       ]
     },
@@ -62,19 +62,19 @@
           "remotePath": "skills/next-best-practices",
           "localPath": "skills/next-best-practices",
           "sha": "ad17eb27952b39a6ab0061bd50e8a2213b63a3ec",
-          "lastSync": "2026-03-14T09:16:45.791Z"
+          "lastSync": "2026-03-29T16:43:35.718Z"
         },
         {
           "remotePath": "skills/next-cache-components",
           "localPath": "skills/next-cache-components",
           "sha": "a6f29564b9228af553737bd437c7016fc3dc44e0",
-          "lastSync": "2026-03-14T09:16:45.630Z"
+          "lastSync": "2026-03-29T16:43:35.663Z"
         },
         {
           "remotePath": "skills/next-upgrade",
           "localPath": "skills/next-upgrade",
           "sha": "962598faa417cf3b6c03ec2e5cbe0aa0aeb2c4a9",
-          "lastSync": "2026-03-14T09:16:45.665Z"
+          "lastSync": "2026-03-29T16:43:35.635Z"
         }
       ]
     },
@@ -85,8 +85,8 @@
         {
           "remotePath": "skills/turborepo",
           "localPath": "skills/turborepo",
-          "sha": "a21bb5fe156ee216fc27bd4306a7bc15c7bb3b89",
-          "lastSync": "2026-03-14T09:16:47.020Z"
+          "sha": "04adc65fada50ac29c724fa4d99839ca342be440",
+          "lastSync": "2026-03-29T16:43:36.782Z"
         }
       ]
     },
@@ -97,8 +97,8 @@
         {
           "remotePath": "skills/denji",
           "localPath": "skills/denji",
-          "sha": "3e3445dbe6aec1e01e9887797eb5683f6f2a12f8",
-          "lastSync": "2026-03-14T09:16:47.718Z"
+          "sha": "06be6c46cd61980d73f38b97f621cb029cf70fd2",
+          "lastSync": "2026-03-29T16:43:37.574Z"
         }
       ]
     },
@@ -110,7 +110,7 @@
           "remotePath": "skills/kanpeki",
           "localPath": "skills/kanpeki",
           "sha": "63b459ab12aaa3aea107d5c66d493a77445957a0",
-          "lastSync": "2026-03-14T09:16:48.397Z"
+          "lastSync": "2026-03-29T16:43:38.334Z"
         }
       ]
     },
@@ -122,7 +122,7 @@
           "remotePath": "skills/react-email",
           "localPath": "skills/react-email",
           "sha": "266cd902dc59e8bf751c9a528d6c7ac8537e1fc7",
-          "lastSync": "2026-03-14T09:16:49.095Z"
+          "lastSync": "2026-03-29T16:43:39.081Z"
         }
       ]
     },
@@ -133,8 +133,8 @@
         {
           "remotePath": "skills/hono",
           "localPath": "skills/hono",
-          "sha": "7df0a665faeaff8f2ae3aef1da70102cf1030f03",
-          "lastSync": "2026-03-14T09:16:49.679Z"
+          "sha": "16c9105ba9528eaa17a375ee56efb3c2376439ab",
+          "lastSync": "2026-03-29T16:43:39.991Z"
         }
       ]
     },
@@ -146,7 +146,7 @@
         {
           "remotePath": "elysia",
           "sha": "067301d49f2a392d2994548ae686ff45c5424ba9",
-          "lastSync": "2026-03-14T09:16:49.856Z"
+          "lastSync": "2026-03-29T16:43:40.177Z"
         }
       ]
     },
@@ -158,14 +158,14 @@
         {
           "remotePath": "skills/docker-expert",
           "description": "Used as reference for skills/docker",
-          "sha": "85e58e024d1059f0fd899741c08d21fcf94e8b34",
-          "lastSync": "2026-03-14T09:16:50.672Z"
+          "sha": "be7e756ad935e3b353559b2e7bf739de196747d9",
+          "lastSync": "2026-03-29T16:43:41.002Z"
         },
         {
           "remotePath": "skills/clean-code",
           "description": "Used as reference for skills/clean-code",
-          "sha": "6a6f257bcfc83271101c53a3297e340ec9f6d416",
-          "lastSync": "2026-03-14T09:16:51.034Z"
+          "sha": "4cdf84cf512b7056951987be69a8f1a3421ea3b8",
+          "lastSync": "2026-03-29T16:43:41.792Z"
         }
       ]
     },
@@ -178,19 +178,19 @@
           "remotePath": "skills/tanstack-query",
           "description": "Used as reference for skills/tanstack-query",
           "sha": "b73085898a2015a0f33c98aef0f3f2ff4ee9454f",
-          "lastSync": "2026-03-14T09:16:51.210Z"
+          "lastSync": "2026-03-29T16:43:42.007Z"
         },
         {
           "remotePath": "skills/tanstack-router",
           "description": "Used as reference for skills/tanstack-router",
           "sha": "0f076dd09acf3e8e7c2ef80e654ad253e25c6eec",
-          "lastSync": "2026-03-14T09:16:51.398Z"
+          "lastSync": "2026-03-29T16:43:42.169Z"
         },
         {
           "remotePath": "skills/tanstack-start",
           "description": "Used as reference for skills/tanstack-start",
           "sha": "d4e415c2c618da237bbab97be0406e0c92efb18f",
-          "lastSync": "2026-03-14T09:16:51.584Z"
+          "lastSync": "2026-03-29T16:43:42.333Z"
         }
       ]
     },
@@ -203,25 +203,25 @@
           "remotePath": "skills/tanstack-query",
           "description": "Used as reference for skills/tanstack-query",
           "sha": "713b5f30fc7d3a2dd65d0cae9c370dea8a952cf6",
-          "lastSync": "2026-03-14T09:16:52.016Z"
+          "lastSync": "2026-03-29T16:43:42.638Z"
         },
         {
           "remotePath": "skills/tanstack-start",
           "description": "Used as reference for skills/tanstack-start",
           "sha": "ff491b0f731a95f44154212a8f5ac1c2af77c709",
-          "lastSync": "2026-03-14T09:16:52.458Z"
+          "lastSync": "2026-03-29T16:43:43.040Z"
         },
         {
           "remotePath": "skills/motion",
           "description": "Used as reference for skills/motion",
           "sha": "58b45fdb5517466fced08a7a67b3f6d8a59a2619",
-          "lastSync": "2026-03-14T09:16:52.875Z"
+          "lastSync": "2026-03-29T16:43:43.233Z"
         },
         {
           "remotePath": "skills/react-hook-form-zod",
           "description": "Used as reference for skills/react-hook-form-zod",
           "sha": "999cb83e997462025f53aa3bc4a8a63a4a383697",
-          "lastSync": "2026-03-14T09:16:53.279Z"
+          "lastSync": "2026-03-29T16:43:43.410Z"
         }
       ]
     },
@@ -233,7 +233,7 @@
           "remotePath": "skills/fastify",
           "localPath": "skills/fastify",
           "sha": "1e536270ef5a5b696926e63d5f3c16324ebc5b0a",
-          "lastSync": "2026-03-14T09:16:54.251Z"
+          "lastSync": "2026-03-29T16:43:44.152Z"
         }
       ]
     },
@@ -245,7 +245,7 @@
           "remotePath": "skills/use-ai-sdk",
           "localPath": "skills/ai-sdk",
           "sha": "d8e09e2796e2a04a9c7f7cc8c5bbab8da76a77d9",
-          "lastSync": "2026-03-14T09:16:55.121Z"
+          "lastSync": "2026-03-29T16:43:45.143Z"
         }
       ]
     },
@@ -256,8 +256,8 @@
         {
           "remotePath": "skills/seo-audit",
           "localPath": "skills/seo-audit",
-          "sha": "c5423e592d1ce900fafca88b17f3896eea53b237",
-          "lastSync": "2026-03-14T09:16:55.906Z"
+          "sha": "363d92283cd9566761d8ec18d4fa9def5cbc2c29",
+          "lastSync": "2026-03-29T16:43:45.946Z"
         }
       ]
     },
@@ -269,7 +269,7 @@
           "remotePath": "skills/pnpm",
           "localPath": "skills/pnpm",
           "sha": "3e2f92c74abae6e9d2e4fc45b5d73a7b307348c9",
-          "lastSync": "2026-03-14T09:16:56.646Z"
+          "lastSync": "2026-03-29T16:43:46.691Z"
         }
       ]
     },
@@ -281,7 +281,7 @@
           "remotePath": "tdd",
           "localPath": "skills/tdd",
           "sha": "28d7822c112f22cf499099881856fdec07bc83a8",
-          "lastSync": "2026-03-14T09:16:57.166Z"
+          "lastSync": "2026-03-29T16:43:47.251Z"
         }
       ]
     },
@@ -293,7 +293,7 @@
           "remotePath": ".claude/skills/interface-design",
           "localPath": "skills/interface-design",
           "sha": "3c1c18ac9f9732a8be68cb8504bf234fdafcf5c8",
-          "lastSync": "2026-03-14T09:16:57.873Z"
+          "lastSync": "2026-03-29T16:43:47.991Z"
         }
       ]
     },
@@ -305,7 +305,7 @@
           "remotePath": "plugins/frontend-design/skills/frontend-design",
           "localPath": "skills/frontend-design",
           "sha": "3bd61bab4d6b858c5d3af8adf14b917ce853e4c5",
-          "lastSync": "2026-03-14T09:16:58.426Z"
+          "lastSync": "2026-03-29T16:43:48.505Z"
         }
       ]
     },
@@ -316,8 +316,8 @@
         {
           "remotePath": "skills/shadcn",
           "localPath": "skills/shadcn",
-          "sha": "f0f39ab1bf720d40fee4b012e807ce25aff8746b",
-          "lastSync": "2026-03-14T09:20:57.888Z"
+          "sha": "bf9e83da91320f445f2c27f65067009f344f757a",
+          "lastSync": "2026-03-29T16:43:49.293Z"
         }
       ]
     }
