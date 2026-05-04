@@ -175,8 +175,9 @@ The file must be **as small as possible**. Only include:
      list unresolved questions at the end?"
    - **Communication style**: "Any preferences for brevity, formality, or
      language?"
-   - **Docs lookup**: "Should I consult Context7 (or similar) for up-to-date
-     library docs before writing code, instead of relying on training data?"
+   - **Docs lookup**: "Should I consult Context7 for up-to-date library docs
+     before writing code? Should I use `opensrc` to read the actual library
+     source code when debugging (instead of digging into node_modules/)?"
    - **Tracker integration**: "Does the team use an external issue tracker
      (Linear, Jira, GitHub Issues)? Should I create/sync issues automatically?"
    - **Workflow habits**: "Any recurring instructions you find yourself
@@ -199,9 +200,22 @@ status in these docs to keep them synced with the codebase.
 
 ## Docs Lookup
 
-When implementing or fixing bugs involving external libraries, always consult
-Context7 for up-to-date documentation before writing code. Never rely on
-training data for library APIs.
+When working with external libraries:
+
+- **Documentation / API reference** — consult Context7 before writing code.
+  Never rely on training data for library APIs.
+- **Source code exploration** — use `opensrc` when you need to understand a
+  library's implementation or trace a bug. Never read `node_modules/` directly
+  (files are compiled/minified). `opensrc` supports npm, PyPI, crates.io, and
+  GitHub repos:
+  ```bash
+  opensrc path <package>              # npm
+  opensrc path pypi:<package>         # PyPI
+  opensrc path crates:<package>       # crates.io
+  opensrc path owner/repo             # GitHub
+  rg "pattern" $(opensrc path <package>)
+  cat $(opensrc path <package>)/src/index.ts
+  ```
 
 ## Plan Mode
 
