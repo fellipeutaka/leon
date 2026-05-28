@@ -43,7 +43,7 @@ allows, exit code `2` blocks (error message sent to agent).
         "hooks": [
           {
             "type": "command",
-            "command": ".claude/hooks/enforce-pkg-manager.sh"
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/enforce-pkg-manager.sh"
           }
         ]
       }
