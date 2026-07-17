@@ -26,7 +26,7 @@ Quick reference for adding skills based on your tech stack:
 ### Next.js
 
 ```bash
-npx skills add fellipeutaka/leon --skill baseline-ui clean-code commit-work composition-patterns denji design-lab fixing-accessibility fixing-metadata fixing-motion-performance frontend-design interaction-design motion next-best-practices next-cache-components next-upgrade nuqs paraglide-js react-hook-form-zod seo-audit shadcn tanstack-query tanstack-router wcag-audit-patterns web-design-guidelines zod zustand
+npx skills add fellipeutaka/leon --skill baseline-ui clean-code commit-work composition-patterns denji design-lab fixing-accessibility fixing-metadata fixing-motion-performance frontend-design interaction-design motion next-best-practices next-cache-components-optimizer next-cache-components-adoption next-upgrade nuqs paraglide-js react-hook-form-zod seo-audit shadcn tanstack-query tanstack-router wcag-audit-patterns web-design-guidelines zod zustand
 ```
 
 ### React (non-Next.js)
@@ -123,7 +123,8 @@ npx skills add fellipeutaka/leon --skill clean-code commit-work docker nginx rus
 | Skill | Description | Source |
 |-------|-------------|--------|
 | [next-best-practices](skills/next-best-practices/) | Next.js best practices and conventions | [vercel-labs/next-skills](https://github.com/vercel-labs/next-skills) |
-| [next-cache-components](skills/next-cache-components/) | Next.js 16 cache components and PPR | [vercel-labs/next-skills](https://github.com/vercel-labs/next-skills) |
+| [next-cache-components-optimizer](skills/next-cache-components-optimizer/) | Optimize a Next.js app that has `cacheComponents: true` | [vercel-labs/next-skills](https://github.com/vercel/next.js/tree/canary/skills) |
+| [next-cache-components-adoption](skills/next-cache-components-adoption/) | Enable, adopt, or migrate to Cache Components | [vercel-labs/next-skills](https://github.com/vercel/next.js/tree/canary/skills) |
 | [next-upgrade](skills/next-upgrade/) | Upgrade Next.js to latest version | [vercel-labs/next-skills](https://github.com/vercel-labs/next-skills) |
 | [tanstack-start](skills/tanstack-start/) | TanStack Start full-stack React framework with SSR, server functions, and streaming | Curated |
 
