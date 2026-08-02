@@ -344,6 +344,18 @@
           "lastSync": "2026-07-17T20:22:50.393Z"
         }
       ]
+    },
+    {
+      "repo": "github/gh-stack",
+      "branch": "refs/tags/v0.1.0",
+      "skills": [
+        {
+          "remotePath": "skills/gh-stack",
+          "localPath": "skills/gh-stack",
+          "sha": "c95c8b5b4dd850f3fef007b304428f5684f2fb87",
+          "lastSync": "2026-08-02T16:33:37.721Z"
+        }
+      ]
     }
   ]
 }

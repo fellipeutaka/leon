@@ -164,6 +164,7 @@ npx skills add fellipeutaka/leon --skill clean-code commit-work docker nginx rus
 | [agent-browser](skills/agent-browser/) | Browser automation CLI for AI agents | [vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser) |
 | [ai-repo-setup](skills/ai-repo-setup/) | Set up repositories for AI agents — AGENTS.md, CLAUDE.md, docs/REQUIREMENTS.md, docs/BUSINESS-RULES.md, feedback loops, deterministic enforcement | Curated |
 | [commit-work](skills/commit-work/) | High-quality git commits | [softaworks/agent-toolkit](https://github.com/softaworks/agent-toolkit) |
+| [gh-stack](skills/gh-stack/) | Manage stacked branches and pull requests with the GitHub CLI | [github/gh-stack](https://github.com/github/gh-stack) |
 | [playwright](skills/playwright/) | Write, debug, and maintain Playwright end-to-end tests for web applications | Curated |
 | [react-email](skills/react-email/) | HTML email templates with React components | [resend/react-email](https://github.com/resend/react-email) |
 | [bun](skills/bun/) | Bun runtime, package manager, bundler, and test runner | Curated |
