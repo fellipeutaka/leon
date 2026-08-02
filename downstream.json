@@ -10,7 +10,7 @@
         "sha": "697d4ce9742da558fd1ba6697c8e9775e2e302dd"
       },
       "syncPolicy": "manual",
-      "reason": "Adds standalone and gh-stack delivery modes while preserving the Matt implementation flow."
+      "reason": "Adds standalone, gh-stack, and integration-branch delivery modes while preserving the Matt implementation flow."
     },
     {
       "name": "ask-matt",
@@ -22,7 +22,7 @@
         "sha": "697d4ce9742da558fd1ba6697c8e9775e2e302dd"
       },
       "syncPolicy": "manual",
-      "reason": "Routes linear ticket chains to stacked implementation and makes fork/join serialization explicit."
+      "reason": "Routes linear chains to stacked implementation and PRD forks/joins with a final merge to integration delivery."
     },
     {
       "name": "to-tickets",

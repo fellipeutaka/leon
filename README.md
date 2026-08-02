@@ -184,7 +184,9 @@ The Matt-derived engineering flow skills in `skills/implement`,
 variants in this repository. Their upstream commits and manual sync policy are
 tracked in [`downstream.json`](./downstream.json).
 
-They add optional stacked-PR delivery through the separately installed
+They add optional stacked-PR and integration-branch delivery through the
 `gh-stack` skill while keeping issue blockers and product specs independent
-from branch topology. They are intentionally not listed in `upstream.json`,
-because the automatic upstream sync would overwrite the local changes.
+from branch topology. Read the [custom implement flow guide](docs/implement-flow.md)
+for the differences from Matt's upstream flow and usage examples. They are
+intentionally not listed in `upstream.json`, because the automatic upstream
+sync would overwrite the local changes.

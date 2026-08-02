@@ -30,12 +30,15 @@ The route most work travels. You have an idea and want it built.
 After `/to-tickets` has produced and the user has approved the real blocker graph, choose the PR delivery topology:
 
 - **Linear dependency chain** → invoke `/implement` in stacked mode and use `/gh-stack` for branch and PR operations.
-- **Fork or join** → ask whether to serialize the work into one linear stack or preserve parallelism with independent/dependent PRs. `gh-stack` supports only one parent and one child per stack.
+- **Fork or join with one final merge into trunk** → invoke `/implement` in integration mode. Create one durable integration branch and target parallel ticket PRs at it; the final integration PR targets trunk and closes the spec/PRD.
+- **Fork or join without a final integration PR** → ask whether to serialize the work into one linear stack or preserve parallelism with independent/dependent PRs. `gh-stack` supports only one parent and one child per stack.
 - **Existing PR or branch** → adopt compatible existing state with `gh stack init <branch>` or use `gh stack link` only when branches are already managed by an external tool. Never recreate an existing PR just to introduce a stack.
 
 The issue dependency graph remains the source of truth. A stack ordering is a delivery decision and must not silently rewrite a ticket's `Blocked by` edges.
 
-When using a stack, each fresh `/implement` context must run `gh stack view --json` and verify the current parent before coding. The stack state is durable; conversation context is not.
+When the user asks for parallel worktrees and a single final PRD merge, the integration branch is the default delivery topology. Child PRs target the integration branch and use `Refs #<ticket>`; only the final PR targets trunk and uses `Closes #<spec>`.
+
+When using a stack, each fresh `/implement` context must run `gh stack view --json` and verify the current parent before coding. When using integration delivery, each fresh context must verify the integration branch and that all ticket blockers are merged into it. The branch state is durable; conversation context is not.
 
 ## Context hygiene
 
