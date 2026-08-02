@@ -1,0 +1,40 @@
+{
+  "variants": [
+    {
+      "name": "implement",
+      "localPath": "skills/implement",
+      "upstream": {
+        "repo": "mattpocock/skills",
+        "branch": "main",
+        "remotePath": "skills/engineering/implement",
+        "sha": "697d4ce9742da558fd1ba6697c8e9775e2e302dd"
+      },
+      "syncPolicy": "manual",
+      "reason": "Adds standalone and gh-stack delivery modes while preserving the Matt implementation flow."
+    },
+    {
+      "name": "ask-matt",
+      "localPath": "skills/ask-matt",
+      "upstream": {
+        "repo": "mattpocock/skills",
+        "branch": "main",
+        "remotePath": "skills/engineering/ask-matt",
+        "sha": "697d4ce9742da558fd1ba6697c8e9775e2e302dd"
+      },
+      "syncPolicy": "manual",
+      "reason": "Routes linear ticket chains to stacked implementation and makes fork/join serialization explicit."
+    },
+    {
+      "name": "to-tickets",
+      "localPath": "skills/to-tickets",
+      "upstream": {
+        "repo": "mattpocock/skills",
+        "branch": "main",
+        "remotePath": "skills/engineering/to-tickets",
+        "sha": "ed37663cc5fbef691ddfecd080dff42f7e7e350d"
+      },
+      "syncPolicy": "manual",
+      "reason": "Keeps issue blockers authoritative while documenting optional stacked-PR delivery topology."
+    }
+  ]
+}
