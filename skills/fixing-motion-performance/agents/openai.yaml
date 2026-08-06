@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fixing Motion Performance"
+  short_description: "Fix janky animation performance"
+  default_prompt: "Use $fixing-motion-performance to diagnose and fix janky animations."

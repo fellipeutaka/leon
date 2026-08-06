@@ -1,0 +1,4 @@
+interface:
+  display_name: "WCAG Audit Patterns"
+  short_description: "Audit and fix WCAG 2.2 accessibility"
+  default_prompt: "Use $wcag-audit-patterns to audit a website against WCAG 2.2."

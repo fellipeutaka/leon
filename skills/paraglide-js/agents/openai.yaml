@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paraglide JS"
+  short_description: "Implement compiler-based JavaScript i18n"
+  default_prompt: "Use $paraglide-js to implement compiler-based internationalization."

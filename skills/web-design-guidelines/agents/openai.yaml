@@ -1,0 +1,4 @@
+interface:
+  display_name: "Web Interface Guidelines"
+  short_description: "Review UI code against web guidelines"
+  default_prompt: "Use $web-design-guidelines to review UI code against web interface guidelines."

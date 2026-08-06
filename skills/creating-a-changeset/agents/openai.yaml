@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create a Changeset"
+  short_description: "Create release notes with Changesets"
+  default_prompt: "Use $creating-a-changeset to create and validate a Changeset for a user-facing change."

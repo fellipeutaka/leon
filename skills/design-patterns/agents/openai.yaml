@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Patterns"
+  short_description: "Apply GoF patterns to TypeScript architecture"
+  default_prompt: "Use $design-patterns to apply a suitable GoF pattern to a TypeScript design."

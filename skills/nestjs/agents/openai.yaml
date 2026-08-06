@@ -1,0 +1,4 @@
+interface:
+  display_name: "NestJS"
+  short_description: "Build production-ready NestJS services"
+  default_prompt: "Use $nestjs to build or refactor a production-ready NestJS service."

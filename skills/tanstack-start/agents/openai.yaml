@@ -1,0 +1,4 @@
+interface:
+  display_name: "TanStack Start"
+  short_description: "Build full-stack React apps with TanStack Start"
+  default_prompt: "Use $tanstack-start to build a full-stack React application."

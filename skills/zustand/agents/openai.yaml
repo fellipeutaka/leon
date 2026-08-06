@@ -1,0 +1,4 @@
+interface:
+  display_name: "Zustand"
+  short_description: "Manage React state with Zustand"
+  default_prompt: "Use $zustand to implement or debug Zustand state management."

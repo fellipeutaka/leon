@@ -1,0 +1,4 @@
+interface:
+  display_name: "React Best Practices"
+  short_description: "Optimize React and Next.js performance"
+  default_prompt: "Use $react-best-practices to improve React or Next.js performance."

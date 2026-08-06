@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fastify Best Practices"
+  short_description: "Build production-ready Fastify APIs"
+  default_prompt: "Use $fastify-best-practices to build or debug a Fastify API."

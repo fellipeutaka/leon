@@ -1,0 +1,4 @@
+interface:
+  display_name: "Clean Code"
+  short_description: "Write clearer, maintainable code"
+  default_prompt: "Use $clean-code to write or refactor code for clarity and maintainability."

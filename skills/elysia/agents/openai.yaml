@@ -1,0 +1,4 @@
+interface:
+  display_name: "ElysiaJS"
+  short_description: "Build high-performance ElysiaJS backends"
+  default_prompt: "Use $elysiajs to build a type-safe, high-performance ElysiaJS backend."

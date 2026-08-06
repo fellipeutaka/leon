@@ -1,0 +1,4 @@
+interface:
+  display_name: "pnpm"
+  short_description: "Manage dependencies with pnpm"
+  default_prompt: "Use $pnpm to manage dependencies or workspaces with pnpm."

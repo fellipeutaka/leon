@@ -1,0 +1,4 @@
+interface:
+  display_name: "React Composition Patterns"
+  short_description: "Build scalable React compositions"
+  default_prompt: "Use $vercel-composition-patterns to design scalable React component compositions."

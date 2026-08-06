@@ -1,0 +1,4 @@
+interface:
+  display_name: "gh-stack"
+  short_description: "Manage stacked branches and pull requests"
+  default_prompt: "Use $gh-stack to manage a stack of dependent branches and pull requests."

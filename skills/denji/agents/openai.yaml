@@ -1,0 +1,4 @@
+interface:
+  display_name: "Denji"
+  short_description: "Manage SVG icons as framework components"
+  default_prompt: "Use $denji to manage SVG icons as framework components with Denji."

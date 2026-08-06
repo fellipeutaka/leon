@@ -1,0 +1,4 @@
+interface:
+  display_name: "TanStack Query (React)"
+  short_description: "Manage React server state with TanStack Query"
+  default_prompt: "Use $tanstack-query to implement React data fetching, caching, or mutations."

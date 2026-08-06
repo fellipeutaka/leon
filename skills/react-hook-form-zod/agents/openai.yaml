@@ -1,0 +1,4 @@
+interface:
+  display_name: "React Hook Form + Zod"
+  short_description: "Build type-safe validated React forms"
+  default_prompt: "Use $react-hook-form-zod to build validated React forms with Zod."

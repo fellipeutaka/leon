@@ -1,0 +1,4 @@
+interface:
+  display_name: "Zod 4"
+  short_description: "Validate TypeScript data with Zod 4"
+  default_prompt: "Use $zod to write or migrate TypeScript schemas with Zod 4."

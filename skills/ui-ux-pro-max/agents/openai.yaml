@@ -1,0 +1,4 @@
+interface:
+  display_name: "UI/UX Pro Max"
+  short_description: "Use broad UI/UX design intelligence"
+  default_prompt: "Use $ui-ux-pro-max to plan, build, or review a UI with design intelligence."

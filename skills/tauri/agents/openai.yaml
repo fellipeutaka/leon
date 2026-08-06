@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tauri v2 Development"
+  short_description: "Build cross-platform apps with Tauri v2"
+  default_prompt: "Use $tauri to build or troubleshoot a Tauri v2 desktop or mobile app."

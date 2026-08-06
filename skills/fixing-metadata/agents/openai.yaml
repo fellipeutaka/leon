@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fixing Metadata"
+  short_description: "Fix HTML SEO and social metadata"
+  default_prompt: "Use $fixing-metadata to audit and fix HTML SEO and social metadata."

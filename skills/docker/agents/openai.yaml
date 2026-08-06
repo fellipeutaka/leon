@@ -1,0 +1,4 @@
+interface:
+  display_name: "Docker Expert"
+  short_description: "Build secure, optimized containers"
+  default_prompt: "Use $docker to design, optimize, or troubleshoot Docker containers and deployments."

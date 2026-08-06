@@ -1,0 +1,4 @@
+interface:
+  display_name: "SOLID Principles"
+  short_description: "Apply SOLID principles to TypeScript"
+  default_prompt: "Use $solid to apply SOLID principles to a TypeScript design."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI SDK"
+  short_description: "Build AI-powered features with AI SDK"
+  default_prompt: "Use $ai-sdk to build an AI-powered feature with the Vercel AI SDK."

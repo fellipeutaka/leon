@@ -1,0 +1,4 @@
+interface:
+  display_name: "nuqs Best Practices"
+  short_description: "Manage type-safe URL query state"
+  default_prompt: "Use $nuqs to implement type-safe URL query state in a React application."

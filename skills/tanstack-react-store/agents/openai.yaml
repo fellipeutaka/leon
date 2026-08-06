@@ -1,0 +1,4 @@
+interface:
+  display_name: "TanStack React Store"
+  short_description: "Manage React state with TanStack Store"
+  default_prompt: "Use $tanstack-react-store to implement global state with TanStack Store."
