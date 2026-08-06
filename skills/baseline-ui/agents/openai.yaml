@@ -1,0 +1,4 @@
+interface:
+  display_name: "Baseline UI"
+  short_description: "Clean up UI spacing and hierarchy"
+  default_prompt: "Use $baseline-ui to quickly polish spacing, hierarchy, and typography in a UI."

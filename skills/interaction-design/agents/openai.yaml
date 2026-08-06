@@ -1,0 +1,4 @@
+interface:
+  display_name: "Interaction Design"
+  short_description: "Design polished UI interactions and motion"
+  default_prompt: "Use $interaction-design to design polished microinteractions, motion, and feedback states."

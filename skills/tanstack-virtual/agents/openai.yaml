@@ -1,0 +1,4 @@
+interface:
+  display_name: "TanStack Virtual (React)"
+  short_description: "Virtualize large React lists and grids"
+  default_prompt: "Use $tanstack-virtual to virtualize a large React list, grid, or table."

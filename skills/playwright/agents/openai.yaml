@@ -1,0 +1,4 @@
+interface:
+  display_name: "Playwright"
+  short_description: "Write reliable Playwright end-to-end tests"
+  default_prompt: "Use $playwright to write or debug Playwright end-to-end tests."

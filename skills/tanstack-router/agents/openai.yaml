@@ -1,0 +1,4 @@
+interface:
+  display_name: "TanStack Router"
+  short_description: "Build type-safe React routing"
+  default_prompt: "Use $tanstack-router to implement type-safe React routing."

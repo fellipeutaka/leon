@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rust Expert"
+  short_description: "Build safe, high-performance Rust systems"
+  default_prompt: "Use $rust-expert to build or troubleshoot safe, high-performance Rust systems."

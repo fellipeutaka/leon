@@ -1,0 +1,4 @@
+interface:
+  display_name: "Next Cache Components Adoption"
+  short_description: "Adopt and unblock Next Cache Components"
+  default_prompt: "Use $next-cache-components-adoption to adopt Cache Components and unblock routes."

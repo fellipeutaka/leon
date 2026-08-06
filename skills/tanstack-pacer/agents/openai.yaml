@@ -1,0 +1,4 @@
+interface:
+  display_name: "TanStack Pacer"
+  short_description: "Control React execution with TanStack Pacer"
+  default_prompt: "Use $tanstack-pacer to debounce, throttle, queue, or batch React work."

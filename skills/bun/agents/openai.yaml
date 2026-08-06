@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bun"
+  short_description: "Use Bun for runtime, packages, and tests"
+  default_prompt: "Use $bun to write or troubleshoot Bun runtime, package, bundler, or test code."

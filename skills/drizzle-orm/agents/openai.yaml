@@ -1,0 +1,4 @@
+interface:
+  display_name: "Drizzle ORM"
+  short_description: "Use Drizzle ORM with TypeScript databases"
+  default_prompt: "Use $drizzle-orm to design schemas, queries, or migrations with Drizzle ORM."

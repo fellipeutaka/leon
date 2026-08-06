@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kanpeki"
+  short_description: "Build accessible UI with Kanpeki"
+  default_prompt: "Use $kanpeki to build accessible React UI with Kanpeki components."

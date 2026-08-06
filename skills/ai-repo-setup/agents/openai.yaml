@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Repo Setup"
+  short_description: "Make repositories AI-friendly"
+  default_prompt: "Use $ai-repo-setup to make a repository friendly to AI coding agents."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prisma ORM"
+  short_description: "Use Prisma for type-safe database access"
+  default_prompt: "Use $prisma to design Prisma schemas, queries, or migrations."

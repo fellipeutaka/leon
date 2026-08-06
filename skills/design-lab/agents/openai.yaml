@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Lab"
+  short_description: "Explore UI directions before implementation"
+  default_prompt: "Use $design-lab to explore and compare multiple UI directions before implementation."

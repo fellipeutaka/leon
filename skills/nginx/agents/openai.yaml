@@ -1,0 +1,4 @@
+interface:
+  display_name: "Nginx Expert"
+  short_description: "Configure Nginx reverse proxies securely"
+  default_prompt: "Use $nginx to configure or troubleshoot an Nginx server or reverse proxy."

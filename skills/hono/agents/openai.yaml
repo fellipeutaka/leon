@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hono"
+  short_description: "Build Hono web applications"
+  default_prompt: "Use $hono to build or test a Hono web application."

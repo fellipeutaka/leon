@@ -1,0 +1,4 @@
+interface:
+  display_name: "SwiftUI UI Patterns"
+  short_description: "Build reusable SwiftUI interfaces"
+  default_prompt: "Use $swiftui-ui-patterns to build or refactor SwiftUI views and components."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "TanStack Table"
+  short_description: "Build type-safe React data tables"
+  default_prompt: "Use $tanstack-table to build a sortable, filterable React data table."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Better Auth"
+  short_description: "Build TypeScript auth and authorization"
+  default_prompt: "Use $better-auth to implement authentication and authorization with Better Auth."

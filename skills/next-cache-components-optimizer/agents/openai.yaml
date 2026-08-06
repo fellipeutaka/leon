@@ -1,0 +1,4 @@
+interface:
+  display_name: "Next Cache Components Optimizer"
+  short_description: "Optimize Next.js cache component performance"
+  default_prompt: "Use $next-cache-components-optimizer to optimize a cached Next.js application's shell or navigation."

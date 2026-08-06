@@ -1,0 +1,4 @@
+interface:
+  display_name: "Canvas Design"
+  short_description: "Create visual art as PNGs or PDFs"
+  default_prompt: "Use $canvas-design to create an original visual design as a PNG or PDF."

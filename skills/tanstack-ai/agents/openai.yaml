@@ -1,0 +1,4 @@
+interface:
+  display_name: "TanStack AI (React)"
+  short_description: "Build TanStack AI chat applications"
+  default_prompt: "Use $tanstack-ai to build a streaming AI chat application with React."

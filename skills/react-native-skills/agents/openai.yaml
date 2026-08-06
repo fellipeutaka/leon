@@ -1,0 +1,4 @@
+interface:
+  display_name: "React Native Skills"
+  short_description: "Build performant React Native apps"
+  default_prompt: "Use $react-native-skills to build a performant React Native or Expo app."

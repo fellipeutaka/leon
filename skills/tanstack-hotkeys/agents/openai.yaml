@@ -1,0 +1,4 @@
+interface:
+  display_name: "TanStack Hotkeys (React)"
+  short_description: "Implement React keyboard shortcuts"
+  default_prompt: "Use $tanstack-hotkeys to implement keyboard shortcuts in React."

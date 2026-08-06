@@ -1,0 +1,4 @@
+interface:
+  display_name: "Motion"
+  short_description: "Build React animations with Motion"
+  default_prompt: "Use $motion to build or troubleshoot React animations with Motion."

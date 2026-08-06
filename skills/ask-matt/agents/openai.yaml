@@ -1,0 +1,6 @@
+interface:
+  display_name: "Ask Matt"
+  short_description: "Find the right skill or workflow"
+  default_prompt: "Use $ask-matt to choose the right skill or workflow for this task."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Next.js Best Practices"
+  short_description: "Follow Next.js application best practices"
+  default_prompt: "Use $next-best-practices to implement or review a Next.js application."
