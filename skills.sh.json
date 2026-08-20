@@ -1,0 +1,130 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Frontend",
+      "description": "Skills for building, reviewing, and optimizing frontend interfaces.",
+      "skills": [
+        "ai-sdk",
+        "baseline-ui",
+        "canvas-design",
+        "composition-patterns",
+        "denji",
+        "design-lab",
+        "fixing-accessibility",
+        "fixing-metadata",
+        "fixing-motion-performance",
+        "frontend-design",
+        "interface-design",
+        "interaction-design",
+        "kanpeki",
+        "motion",
+        "nuqs",
+        "paraglide-js",
+        "react-best-practices",
+        "react-hook-form-zod",
+        "react-native-skills",
+        "shadcn",
+        "tanstack-ai",
+        "tanstack-db",
+        "tanstack-form",
+        "tanstack-hotkeys",
+        "tanstack-query",
+        "tanstack-react-store",
+        "tanstack-router",
+        "tanstack-virtual",
+        "tanstack-pacer",
+        "tanstack-table",
+        "ui-ux-pro-max",
+        "web-design-guidelines",
+        "zustand"
+      ]
+    },
+    {
+      "title": "Backend & Systems",
+      "description": "Skills for backend APIs, authentication, databases, and systems programming.",
+      "skills": [
+        "drizzle-orm",
+        "nestjs",
+        "better-auth",
+        "elysia",
+        "fastify",
+        "hono",
+        "prisma",
+        "rust"
+      ]
+    },
+    {
+      "title": "Full-Stack Frameworks",
+      "description": "Skills for full-stack React frameworks and Next.js applications.",
+      "skills": [
+        "next-best-practices",
+        "next-cache-components-optimizer",
+        "next-cache-components-adoption",
+        "next-upgrade",
+        "tanstack-start"
+      ]
+    },
+    {
+      "title": "Software Design",
+      "description": "Principles and patterns for maintainable, well-tested software.",
+      "skills": [
+        "clean-code",
+        "design-patterns",
+        "solid",
+        "tdd"
+      ]
+    },
+    {
+      "title": "DevOps",
+      "description": "Skills for containerization, deployment infrastructure, and web servers.",
+      "skills": [
+        "docker",
+        "nginx"
+      ]
+    },
+    {
+      "title": "Mobile",
+      "description": "Skills for building accessible, responsive mobile interfaces.",
+      "skills": [
+        "swiftui-ui-patterns"
+      ]
+    },
+    {
+      "title": "Validation & Type Safety",
+      "description": "Skills for accessibility auditing and type-safe validation.",
+      "skills": [
+        "wcag-audit-patterns",
+        "zod"
+      ]
+    },
+    {
+      "title": "Engineering Workflows",
+      "description": "Issue-driven implementation, planning, and delivery workflows.",
+      "skills": [
+        "ask-matt",
+        "implement",
+        "to-tickets"
+      ]
+    },
+    {
+      "title": "Tooling",
+      "description": "Skills for agent tooling, testing, package management, and project automation.",
+      "skills": [
+        "agent-browser",
+        "ai-repo-setup",
+        "commit-work",
+        "creating-a-changeset",
+        "gh-stack",
+        "playwright",
+        "react-email",
+        "bun",
+        "pnpm",
+        "seo-audit",
+        "tauri",
+        "turborepo"
+      ]
+    }
+  ]
+}
