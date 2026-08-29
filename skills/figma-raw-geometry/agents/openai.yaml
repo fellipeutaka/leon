@@ -1,0 +1,4 @@
+interface:
+  display_name: "Figma Raw Geometry"
+  short_description: "Fetch precise Figma node geometry"
+  default_prompt: "Use $figma-raw-geometry to fetch precise Figma geometry or reconstruct Smart Animate transitions."

@@ -77,6 +77,7 @@ npx skills add fellipeutaka/leon --skill clean-code commit-work docker nginx rus
 | [composition-patterns](skills/composition-patterns/) | React composition patterns that scale | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) |
 | [denji](skills/denji/) | Manage SVG icons as framework components | [fellipeutaka/denji](https://github.com/fellipeutaka/denji) |
 | [design-lab](skills/design-lab/) | Conduct design interviews, generate five distinct UI variations, collect feedback, produce implementation plans | Curated |
+| [figma-raw-geometry](skills/figma-raw-geometry/) | Fetch raw Figma node geometry for pixel-accurate Figma-to-code work and Smart Animate reconstruction | Curated |
 | [fixing-accessibility](skills/fixing-accessibility/) | Audit and fix HTML accessibility — ARIA labels, keyboard navigation, focus management, color contrast, form errors | [ibelick/ui-skills](https://github.com/ibelick/ui-skills) |
 | [fixing-metadata](skills/fixing-metadata/) | Audit and fix HTML metadata — page titles, meta descriptions, canonical URLs, Open Graph, Twitter cards, JSON-LD | [ibelick/ui-skills](https://github.com/ibelick/ui-skills) |
 | [fixing-motion-performance](skills/fixing-motion-performance/) | Audit and fix animation performance — layout thrashing, compositor properties, scroll-linked motion, blur effects | [ibelick/ui-skills](https://github.com/ibelick/ui-skills) |
