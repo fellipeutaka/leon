@@ -17,7 +17,8 @@ The upstream flow is the source of the product and engineering disciplines:
 
 - `/to-spec` turns the conversation into a product specification.
 - `/to-tickets` creates vertical tickets with real `Blocked by` edges.
-- `/implement` uses TDD, regular typechecks, a full test run, and `/code-review`.
+- `/implement` delegates non-trivial tickets to an isolated implementer, uses
+  TDD, regular typechecks, a full test run, and an independent `/code-review`.
 
 Leon's downstream `/implement` adds three delivery modes:
 
@@ -31,6 +32,25 @@ Do not choose `stacked` just because a feature has several tickets. GitHub
 stacks are linear: one branch has one parent and at most one child. A ticket
 graph with forks and joins needs integration delivery or ordinary dependent
 PRs.
+
+## Implementation delegation
+
+`/implement` is the orchestrator. For each non-trivial ticket, it passes the
+ticket, acceptance criteria, pre-agreed seams, fixed point, and relevant code
+references to one implementer subagent in its own context and worktree. The
+subagent drives the red → green loop, typechecks, runs focused tests, runs the
+full suite once, and commits its branch.
+
+Independent frontier tickets may use parallel implementer subagents, one
+worktree per ticket. Dependent tickets wait until their blockers are merged into
+the target parent. No two agents edit the same branch or worktree concurrently.
+
+After the implementation commit, the orchestrator inspects the diff before
+reading the subagent report and calls `code-review` against the recorded fixed
+point. A report describes attempted work; it is not acceptance. The orchestrator
+resolves blocking findings and owns the final branch, PR, merge, and delivery
+operations. If isolated subagents are unavailable, the same brief runs locally
+and the fallback is recorded.
 
 ## PRD integration delivery
 

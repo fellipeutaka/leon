@@ -6,11 +6,72 @@ disable-model-invocation: true
 
 Implement the work described by the user in the spec or tickets.
 
-Use `/tdd` where possible, at pre-agreed seams.
+The main agent is the **orchestrator**. It owns the preflight, branch and
+worktree state, integration, validation, independent review, and delivery. An
+**implementer subagent** owns the code for one ticket in one isolated context.
 
-Run typechecking regularly, single test files regularly, and the full test suite once at the end.
+## Process
 
-Once done, use `/code-review` to review the work.
+### 1. Pin the work
+
+Read the complete ticket or spec, identify its acceptance criteria and
+pre-agreed test seams, and choose the delivery mode below. Record the fixed
+point for review: the immediate parent branch for a stack, the integration
+branch for a child ticket, or the trunk/explicit parent for standalone work.
+If the seams are not settled, ask the user before dispatching implementation.
+
+This step is complete when the scope, seams, blockers, fixed point, target
+branch, and target worktree are all explicit.
+
+### 2. Delegate implementation
+
+For any ticket that crosses more than one layer, changes more than one file, or
+would benefit from a fresh context, dispatch one implementer subagent using the
+brief in [IMPLEMENTER-BRIEF.md](IMPLEMENTER-BRIEF.md). A tiny, isolated edit can
+stay in the orchestrator context.
+
+Give each subagent its own context and worktree. Dispatch independent frontier
+tickets in parallel, one worktree per ticket; wait for a blocker before
+dispatching a dependent ticket. The orchestrator never lets two agents edit the
+same worktree or branch concurrently.
+
+The implementer subagent calls the Skill tool with "tdd" at the pre-agreed
+seams, typechecks regularly, runs focused tests during the loop, runs the full
+suite once, and commits only to its implementation branch. It returns the
+commit, changed files, checks, and any blocker. It does not choose delivery
+topology or review its own work.
+
+If the harness has no isolated subagent or worktree capability, execute the same
+brief in the orchestrator context and record that fallback in the final report.
+
+This step is complete when every dispatched ticket has either returned a
+verifiable commit and report or has been completed through the documented local
+fallback.
+
+### 3. Review independently
+
+Inspect the implementation diff and run the relevant checks before reading the
+implementer's narrative. Check out the returned implementation branch at its
+commit in the reviewer context or worktree, then call the Skill tool with
+"code-review" against the fixed point. Verify that
+`git diff <fixed-point>...<implementation-commit>` is non-empty before review.
+The review must run after the implementation commit and in a clean reviewer
+context or worktree where the harness supports it.
+
+The orchestrator classifies every finding as resolved, deferred with a reason,
+or blocking. Fix blocking findings in the orchestrator or a distinct repair
+subagent, rerun the affected checks, and repeat the review after material fixes.
+The implementer report is evidence about what was attempted, not acceptance
+of the result.
+
+This step is complete when the diff satisfies the ticket's acceptance criteria,
+the relevant checks pass, and no blocking review finding remains.
+
+### 4. Deliver
+
+Continue with the selected delivery mode below. The orchestrator owns the final
+Git history, branch/PR operations, merges, and the final report; the implementer
+subagent only supplies the committed implementation.
 
 ## Delivery mode
 
@@ -20,12 +81,14 @@ Choose the delivery mode from the user's instruction, the repository's `AGENTS.m
 
 Use standalone delivery by default when no stack has been requested:
 
-1. Commit the work to a new branch named `feat/implement-<short-description-of-work>`.
-2. Create a pull request against the appropriate trunk or parent branch, closing the ticket or spec.
+1. Prepare a new branch named `feat/implement-<short-description-of-work>` and
+   assign its worktree to the implementer subagent.
+2. After independent review, push the branch and create a pull request against
+   the appropriate trunk or parent branch, closing the ticket or spec.
 
 ### Stacked delivery
 
-Use stacked delivery when the user requests it or the repository explicitly enables it for the current flow. The `/gh-stack` skill is the operational reference for stack commands.
+Use stacked delivery when the user requests it or the repository explicitly enables it for the current flow. Use the `gh-stack` skill's commands as the operational reference.
 
 Before writing code:
 
@@ -40,7 +103,7 @@ Create and navigate branches with `gh stack`:
 - For each subsequent layer, use `gh stack add feat/implement-<short-description-of-work>` while checked out on the stack top.
 - Use standard `git add` and `git commit` for deliberate staging; do not use `git switch -c` for a stacked layer.
 
-The implementation, TDD loop, typechecking, full test suite, and `/code-review` requirements are the same in both modes. In stacked mode, review the diff against the immediate parent branch, not against the trunk, so the review matches the PR's incremental change.
+The implementation, TDD loop, typechecking, full test suite, and independent review requirements are the same in both modes. In stacked mode, review the diff against the immediate parent branch, not against the trunk, so the review matches the PR's incremental change.
 
 At the end of a stacked layer:
 

@@ -23,6 +23,8 @@ Some skills are synced from external repos. Tracked in `upstream.json`.
 
 - Sync all: `bun sync`
 - Sync new only: `bun sync --new-only` (skips skills that already have a `lastSync`)
+- Sync one repo: `bun sync --repo mattpocock/skills`
+- Sync one skill: `bun sync --repo mattpocock/skills --skill tdd`
 - Synced skills can be locally modified — just know re-syncing overwrites local changes
 - Set `GITHUB_TOKEN` env var to avoid API rate limits
 
@@ -35,4 +37,6 @@ Some skills are synced from external repos. Tracked in `upstream.json`.
 
 - Skill directory names use kebab-case
 - SKILL.md frontmatter must have `name` and `description` fields
-- Keep skills self-contained — no cross-skill dependencies
+- Keep standalone skills self-contained — no relative cross-skill dependencies.
+  The Matt-derived flow variants listed in `downstream.json` may call their
+  declared model-invoked dependencies through the Skill tool.

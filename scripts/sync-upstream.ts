@@ -25,6 +25,13 @@ interface UpstreamManifest {
 	upstreams: UpstreamEntry[];
 }
 
+interface CliOptions {
+	newOnly: boolean;
+	repo?: string;
+	skill?: string;
+	help: boolean;
+}
+
 interface GitHubContent {
 	name: string;
 	path: string;
@@ -35,7 +42,60 @@ interface GitHubContent {
 
 const ROOT = join(import.meta.dir, "..");
 const MANIFEST_PATH = join(ROOT, "upstream.json");
-const newOnly = process.argv.includes("--new-only");
+
+function parseArgs(args: string[]): CliOptions {
+	const options: CliOptions = { newOnly: false, help: false };
+
+	for (let i = 0; i < args.length; i++) {
+		const arg = args[i];
+
+		if (arg === "--new-only") {
+			options.newOnly = true;
+			continue;
+		}
+
+		if (arg === "--help" || arg === "-h") {
+			options.help = true;
+			continue;
+		}
+
+		if (arg === "--repo" || arg === "--skill") {
+			const value = args[i + 1];
+			if (!value || value.startsWith("--")) {
+				throw new Error(`${arg} requires a value`);
+			}
+
+			if (arg === "--repo") options.repo = value;
+			else options.skill = value;
+			i++;
+			continue;
+		}
+
+		throw new Error(`Unknown option: ${arg}`);
+	}
+
+	return options;
+}
+
+function printHelp(): void {
+	console.log(
+		[
+			"Usage: bun sync [--new-only] [--repo <owner/repo>] [--skill <name-or-path>]",
+			"",
+			"Options:",
+			"  --new-only              Sync only entries without lastSync",
+			"  --repo <owner/repo>     Sync only one upstream repository",
+			"  --skill <name-or-path>  Sync only a matching skill",
+			"  -h, --help              Show this help",
+		].join("\n"),
+	);
+}
+
+function matchesSkill(skill: SkillEntry, selector: string): boolean {
+	return [skill.remotePath, skill.localPath].some(
+		(path) => path === selector || path.split("/").at(-1) === selector,
+	);
+}
 
 const ghHeaders = {
 	Accept: "application/vnd.github.v3+json",
@@ -122,27 +182,64 @@ async function syncSkill(
 }
 
 try {
+	const options = parseArgs(process.argv.slice(2));
+	if (options.help) {
+		printHelp();
+		process.exit(0);
+	}
+	const skillSelector = options.skill;
+
 	const manifest: UpstreamManifest = await Bun.file(MANIFEST_PATH).json();
+	const repoCandidates = manifest.upstreams.filter(
+		(upstream) => !options.repo || upstream.repo === options.repo,
+	);
 
-	const upstreams = newOnly
-		? manifest.upstreams.filter(
-				(u) =>
-					u.skills.some((s) => !s.lastSync) ||
-					u.references?.some((r) => !r.lastSync),
-			)
-		: manifest.upstreams;
+	if (options.repo && repoCandidates.length === 0) {
+		throw new Error(`Upstream repository not found: ${options.repo}`);
+	}
 
-	if (newOnly && upstreams.length === 0) {
-		console.log("No new upstreams to sync.");
+	if (
+		skillSelector &&
+		!repoCandidates.some((upstream) =>
+			upstream.skills.some((skill) => matchesSkill(skill, skillSelector)),
+		)
+	) {
+		const scope = options.repo ? ` in ${options.repo}` : "";
+		throw new Error(`Skill not found${scope}: ${skillSelector}`);
+	}
+
+	const upstreams = repoCandidates.filter((upstream) => {
+		const matchingSkills = upstream.skills.filter(
+			(skill) => !skillSelector || matchesSkill(skill, skillSelector),
+		);
+		const matchingReferences = skillSelector ? [] : (upstream.references ?? []);
+
+		return (
+			matchingSkills.length > 0 || matchingReferences.length > 0
+		) &&
+			(!options.newOnly ||
+				matchingSkills.some((skill) => !skill.lastSync) ||
+				matchingReferences.some((reference) => !reference.lastSync));
+	});
+
+	if (upstreams.length === 0) {
+		console.log(
+			options.newOnly
+				? "No new matching upstreams to sync."
+				: "No matching upstreams to sync.",
+		);
 		process.exit(0);
 	}
 
 	for (const upstream of upstreams) {
 		console.log(`\nUpstream: ${upstream.repo} (${upstream.branch})`);
 
-		const skills = newOnly
-			? upstream.skills.filter((s) => !s.lastSync)
-			: upstream.skills;
+		const matchingSkills = upstream.skills.filter(
+			(skill) => !skillSelector || matchesSkill(skill, skillSelector),
+		);
+		const skills = options.newOnly
+			? matchingSkills.filter((skill) => !skill.lastSync)
+			: matchingSkills;
 
 		await Promise.all(
 			skills.map(async (skill) => {
@@ -165,7 +262,12 @@ try {
 		);
 
 		// Update references (track SHA only, no file sync)
-		for (const ref of upstream.references ?? []) {
+		const matchingReferences = skillSelector ? [] : (upstream.references ?? []);
+		const references = options.newOnly
+			? matchingReferences.filter((reference) => !reference.lastSync)
+			: matchingReferences;
+
+		for (const ref of references) {
 			try {
 				const sha = await getPathSha(
 					upstream.repo,

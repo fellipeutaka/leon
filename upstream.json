@@ -272,10 +272,10 @@
       "branch": "main",
       "skills": [
         {
-          "remotePath": "tdd",
+          "remotePath": "skills/engineering/tdd",
           "localPath": "skills/tdd",
-          "sha": "28d7822c112f22cf499099881856fdec07bc83a8",
-          "lastSync": "2026-03-29T16:43:47.251Z"
+          "sha": "79288be15c67b849f22b6572056601090fd20913",
+          "lastSync": "2026-09-03T13:09:58.967Z"
         }
       ]
     },
