@@ -1,0 +1,710 @@
+{
+  "version": 1,
+  "campaign": {
+    "id": "leon-intent-upstream-contributions",
+    "assessmentDate": "2026-08-26",
+    "intentRegistrySnapshot": {
+      "packages": 386,
+      "skills": 1380,
+      "indexedVersions": 8021
+    },
+    "source": "TanStack Intent migration assessment handoff",
+    "goal": "Contribute task-oriented Intent skills to the canonical upstream package repositories that do not currently publish them."
+  },
+  "paths": {
+    "campaignRoot": ".temp/intent-contributions",
+    "repositories": ".temp/intent-contributions/repos",
+    "prompt": "docs/intent-contributions/PROMPT.md",
+    "preflightReport": "docs/intent-contributions/open-work.md"
+  },
+  "clonePolicy": {
+    "command": "gh repo clone OWNER/REPO DESTINATION -- --depth=1 --filter=blob:none",
+    "oneDirectoryPerRepository": true,
+    "neverCloneIntoLeonSkills": true,
+    "neverModifyExistingClone": true,
+    "pullRequestsRequireHumanReview": true
+  },
+  "repositories": [
+    {
+      "id": "vercel-ai",
+      "repository": "vercel/ai",
+      "directory": ".temp/intent-contributions/repos/vercel-ai",
+      "clone": true,
+      "targetIds": ["ai-sdk"],
+      "notes": "Canonical repository for the ai npm package."
+    },
+    {
+      "id": "fellipeutaka-denji",
+      "repository": "fellipeutaka/denji",
+      "directory": ".temp/intent-contributions/repos/fellipeutaka-denji",
+      "clone": true,
+      "targetIds": ["denji"],
+      "notes": "Canonical repository from the package metadata and Leon source mapping."
+    },
+    {
+      "id": "fellipeutaka-kanpeki",
+      "repository": "fellipeutaka/kanpeki",
+      "directory": ".temp/intent-contributions/repos/fellipeutaka-kanpeki",
+      "clone": true,
+      "targetIds": ["kanpeki"],
+      "notes": "Active GitHub repository. The npm metadata currently points at archived badgyro/Kanpeki; verify package ownership before proposing a PR."
+    },
+    {
+      "id": "motiondivision-motion",
+      "repository": "motiondivision/motion",
+      "directory": ".temp/intent-contributions/repos/motiondivision-motion",
+      "clone": true,
+      "targetIds": ["motion"],
+      "notes": "Canonical repository for motion and framer-motion packages."
+    },
+    {
+      "id": "47ng-nuqs",
+      "repository": "47ng/nuqs",
+      "directory": ".temp/intent-contributions/repos/47ng-nuqs",
+      "clone": true,
+      "targetIds": ["nuqs"],
+      "notes": "Canonical repository for the nuqs npm package."
+    },
+    {
+      "id": "opral-paraglide-js",
+      "repository": "opral/paraglide-js",
+      "directory": ".temp/intent-contributions/repos/opral-paraglide-js",
+      "clone": true,
+      "targetIds": ["paraglide-js"],
+      "notes": "Canonical repository for @inlang/paraglide-js."
+    },
+    {
+      "id": "shadcn-ui-ui",
+      "repository": "shadcn-ui/ui",
+      "directory": ".temp/intent-contributions/repos/shadcn-ui-ui",
+      "clone": true,
+      "targetIds": ["shadcn"],
+      "notes": "Canonical repository for the shadcn CLI and registry ecosystem."
+    },
+    {
+      "id": "tanstack-form",
+      "repository": "TanStack/form",
+      "directory": ".temp/intent-contributions/repos/tanstack-form",
+      "clone": true,
+      "targetIds": ["tanstack-form"],
+      "notes": "TanStack monorepo for @tanstack/react-form and related packages."
+    },
+    {
+      "id": "tanstack-hotkeys",
+      "repository": "TanStack/hotkeys",
+      "directory": ".temp/intent-contributions/repos/tanstack-hotkeys",
+      "clone": true,
+      "targetIds": ["tanstack-hotkeys"],
+      "notes": "TanStack monorepo for @tanstack/react-hotkeys and related packages."
+    },
+    {
+      "id": "tanstack-pacer",
+      "repository": "TanStack/pacer",
+      "directory": ".temp/intent-contributions/repos/tanstack-pacer",
+      "clone": true,
+      "targetIds": ["tanstack-pacer"],
+      "notes": "TanStack monorepo for @tanstack/react-pacer and related packages."
+    },
+    {
+      "id": "tanstack-query",
+      "repository": "TanStack/query",
+      "directory": ".temp/intent-contributions/repos/tanstack-query",
+      "clone": true,
+      "targetIds": ["tanstack-query"],
+      "notes": "TanStack monorepo for @tanstack/react-query and related packages."
+    },
+    {
+      "id": "tanstack-store",
+      "repository": "TanStack/store",
+      "directory": ".temp/intent-contributions/repos/tanstack-store",
+      "clone": true,
+      "targetIds": ["tanstack-react-store"],
+      "notes": "TanStack monorepo for @tanstack/react-store and related packages."
+    },
+    {
+      "id": "tanstack-virtual",
+      "repository": "TanStack/virtual",
+      "directory": ".temp/intent-contributions/repos/tanstack-virtual",
+      "clone": true,
+      "targetIds": ["tanstack-virtual"],
+      "notes": "TanStack monorepo for @tanstack/react-virtual and related packages."
+    },
+    {
+      "id": "pmndrs-zustand",
+      "repository": "pmndrs/zustand",
+      "directory": ".temp/intent-contributions/repos/pmndrs-zustand",
+      "clone": true,
+      "targetIds": ["zustand"],
+      "notes": "Canonical repository for the zustand npm package."
+    },
+    {
+      "id": "drizzle-team-drizzle-orm",
+      "repository": "drizzle-team/drizzle-orm",
+      "directory": ".temp/intent-contributions/repos/drizzle-team-drizzle-orm",
+      "clone": true,
+      "targetIds": ["drizzle-orm"],
+      "notes": "Canonical monorepo for drizzle-orm and its adapters."
+    },
+    {
+      "id": "nestjs-nest",
+      "repository": "nestjs/nest",
+      "directory": ".temp/intent-contributions/repos/nestjs-nest",
+      "clone": true,
+      "targetIds": ["nestjs"],
+      "notes": "Canonical monorepo for NestJS packages."
+    },
+    {
+      "id": "better-auth-better-auth",
+      "repository": "better-auth/better-auth",
+      "directory": ".temp/intent-contributions/repos/better-auth-better-auth",
+      "clone": true,
+      "targetIds": ["better-auth"],
+      "notes": "Canonical repository for better-auth."
+    },
+    {
+      "id": "elysiajs-elysia",
+      "repository": "elysiajs/elysia",
+      "directory": ".temp/intent-contributions/repos/elysiajs-elysia",
+      "clone": true,
+      "targetIds": ["elysia"],
+      "notes": "Canonical repository for ElysiaJS."
+    },
+    {
+      "id": "fastify-fastify",
+      "repository": "fastify/fastify",
+      "directory": ".temp/intent-contributions/repos/fastify-fastify",
+      "clone": true,
+      "targetIds": ["fastify"],
+      "notes": "Canonical repository for Fastify."
+    },
+    {
+      "id": "honojs-hono",
+      "repository": "honojs/hono",
+      "directory": ".temp/intent-contributions/repos/honojs-hono",
+      "clone": true,
+      "targetIds": ["hono"],
+      "notes": "Canonical repository for Hono."
+    },
+    {
+      "id": "prisma-prisma",
+      "repository": "prisma/prisma",
+      "directory": ".temp/intent-contributions/repos/prisma-prisma",
+      "clone": true,
+      "targetIds": ["prisma"],
+      "notes": "Canonical Prisma monorepo."
+    },
+    {
+      "id": "vercel-next-js",
+      "repository": "vercel/next.js",
+      "directory": ".temp/intent-contributions/repos/vercel-next-js",
+      "clone": true,
+      "targetIds": [
+        "next-best-practices",
+        "next-cache-components-adoption",
+        "next-cache-components-optimizer",
+        "next-upgrade"
+      ],
+      "notes": "Canonical repository for the next npm package and the relevant Next.js skill sources."
+    },
+    {
+      "id": "vercel-labs-agent-browser",
+      "repository": "vercel-labs/agent-browser",
+      "directory": ".temp/intent-contributions/repos/vercel-labs-agent-browser",
+      "clone": true,
+      "targetIds": ["agent-browser"],
+      "notes": "Canonical repository for the agent-browser npm package."
+    },
+    {
+      "id": "oven-sh-bun",
+      "repository": "oven-sh/bun",
+      "directory": ".temp/intent-contributions/repos/oven-sh-bun",
+      "clone": true,
+      "targetIds": ["bun"],
+      "notes": "Bun source repository; prove that the published package can carry Intent skills before editing."
+    },
+    {
+      "id": "pnpm-pnpm",
+      "repository": "pnpm/pnpm",
+      "directory": ".temp/intent-contributions/repos/pnpm-pnpm",
+      "clone": true,
+      "targetIds": ["pnpm"],
+      "notes": "Canonical repository for the pnpm package and CLI."
+    },
+    {
+      "id": "microsoft-playwright",
+      "repository": "microsoft/playwright",
+      "directory": ".temp/intent-contributions/repos/microsoft-playwright",
+      "clone": true,
+      "targetIds": ["playwright"],
+      "notes": "Canonical repository for Playwright packages."
+    },
+    {
+      "id": "resend-react-email",
+      "repository": "resend/react-email",
+      "directory": ".temp/intent-contributions/repos/resend-react-email",
+      "clone": true,
+      "targetIds": ["react-email"],
+      "notes": "Canonical repository for react-email packages."
+    },
+    {
+      "id": "tauri-apps-tauri",
+      "repository": "tauri-apps/tauri",
+      "directory": ".temp/intent-contributions/repos/tauri-apps-tauri",
+      "clone": true,
+      "targetIds": ["tauri"],
+      "notes": "Tauri monorepo; prove the npm CLI package's files and release path before editing."
+    },
+    {
+      "id": "vercel-turborepo",
+      "repository": "vercel/turborepo",
+      "directory": ".temp/intent-contributions/repos/vercel-turborepo",
+      "clone": true,
+      "targetIds": ["turborepo"],
+      "notes": "Canonical monorepo for the turbo package."
+    },
+    {
+      "id": "colinhacks-zod",
+      "repository": "colinhacks/zod",
+      "directory": ".temp/intent-contributions/repos/colinhacks-zod",
+      "clone": true,
+      "targetIds": ["zod"],
+      "notes": "Canonical repository for Zod."
+    },
+    {
+      "id": "react-hook-form-react-hook-form",
+      "repository": "react-hook-form/react-hook-form",
+      "directory": ".temp/intent-contributions/repos/react-hook-form-react-hook-form",
+      "clone": true,
+      "targetIds": ["react-hook-form-zod"],
+      "notes": "Primary target for the combined React Hook Form + Zod skill; avoid duplicating Zod-only guidance."
+    },
+    {
+      "id": "react-react-native",
+      "repository": "react/react-native",
+      "directory": ".temp/intent-contributions/repos/react-react-native",
+      "clone": true,
+      "targetIds": ["react-native-skills-react-native"],
+      "notes": "React Native half of the combined React Native + Expo skill."
+    },
+    {
+      "id": "expo-expo",
+      "repository": "expo/expo",
+      "directory": ".temp/intent-contributions/repos/expo-expo",
+      "clone": true,
+      "targetIds": ["react-native-skills-expo"],
+      "notes": "Expo half of the combined React Native + Expo skill. Keep Expo-specific guidance here."
+    }
+  ],
+  "contributions": [
+    {
+      "id": "ai-sdk",
+      "leonSkillDir": "skills/ai-sdk",
+      "leonSkillName": "ai-sdk",
+      "package": "ai",
+      "repositoryId": "vercel-ai",
+      "status": "candidate",
+      "priority": 1,
+      "scope": "AI SDK application patterns, model calls, streaming, tools, and UI integration."
+    },
+    {
+      "id": "denji",
+      "leonSkillDir": "skills/denji",
+      "leonSkillName": "denji",
+      "package": "denji",
+      "repositoryId": "fellipeutaka-denji",
+      "status": "candidate",
+      "priority": 1,
+      "scope": "Using Denji to manage SVG icons as framework components."
+    },
+    {
+      "id": "kanpeki",
+      "leonSkillDir": "skills/kanpeki",
+      "leonSkillName": "kanpeki",
+      "package": "kanpeki",
+      "repositoryId": "fellipeutaka-kanpeki",
+      "status": "candidate-needs-maintainer-confirmation",
+      "priority": 3,
+      "scope": "Using Kanpeki accessible UI components and its package APIs."
+    },
+    {
+      "id": "motion",
+      "leonSkillDir": "skills/motion",
+      "leonSkillName": "motion",
+      "package": ["motion", "framer-motion"],
+      "repositoryId": "motiondivision-motion",
+      "status": "candidate",
+      "priority": 1,
+      "scope": "Motion animations, transitions, gestures, layout animation, and performance."
+    },
+    {
+      "id": "nuqs",
+      "leonSkillDir": "skills/nuqs",
+      "leonSkillName": "nuqs",
+      "package": "nuqs",
+      "repositoryId": "47ng-nuqs",
+      "status": "candidate",
+      "priority": 1,
+      "scope": "Type-safe URL query state with nuqs across supported frameworks."
+    },
+    {
+      "id": "paraglide-js",
+      "leonSkillDir": "skills/paraglide-js",
+      "leonSkillName": "paraglide-js",
+      "package": "@inlang/paraglide-js",
+      "repositoryId": "opral-paraglide-js",
+      "status": "candidate",
+      "priority": 2,
+      "scope": "Paraglide compiler output, locale strategies, routing, and SSR/SSG integration."
+    },
+    {
+      "id": "shadcn",
+      "leonSkillDir": "skills/shadcn",
+      "leonSkillName": "shadcn",
+      "package": "shadcn",
+      "repositoryId": "shadcn-ui-ui",
+      "status": "candidate",
+      "priority": 1,
+      "scope": "Using the shadcn CLI and registry to add, search, fix, style, and compose components."
+    },
+    {
+      "id": "tanstack-form",
+      "leonSkillDir": "skills/tanstack-form",
+      "leonSkillName": "tanstack-form",
+      "package": "@tanstack/react-form",
+      "repositoryId": "tanstack-form",
+      "status": "candidate",
+      "priority": 2,
+      "scope": "TanStack Form state, validation, composition, and framework integration."
+    },
+    {
+      "id": "tanstack-hotkeys",
+      "leonSkillDir": "skills/tanstack-hotkeys",
+      "leonSkillName": "tanstack-hotkeys",
+      "package": "@tanstack/react-hotkeys",
+      "repositoryId": "tanstack-hotkeys",
+      "status": "candidate",
+      "priority": 2,
+      "scope": "Type-safe keyboard shortcuts and hotkey lifecycle in React."
+    },
+    {
+      "id": "tanstack-pacer",
+      "leonSkillDir": "skills/tanstack-pacer",
+      "leonSkillName": "tanstack-pacer",
+      "package": "@tanstack/react-pacer",
+      "repositoryId": "tanstack-pacer",
+      "status": "candidate",
+      "priority": 2,
+      "scope": "Debouncing, throttling, rate limiting, queuing, batching, and execution control."
+    },
+    {
+      "id": "tanstack-query",
+      "leonSkillDir": "skills/tanstack-query",
+      "leonSkillName": "tanstack-query",
+      "package": "@tanstack/react-query",
+      "repositoryId": "tanstack-query",
+      "status": "candidate",
+      "priority": 1,
+      "scope": "TanStack Query fetching, caching, mutations, invalidation, and query lifecycle."
+    },
+    {
+      "id": "tanstack-react-store",
+      "leonSkillDir": "skills/tanstack-react-store",
+      "leonSkillName": "tanstack-react-store",
+      "package": "@tanstack/react-store",
+      "repositoryId": "tanstack-store",
+      "status": "candidate",
+      "priority": 2,
+      "scope": "TanStack Store state, selectors, subscriptions, and React integration."
+    },
+    {
+      "id": "tanstack-virtual",
+      "leonSkillDir": "skills/tanstack-virtual",
+      "leonSkillName": "tanstack-virtual",
+      "package": "@tanstack/react-virtual",
+      "repositoryId": "tanstack-virtual",
+      "status": "candidate",
+      "priority": 2,
+      "scope": "Headless virtualization for large lists and grids."
+    },
+    {
+      "id": "zustand",
+      "leonSkillDir": "skills/zustand",
+      "leonSkillName": "zustand",
+      "package": "zustand",
+      "repositoryId": "pmndrs-zustand",
+      "status": "candidate",
+      "priority": 1,
+      "scope": "Zustand stores, selectors, middleware, persistence, and React usage."
+    },
+    {
+      "id": "drizzle-orm",
+      "leonSkillDir": "skills/drizzle-orm",
+      "leonSkillName": "drizzle-orm",
+      "package": "drizzle-orm",
+      "repositoryId": "drizzle-team-drizzle-orm",
+      "status": "candidate",
+      "priority": 1,
+      "scope": "Drizzle schemas, queries, relations, migrations, and database-specific patterns."
+    },
+    {
+      "id": "nestjs",
+      "leonSkillDir": "skills/nestjs",
+      "leonSkillName": "nestjs",
+      "package": "@nestjs/core",
+      "repositoryId": "nestjs-nest",
+      "status": "candidate",
+      "priority": 2,
+      "scope": "NestJS modules, providers, controllers, pipes, guards, interceptors, and testing."
+    },
+    {
+      "id": "better-auth",
+      "leonSkillDir": "skills/better-auth",
+      "leonSkillName": "better-auth",
+      "package": "better-auth",
+      "repositoryId": "better-auth-better-auth",
+      "status": "candidate",
+      "priority": 1,
+      "scope": "Better Auth setup, providers, sessions, plugins, organizations, and security boundaries."
+    },
+    {
+      "id": "elysia",
+      "leonSkillDir": "skills/elysia",
+      "leonSkillName": "elysiajs",
+      "package": "elysia",
+      "repositoryId": "elysiajs-elysia",
+      "status": "candidate",
+      "priority": 2,
+      "scope": "ElysiaJS routes, validation, plugins, lifecycle, and type-safe server composition."
+    },
+    {
+      "id": "fastify",
+      "leonSkillDir": "skills/fastify",
+      "leonSkillName": "fastify-best-practices",
+      "package": "fastify",
+      "repositoryId": "fastify-fastify",
+      "status": "candidate",
+      "priority": 1,
+      "scope": "Fastify plugins, schemas, hooks, encapsulation, logging, and production server practices."
+    },
+    {
+      "id": "hono",
+      "leonSkillDir": "skills/hono",
+      "leonSkillName": "hono",
+      "package": "hono",
+      "repositoryId": "honojs-hono",
+      "status": "candidate",
+      "priority": 1,
+      "scope": "Hono routing, middleware, validation, runtimes, and deployment patterns."
+    },
+    {
+      "id": "prisma",
+      "leonSkillDir": "skills/prisma",
+      "leonSkillName": "prisma",
+      "package": "prisma",
+      "repositoryId": "prisma-prisma",
+      "status": "candidate",
+      "priority": 1,
+      "scope": "Prisma schema, client generation, migrations, queries, and production data access."
+    },
+    {
+      "id": "next-best-practices",
+      "leonSkillDir": "skills/next-best-practices",
+      "leonSkillName": "next-best-practices",
+      "package": "next",
+      "repositoryId": "vercel-next-js",
+      "status": "candidate-needs-packaging-proof",
+      "priority": 3,
+      "scope": "Current Next.js conventions and production best practices, grounded in the repository's supported versions."
+    },
+    {
+      "id": "next-cache-components-adoption",
+      "leonSkillDir": "skills/next-cache-components-adoption",
+      "leonSkillName": "next-cache-components-adoption",
+      "package": "next",
+      "repositoryId": "vercel-next-js",
+      "status": "candidate-needs-packaging-proof",
+      "priority": 3,
+      "scope": "Adopting and migrating to Next.js Cache Components."
+    },
+    {
+      "id": "next-cache-components-optimizer",
+      "leonSkillDir": "skills/next-cache-components-optimizer",
+      "leonSkillName": "next-cache-components-optimizer",
+      "package": "next",
+      "repositoryId": "vercel-next-js",
+      "status": "candidate-needs-packaging-proof",
+      "priority": 3,
+      "scope": "Optimizing Next.js applications using Cache Components."
+    },
+    {
+      "id": "next-upgrade",
+      "leonSkillDir": "skills/next-upgrade",
+      "leonSkillName": "next-upgrade",
+      "package": "next",
+      "repositoryId": "vercel-next-js",
+      "status": "candidate-needs-packaging-proof",
+      "priority": 3,
+      "scope": "Safe Next.js upgrades, codemods, release notes, and migration checks."
+    },
+    {
+      "id": "agent-browser",
+      "leonSkillDir": "skills/agent-browser",
+      "leonSkillName": "agent-browser",
+      "package": "agent-browser",
+      "repositoryId": "vercel-labs-agent-browser",
+      "status": "candidate",
+      "priority": 2,
+      "scope": "Agent-browser CLI workflows, navigation, interaction, extraction, and debugging."
+    },
+    {
+      "id": "bun",
+      "leonSkillDir": "skills/bun",
+      "leonSkillName": "bun",
+      "package": "bun",
+      "repositoryId": "oven-sh-bun",
+      "status": "candidate-needs-packaging-proof",
+      "priority": 3,
+      "scope": "Bun runtime, package manager, bundler, test runner, and compatible APIs."
+    },
+    {
+      "id": "pnpm",
+      "leonSkillDir": "skills/pnpm",
+      "leonSkillName": "pnpm",
+      "package": "pnpm",
+      "repositoryId": "pnpm-pnpm",
+      "status": "candidate-needs-packaging-proof",
+      "priority": 2,
+      "scope": "pnpm workspaces, catalogs, dependency resolution, filters, and CLI workflows."
+    },
+    {
+      "id": "playwright",
+      "leonSkillDir": "skills/playwright",
+      "leonSkillName": "playwright",
+      "package": "playwright",
+      "repositoryId": "microsoft-playwright",
+      "status": "candidate-needs-packaging-proof",
+      "priority": 2,
+      "scope": "Playwright browser automation, fixtures, locators, debugging, and test architecture."
+    },
+    {
+      "id": "react-email",
+      "leonSkillDir": "skills/react-email",
+      "leonSkillName": "react-email",
+      "package": "react-email",
+      "repositoryId": "resend-react-email",
+      "status": "candidate",
+      "priority": 2,
+      "scope": "React Email components, rendering, previews, compatibility, and delivery workflow."
+    },
+    {
+      "id": "tauri",
+      "leonSkillDir": "skills/tauri",
+      "leonSkillName": "tauri",
+      "package": "@tauri-apps/cli",
+      "repositoryId": "tauri-apps-tauri",
+      "status": "candidate-needs-packaging-proof",
+      "priority": 3,
+      "scope": "Tauri app structure, commands, permissions, plugins, Rust backends, and frontend integration."
+    },
+    {
+      "id": "turborepo",
+      "leonSkillDir": "skills/turborepo",
+      "leonSkillName": "turborepo",
+      "package": "turbo",
+      "repositoryId": "vercel-turborepo",
+      "status": "candidate-needs-packaging-proof",
+      "priority": 2,
+      "scope": "Turborepo tasks, caching, pipelines, boundaries, and CI workflows."
+    },
+    {
+      "id": "zod",
+      "leonSkillDir": "skills/zod",
+      "leonSkillName": "zod",
+      "package": "zod",
+      "repositoryId": "colinhacks-zod",
+      "status": "candidate",
+      "priority": 1,
+      "scope": "Zod schemas, parsing, refinements, transformations, errors, and type inference."
+    },
+    {
+      "id": "react-hook-form-zod",
+      "leonSkillDir": "skills/react-hook-form-zod",
+      "leonSkillName": "react-hook-form-zod",
+      "package": "react-hook-form",
+      "relatedPackages": ["zod"],
+      "repositoryId": "react-hook-form-react-hook-form",
+      "status": "candidate-needs-scope-review",
+      "priority": 1,
+      "scope": "React Hook Form with Zod resolver integration, typed forms, validation, and submission states."
+    },
+    {
+      "id": "react-native-skills-react-native",
+      "leonSkillDir": "skills/react-native-skills",
+      "leonSkillName": "react-native-skills",
+      "package": "react-native",
+      "repositoryId": "react-react-native",
+      "status": "candidate-needs-scope-review",
+      "priority": 3,
+      "scope": "React Native core patterns, platform behavior, performance, and native integration."
+    },
+    {
+      "id": "react-native-skills-expo",
+      "leonSkillDir": "skills/react-native-skills",
+      "leonSkillName": "react-native-skills",
+      "package": "expo",
+      "repositoryId": "expo-expo",
+      "status": "candidate-needs-scope-review",
+      "priority": 3,
+      "scope": "Expo project configuration, modules, routing, builds, and deployment."
+    }
+  ],
+  "holds": [
+    {
+      "id": "composition-patterns",
+      "leonSkillDir": "skills/composition-patterns",
+      "leonSkillName": "vercel-composition-patterns",
+      "sourceRepository": "vercel-labs/agent-skills",
+      "clone": false,
+      "reason": "The source is a general skill collection rather than a canonical npm package repository."
+    },
+    {
+      "id": "react-best-practices",
+      "leonSkillDir": "skills/react-best-practices",
+      "leonSkillName": "react-best-practices",
+      "sourceRepository": "vercel-labs/agent-skills",
+      "clone": false,
+      "reason": "The source is a general skill collection rather than a canonical npm package repository."
+    },
+    {
+      "id": "rust",
+      "leonSkillDir": "skills/rust",
+      "leonSkillName": "rust-expert",
+      "sourceRepository": "rust-lang/rust",
+      "clone": false,
+      "reason": "Rust itself is not distributed as an npm package suitable for the current Intent registry model."
+    },
+    {
+      "id": "swiftui-ui-patterns",
+      "leonSkillDir": "skills/swiftui-ui-patterns",
+      "leonSkillName": "swiftui-ui-patterns",
+      "clone": false,
+      "reason": "SwiftUI is an Apple platform framework, not a canonical npm package in the current Intent model."
+    },
+    {
+      "id": "docker",
+      "leonSkillDir": "skills/docker",
+      "leonSkillName": "docker",
+      "sourceRepository": "docker/docs",
+      "clone": false,
+      "reason": "Docker documentation and engine repositories do not provide a canonical npm package target for these skills."
+    },
+    {
+      "id": "nginx",
+      "leonSkillDir": "skills/nginx",
+      "leonSkillName": "nginx",
+      "sourceRepository": "nginx/nginx",
+      "clone": false,
+      "reason": "Nginx is not distributed as an npm package suitable for the current Intent registry model."
+    }
+  ]
+}
