@@ -84,11 +84,13 @@ Iterate until the user approves the breakdown and, when relevant, the delivery t
 Publish the approved tickets. **How** depends on the tracker `/setup-matt-pocock-skills` configured — the tickets are the same either way, only the shape of the blocking edges changes:
 
 - **Local files** → write one file per ticket under `.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01` in dependency order (blockers first). Each file's "Blocked by" lists the numbers/titles it depends on. Use the per-ticket file template below — one ticket per file, never a single combined file.
-- **A real issue tracker (GitHub, Linear, …)** → publish one issue per ticket in dependency order (blockers first) so each ticket's blocking edges can reference real identifiers. Use the platform's native blocking / sub-issue relationship where it has one; otherwise set each ticket's "Blocked by" to the blocking issues. Apply the `ready-for-agent` triage label unless instructed otherwise — the tickets are agent-grabbable by construction.
+- **A real issue tracker (GitHub, Linear, …)** → publish one issue per ticket in dependency order (blockers first) so each ticket's blocking edges can reference real identifiers. Keep the textual `Blocked by` edges, and use the platform's native relationship when it supports one. On GitHub, a declared parent makes native sub-issue attachment part of publishing, not an optional follow-up: create a child with `gh issue create --parent <parent>` when possible, or attach an existing child with `gh issue edit <parent> --add-sub-issue <child>`. A textual parent reference alone is not sufficient. Apply the `ready-for-agent` triage label unless instructed otherwise — the tickets are agent-grabbable by construction.
+
+For GitHub native sub-issues, verify the result before reporting publication complete: the parent’s `sub_issues` list must contain every child, and each child’s `parent` endpoint must point back to that parent. If attachment or verification fails because of permissions, tracker support, or an API/CLI error, report the concrete blocker instead of claiming the hierarchy was published.
 
 Work the **frontier**: any ticket whose blockers are all done. For a purely linear chain that means top to bottom. For a graph with forks, multiple frontier tickets may be independently implementable unless the user chose to serialize them into one stack.
 
-Do NOT close or modify a parent issue.
+Do NOT close or edit a parent issue's body or status. Attaching a child through the native sub-issue relationship is explicitly allowed and required when GitHub is the configured tracker; it changes hierarchy metadata, not the parent's content.
 
 <local-ticket-template>
 
