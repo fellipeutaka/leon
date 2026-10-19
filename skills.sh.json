@@ -51,6 +51,7 @@
         "elysia",
         "fastify",
         "hono",
+        "password-storage",
         "prisma",
         "rust"
       ]
@@ -73,6 +74,7 @@
         "clean-code",
         "design-patterns",
         "solid",
+        "system-design",
         "tdd"
       ]
     },

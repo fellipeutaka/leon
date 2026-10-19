@@ -50,19 +50,19 @@ npx skills add fellipeutaka/leon --skill clean-code commit-work swiftui-ui-patte
 ### Full-Stack / Monorepo
 
 ```bash
-npx skills add fellipeutaka/leon --skill ai-sdk better-auth bun clean-code commit-work design-patterns docker drizzle-orm next-best-practices playwright prisma solid tanstack-start tdd turborepo zod
+npx skills add fellipeutaka/leon --skill ai-sdk better-auth bun clean-code commit-work design-patterns docker drizzle-orm next-best-practices password-storage playwright prisma solid system-design tanstack-start tdd turborepo zod
 ```
 
 ### Backend (Node.js)
 
 ```bash
-npx skills add fellipeutaka/leon --skill better-auth bun clean-code commit-work design-patterns docker drizzle-orm elysia fastify nestjs nginx prisma solid tdd zod
+npx skills add fellipeutaka/leon --skill better-auth bun clean-code commit-work design-patterns docker drizzle-orm elysia fastify nestjs nginx password-storage prisma solid system-design tdd zod
 ```
 
 ### Backend (Rust)
 
 ```bash
-npx skills add fellipeutaka/leon --skill clean-code commit-work docker nginx rust tdd
+npx skills add fellipeutaka/leon --skill clean-code commit-work docker nginx password-storage rust system-design tdd
 ```
 
 ## Skills
@@ -116,6 +116,7 @@ npx skills add fellipeutaka/leon --skill clean-code commit-work docker nginx rus
 | [elysia](skills/elysia/) | Type-safe, high-performance backend with ElysiaJS | [elysiajs/skills](https://github.com/elysiajs/skills) |
 | [fastify](skills/fastify/) | Fastify development best practices | [mcollina/skills](https://github.com/mcollina/skills) |
 | [hono](skills/hono/) | Develop Hono applications using Hono CLI | [yusukebe/hono-skill](https://github.com/yusukebe/hono-skill) |
+| [password-storage](skills/password-storage/) | Password hashing that resists offline cracking — Argon2id/scrypt/bcrypt/PBKDF2 parameters, pepper, rehash and legacy migration | Curated |
 | [prisma](skills/prisma/) | Prisma ORM type-safe database toolkit with schema-first approach | Curated |
 | [rust](skills/rust/) | Memory-safe, high-performance Rust — ownership, async/Tokio, traits, error handling | Curated |
 
@@ -136,6 +137,7 @@ npx skills add fellipeutaka/leon --skill clean-code commit-work docker nginx rus
 | [clean-code](skills/clean-code/) | Clean Code principles — naming, functions, formatting, error handling, code smells, Object Calisthenics | Curated |
 | [design-patterns](skills/design-patterns/) | All 22 Gang of Four design patterns with TypeScript implementations | Curated |
 | [solid](skills/solid/) | SOLID principles — SRP, OCP, LSP, ISP, DIP with detection heuristics and examples | Curated |
+| [system-design](skills/system-design/) | System design from requirements to scaled, fault-tolerant architecture — estimation, databases, caching, sharding, CQRS, outbox, event-driven, real-time | Curated |
 | [tdd](skills/tdd/) | Test-driven development with red-green-refactor loop | [mattpocock/skills](https://github.com/mattpocock/skills) |
 
 ### DevOps

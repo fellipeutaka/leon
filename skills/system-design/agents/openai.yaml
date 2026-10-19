@@ -1,0 +1,4 @@
+interface:
+  display_name: "System Design"
+  short_description: "Design scalable, fault-tolerant system architecture"
+  default_prompt: "Use $system-design to design the architecture for this system."

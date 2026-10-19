@@ -1,0 +1,4 @@
+interface:
+  display_name: "Password Storage"
+  short_description: "Hash and verify passwords securely"
+  default_prompt: "Use $password-storage to review how this app stores passwords."
