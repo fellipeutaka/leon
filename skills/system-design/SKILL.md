@@ -72,6 +72,8 @@ A higher rung earns its place by **necessity**: name the symptom the lower rungs
 | Server overloaded, single server, spikes, slow jobs in requests, global latency | [SCALING.md](references/SCALING.md)       |
 | DB overloaded, slow queries, search, data too big, IDs, large files, double-booking | [DATA.md](references/DATA.md)         |
 | Writes to two systems, derived stores drift, sync call chains, ordering, duplicates | [DISTRIBUTED.md](references/DISTRIBUTED.md) |
+| Slow or failing dependencies, cascading failures, retries, overload         | [RESILIENCE.md](references/RESILIENCE.md)     |
+| History is lost on update, audit or temporal queries, many views of the same facts | [EVENT-SOURCING.md](references/EVENT-SOURCING.md) |
 | Team or codebase boundaries, monolith vs microservices                     | [STYLES.md](references/STYLES.md)             |
 | Clients need server updates without refreshing                             | [REALTIME.md](references/REALTIME.md)         |
 
