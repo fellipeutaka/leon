@@ -53,6 +53,7 @@ Separate the model that handles commands (writes) from the models that serve que
 **Forms:**
 
 - *Light*: separate read models in the same database (materialized views, denormalized tables).
+- *With event sourcing*: the event store is the write model and projections are the read models. The two patterns pair naturally but are independent; neither requires the other.
 - *Full*: the write store is the source of truth. One or more read stores (document, search, key-value) hold denormalized data shaped per query, fed by CDC or an outbox. Duplication is the intended cost. A read store can be dropped and rebuilt by replaying from the source.
 
 **Costs:**
@@ -119,13 +120,4 @@ Compensation is semantic undo, not rollback: intermediate states are visible to 
 
 ## Event sourcing
 
-State is derived by folding over an ordered stream of events; the current value (a match score, an account balance) is a projection, often snapshotted in a fast store for reads.
-
-- **Gains:**
-  - A full audit trail.
-  - Several projections from one stream.
-  - Bug fixes by replay: deploy a corrected projector and reprocess from the first offset.
-- **Costs:**
-  - Evolving the schemas of old events.
-  - Per-aggregate ordering.
-  - Optimistic concurrency on append, which Kafka alone doesn't provide. Pair Kafka with an event table or a dedicated event store when commands must check the current version.
+Storing state as an append-only stream of facts per entity, with current state derived by folding over them. When the design calls for it (history as the domain, temporal queries, many read models from the same facts), read [EVENT-SOURCING.md](EVENT-SOURCING.md).

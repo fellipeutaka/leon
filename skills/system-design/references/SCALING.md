@@ -65,7 +65,7 @@ A full copy of the stack per region, with traffic steered by DNS (latency-, geo-
 
 When demand far exceeds supply (tens of thousands of tickets against millions of buyers), the system only has to serve the supply. A **virtual waiting room** in front of the hot path admits users in batches; it is a bought capability (Cloudflare Waiting Room, Queue-it). Randomizing queue positions at opening removes the advantage of arriving early or sitting near the data center. Bots need their own defences: bot detection, CAPTCHA, purchase limits per identity.
 
-Rate limiting per user or IP at the gateway handles abuse; volumetric DDoS needs edge protection (CDN, WAF).
+Rate limiting per user or IP at the gateway handles abuse; volumetric DDoS needs edge protection (CDN, WAF). Rate-limiting algorithms and load shedding live in [RESILIENCE.md](RESILIENCE.md).
 
 ## API gateway
 

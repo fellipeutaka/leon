@@ -137,7 +137,7 @@ npx skills add fellipeutaka/leon --skill clean-code commit-work docker nginx pas
 | [clean-code](skills/clean-code/) | Clean Code principles — naming, functions, formatting, error handling, code smells, Object Calisthenics | Curated |
 | [design-patterns](skills/design-patterns/) | All 22 Gang of Four design patterns with TypeScript implementations | Curated |
 | [solid](skills/solid/) | SOLID principles — SRP, OCP, LSP, ISP, DIP with detection heuristics and examples | Curated |
-| [system-design](skills/system-design/) | System design from requirements to scaled, fault-tolerant architecture — estimation, databases, caching, sharding, CQRS, outbox, event-driven, real-time | Curated |
+| [system-design](skills/system-design/) | System design from requirements to scaled, fault-tolerant architecture — estimation, databases, caching, sharding, CQRS, event sourcing, outbox, event-driven, resilience, real-time | Curated |
 | [tdd](skills/tdd/) | Test-driven development with red-green-refactor loop | [mattpocock/skills](https://github.com/mattpocock/skills) |
 
 ### DevOps
