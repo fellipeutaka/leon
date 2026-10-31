@@ -169,6 +169,7 @@ npx skills add fellipeutaka/leon --skill clean-code commit-work docker nginx pas
 | [commit-work](skills/commit-work/) | High-quality git commits | [softaworks/agent-toolkit](https://github.com/softaworks/agent-toolkit) |
 | [creating-a-changeset](skills/creating-a-changeset/) | Create and validate Changeset files for user-facing package changes | Curated |
 | [gh-stack](skills/gh-stack/) | Manage stacked branches and pull requests with the GitHub CLI | [github/gh-stack](https://github.com/github/gh-stack) |
+| [implement-spec](skills/implement-spec/) | Implement a spec and its tickets, then deliver a verified pull request ready for review | Downstream of [mattpocock/skills](https://github.com/mattpocock/skills) |
 | [playwright](skills/playwright/) | Write, debug, and maintain Playwright end-to-end tests for web applications | Curated |
 | [react-email](skills/react-email/) | HTML email templates with React components | [resend/react-email](https://github.com/resend/react-email) |
 | [bun](skills/bun/) | Bun runtime, package manager, bundler, and test runner | Curated |
@@ -183,12 +184,20 @@ Licensed under the [MIT license](./LICENSE).
 
 ## Local variants
 
-The Matt-derived engineering flow skills in `skills/implement`,
-`skills/ask-matt`, and `skills/to-tickets` are maintained as downstream
+The Matt-derived engineering flow skills in `skills/implement-spec`,
+`skills/implement`, `skills/ask-matt`, and `skills/to-tickets` are maintained as downstream
 variants in this repository. Their upstream commits and manual sync policy are
 tracked in [`downstream.json`](./downstream.json).
 
-They add optional stacked-PR and integration-branch delivery through the
+`implement-spec` preserves Matt's parallel spec implementation and requires a
+verified integration PR ready for review, with its URL in the final report.
+It creates a draft after the first integrated ticket and verifies publication
+after the final review fixes. Failed publication is reported as incomplete.
+The spec/PRD and sub-issues stay open and outside terminal tracker states until
+the final PR merges; pushes and merges into the integration branch only record
+implementation progress.
+
+The other variants add optional stacked-PR and integration-branch delivery through the
 `gh-stack` skill while keeping issue blockers and product specs independent
 from branch topology. Read the [custom implement flow guide](docs/implement-flow.md)
 for the differences from Matt's upstream flow and usage examples. They are

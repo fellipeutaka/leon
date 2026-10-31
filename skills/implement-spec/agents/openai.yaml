@@ -1,0 +1,6 @@
+interface:
+  display_name: "Implement Spec"
+  short_description: "Implement a spec and deliver a verified PR"
+  default_prompt: "Use $implement-spec to implement this spec and its tickets, then open and verify a pull request ready for review."
+policy:
+  allow_implicit_invocation: false

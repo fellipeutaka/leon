@@ -1,6 +1,18 @@
 {
   "variants": [
     {
+      "name": "implement-spec",
+      "localPath": "skills/implement-spec",
+      "upstream": {
+        "repo": "mattpocock/skills",
+        "branch": "main",
+        "remotePath": "skills/engineering/implement-spec",
+        "sha": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+      },
+      "syncPolicy": "manual",
+      "reason": "Requires a verified integration PR ready for review and keeps the spec/PRD and sub-issues open and outside terminal tracker states until the final PR is merged."
+    },
+    {
       "name": "implement",
       "localPath": "skills/implement",
       "upstream": {
