@@ -26,6 +26,7 @@
         "react-hook-form-zod",
         "react-native-skills",
         "shadcn",
+        "shadcn-dream",
         "tanstack-ai",
         "tanstack-db",
         "tanstack-form",
