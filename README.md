@@ -92,6 +92,7 @@ npx skills add fellipeutaka/leon --skill clean-code commit-work docker nginx pas
 | [react-hook-form-zod](skills/react-hook-form-zod/) | Type-safe forms with React Hook Form v7 and Zod v4 | [jezweb/claude-skills](https://github.com/jezweb/claude-skills) |
 | [react-native-skills](skills/react-native-skills/) | React Native and Expo best practices | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) |
 | [shadcn](skills/shadcn/) | shadcn/ui component management — adding, searching, fixing, styling, and composing UI components | [shadcn-ui/ui](https://github.com/shadcn-ui/ui) |
+| [shadcn-dream](skills/shadcn-dream/) | shadcn/ui skill that migrates projects to [shadcn-dream](https://github.com/fellipeutaka/shadcn-dream) style and keeps every CLI-added component in it | Downstream of [shadcn-ui/ui](https://github.com/shadcn-ui/ui) |
 | [tanstack-ai](skills/tanstack-ai/) | Build AI-powered chat applications with TanStack AI and React | Curated |
 | [tanstack-db](skills/tanstack-db/) | TanStack DB local-first database with live queries and optimistic mutations | Curated |
 | [tanstack-form](skills/tanstack-form/) | TanStack Form type-safe form management, validation, and composition | Curated |
@@ -194,3 +195,13 @@ from branch topology. Read the [custom implement flow guide](docs/implement-flow
 for the differences from Matt's upstream flow and usage examples. They are
 intentionally not listed in `upstream.json`, because the automatic upstream
 sync would overwrite the local changes.
+
+`skills/shadcn-dream` is a downstream variant of the upstream `shadcn` skill. It
+keeps the upstream content and adds [shadcn-dream](https://github.com/fellipeutaka/shadcn-dream)
+style (`cva` beta via `lib/cva`, exported `Props` interfaces, export at
+declaration) in two cases: migrating a default shadcn project, and rewriting
+every file the shadcn CLI adds to a project already in that style. Both are
+checked by `scripts/dream-audit.mjs`. Install either `shadcn` or
+`shadcn-dream`, not both: they trigger on the same projects. Like the Matt
+variants, it is not listed in `upstream.json`; port upstream changes by hand
+from the SHA recorded in `downstream.json`.

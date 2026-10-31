@@ -35,6 +35,18 @@
       },
       "syncPolicy": "manual",
       "reason": "Keeps issue blockers authoritative while documenting optional stacked-PR delivery topology."
+    },
+    {
+      "name": "shadcn-dream",
+      "localPath": "skills/shadcn-dream",
+      "upstream": {
+        "repo": "shadcn-ui/ui",
+        "branch": "main",
+        "remotePath": "skills/shadcn",
+        "sha": "4233ed1caded8c38f4bc14b14afe1f93ebcaf966"
+      },
+      "syncPolicy": "manual",
+      "reason": "Adds shadcn-dream style in two cases: migrating a default shadcn project (migrate.md) and the adopt pass on every file the shadcn CLI writes (cva 1.0.0-beta.12 and cn via lib/cva, exported Props interfaces, export at declaration, no React namespace import, radix-ui via migrate radix, dream global CSS base layer), verified by scripts/dream-audit.mjs."
     }
   ]
 }

@@ -1,0 +1,5 @@
+interface:
+  display_name: "shadcn/ui (shadcn-dream)"
+  short_description: "Manages shadcn/ui components and rewrites what the CLI adds into shadcn-dream style."
+  icon_small: "./assets/shadcn-small.png"
+  icon_large: "./assets/shadcn.png"
