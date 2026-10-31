@@ -129,6 +129,47 @@ After `/to-tickets` approves the issue graph:
 The issue graph remains authoritative. A delivery choice must not add fake
 blockers merely to make a linear stack possible.
 
+## Whole-spec implementation with a required PR
+
+Use Leon's `/implement-spec` after `/to-spec` and `/to-tickets` when the agent
+should coordinate the whole spec:
+
+```text
+/$implement-spec #100
+```
+
+This fork preserves Matt's task graph, fresh subagents, parallel worktrees,
+merges into one integration branch, and final code review. It adds mandatory
+PR delivery regardless of the issue tracker:
+
+- Create a draft after the first ticket is integrated; reuse an existing PR
+  for the integration head and intended base when resuming.
+- Push the final result and review fixes, create the PR if it is still missing,
+  and mark it ready for review.
+- Verify the remote PR is open, is not a draft, targets the intended base,
+  contains the final integration commit, and links the spec and every ticket.
+- Return the verified PR URL. If publication fails, preserve the branch and
+  worktrees and report the concrete blocker as incomplete delivery.
+
+The fork leaves the PR open for human review. The spec/PRD and its sub-issues
+remain open and outside terminal tracker or project-board states until the
+final integration PR merges. Subagents report commits; the orchestrator uses
+commits integrated into the feature branch to release dependent tickets without
+closing their issues. Pushes and merges into integration are progress only.
+
+Implementation commits and intermediate PRs use references, while closing
+references belong only in the final integration PR body when the tracker and
+base support closure on merge. Other trackers require verified merge evidence
+before closure. After each push and before delivery, the agent checks issue and
+configured project-board states. Premature completion is reported as a blocker,
+with the branch and worktrees preserved for correction.
+
+The final report says **implemented and awaiting PR merge**. A closed but
+unmerged PR does not count as delivery for closing the PRD or its sub-issues.
+
+Unlike `/implement --integration`, this flow integrates ticket branches
+directly and requires one final integration PR; it does not add a PR per ticket.
+
 ## How to keep the downstream skill current
 
 The local variants are tracked in [`downstream.json`](../downstream.json).
