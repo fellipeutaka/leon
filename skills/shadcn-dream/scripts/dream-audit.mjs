@@ -103,6 +103,10 @@ function audit(file) {
     report(m.index, "3", "cn() wraps a variants call; pass className into the variants call");
   }
 
+  for (const m of source.matchAll(/\bclassName\s*=\s*\{\s*cn\(\s*className\s*,?\s*\)\s*\}/g)) {
+    report(m.index, "3", "cn() only forwards className; keep it in ...props when unused, or pass it directly when consumed elsewhere");
+  }
+
   for (const m of source.matchAll(/^export\s+(type\s+)?\{[^}]*\}\s*;?\s*$/gm)) {
     report(m.index, "4", "trailing export block; export at the declaration");
   }
