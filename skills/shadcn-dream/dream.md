@@ -116,6 +116,20 @@ className={toggleVariants({ variant, size, className })}
 className={buttonVariants({ variant: "ghost", className: "size-7 p-0" })}
 ```
 
+Destructure only props the wrapper consumes. Keep a forwarding-only `className`
+inside `...props`, so the receiving component owns its class merging:
+
+```tsx
+<Button {...props} />
+```
+
+If the wrapper already uses `className` elsewhere, forward the string with
+`className={className}`.
+
+Use `cn` for class composition, conditional inputs, or deliberate normalization of
+`ClassValue` inputs. Judge the input and purpose, rather than the number of
+arguments: one array or object can still require `cn`.
+
 ### 4. Export at the declaration
 
 Every component, variants object, and props interface carries `export` where it is declared. The trailing `export { ... }` block goes away. Internal helpers (contexts, `useX` hooks, constants) keep the visibility shadcn gave them.
