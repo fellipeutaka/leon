@@ -161,6 +161,17 @@ npx skills add fellipeutaka/leon --skill clean-code commit-work docker nginx pas
 | [wcag-audit-patterns](skills/wcag-audit-patterns/) | WCAG 2.2 accessibility audits with automated testing, manual verification, and remediation guidance | Curated |
 | [zod](skills/zod/) | Zod 4 TypeScript-first schema validation with static type inference | Curated |
 
+### Engineering Workflows
+
+| Skill | Description | Source |
+|-------|-------------|--------|
+| [setup-matt-pocock-skills](skills/setup-matt-pocock-skills/) | Configure tracker ownership, an existing Project, Status mapping, final PR policy, and domain docs | Downstream of [mattpocock/skills](https://github.com/mattpocock/skills) |
+| [to-spec](skills/to-spec/) | Publish and assign a PRD with verified Project tracking | Downstream of [mattpocock/skills](https://github.com/mattpocock/skills) |
+| [to-tickets](skills/to-tickets/) | Publish vertical child tickets with inherited ownership and Project tracking | Downstream of [mattpocock/skills](https://github.com/mattpocock/skills) |
+| [implement](skills/implement/) | Implement tracked work with isolated builders and independent review | Downstream of [mattpocock/skills](https://github.com/mattpocock/skills) |
+| [implement-spec](skills/implement-spec/) | Coordinate a spec and deliver a verified PR with Project progress | Downstream of [mattpocock/skills](https://github.com/mattpocock/skills) |
+| [ask-matt](skills/ask-matt/) | Choose an engineering flow and delivery topology | Downstream of [mattpocock/skills](https://github.com/mattpocock/skills) |
+
 ### Tooling
 
 | Skill | Description | Source |
@@ -170,7 +181,6 @@ npx skills add fellipeutaka/leon --skill clean-code commit-work docker nginx pas
 | [commit-work](skills/commit-work/) | High-quality git commits | [softaworks/agent-toolkit](https://github.com/softaworks/agent-toolkit) |
 | [creating-a-changeset](skills/creating-a-changeset/) | Create and validate Changeset files for user-facing package changes | Curated |
 | [gh-stack](skills/gh-stack/) | Manage stacked branches and pull requests with the GitHub CLI | [github/gh-stack](https://github.com/github/gh-stack) |
-| [implement-spec](skills/implement-spec/) | Implement a spec and its tickets, then deliver a verified pull request ready for review | Downstream of [mattpocock/skills](https://github.com/mattpocock/skills) |
 | [playwright](skills/playwright/) | Write, debug, and maintain Playwright end-to-end tests for web applications | Curated |
 | [react-email](skills/react-email/) | HTML email templates with React components | [resend/react-email](https://github.com/resend/react-email) |
 | [bun](skills/bun/) | Bun runtime, package manager, bundler, and test runner | Curated |
@@ -185,10 +195,33 @@ Licensed under the [MIT license](./LICENSE).
 
 ## Local variants
 
-The Matt-derived engineering flow skills in `skills/implement-spec`,
-`skills/implement`, `skills/ask-matt`, and `skills/to-tickets` are maintained as downstream
+The Matt-derived engineering flow skills in `skills/setup-matt-pocock-skills`,
+`skills/to-spec`, `skills/to-tickets`, `skills/implement-spec`,
+`skills/implement`, and `skills/ask-matt` are maintained as downstream
 variants in this repository. Their upstream commits and manual sync policy are
 tracked in [`downstream.json`](./downstream.json).
+
+The setup variant records ownership, the selected existing GitHub Project,
+its Status mapping, and the final PR policy in the consuming repository's
+`docs/agents/issue-tracker.md`. Publishing assigns new PRDs to the driving
+developer and child tickets to the parent's assignees. Implementation tracks
+active work and review without treating issue publication or intermediate
+integration as completion. Project Status represents progress; labels retain
+triage and scope. Existing assignees, issue URLs, and Project items survive
+retries.
+
+Project updates require GitHub authorization beyond installing the CLI:
+
+```bash
+gh auth refresh --hostname github.com --scopes project
+```
+
+Follow the authorization prompt, then verify access to the selected Project.
+Native Project workflows can add issues and reflect issue closure as Done
+without a GitHub Actions runner. The setup preserves issue-only tracking when
+chosen, and other tracker types remain supported. See the
+[GitHub tracker seed](skills/setup-matt-pocock-skills/issue-tracker-github.md)
+for the generated policy and CLI operations.
 
 `implement-spec` preserves Matt's parallel spec implementation and requires a
 verified integration PR ready for review, with its URL in the final report.
