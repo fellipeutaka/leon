@@ -11,7 +11,8 @@ The orchestrator passes pointers to:
 - the acceptance criteria and pre-agreed test seams;
 - the fixed point and target branch/worktree;
 - relevant glossary or ADR entries;
-- any exploration notes or previous commits needed by the ticket.
+- any exploration notes or previous commits needed by the ticket;
+- the tracker policy and the orchestrator's ownership/progress record when work is tracked.
 
 Pointers are authoritative. Keep the brief and the response compact instead of
 copying the ticket, spec, or repository documentation into the prompt.
@@ -51,3 +52,5 @@ NOTES: <decisions or follow-up needed by the orchestrator>
 The response names the evidence; it does not review the implementation or
 perform PR, merge, issue-tracker, or delivery-topology operations. The
 orchestrator performs those actions after inspecting the committed diff.
+
+An implementation commit is evidence of progress, not issue completion. Keep issues open and Project states non-terminal until the final delivery PR is verified merged into its intended base; the orchestrator owns assignment and Status changes.

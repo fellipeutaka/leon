@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 Break a plan, spec, or conversation into a set of **tickets** — tracer-bullet vertical slices, each declaring the tickets that **block** it.
 
-The issue tracker and triage label vocabulary should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.
+Read `docs/agents/issue-tracker.md` and the configured triage vocabulary before publishing. Follow its ownership, Project mapping, and final PR policy. If tracker configuration is absent, tell the user to run `/setup-matt-pocock-skills`.
 
 ## Process
 
@@ -85,6 +85,10 @@ Publish the approved tickets. **How** depends on the tracker `/setup-matt-pocock
 
 - **Local files** → write one file per ticket under `.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01` in dependency order (blockers first). Each file's "Blocked by" lists the numbers/titles it depends on. Use the per-ticket file template below — one ticket per file, never a single combined file.
 - **A real issue tracker (GitHub, Linear, …)** → publish one issue per ticket in dependency order (blockers first) so each ticket's blocking edges can reference real identifiers. Keep the textual `Blocked by` edges, and use the platform's native relationship when it supports one. On GitHub, a declared parent makes native sub-issue attachment part of publishing, not an optional follow-up: create a child with `gh issue create --parent <parent>` when possible, or attach an existing child with `gh issue edit <parent> --add-sub-issue <child>`. A textual parent reference alone is not sufficient. Apply the `ready-for-agent` triage label unless instructed otherwise — the tickets are agent-grabbable by construction.
+
+For GitHub, assign newly created children to the parent's assignees unless the user explicitly divided ownership. If the parent is unassigned or absent, use the developer driving the session (`gh api user --jq .login` unless another developer was named). Preserve existing assignments on retries. Follow the tracker document to ensure membership in the selected Project and initialize new work as `todo`; retain existing progress when resuming. Use Project Status rather than lifecycle labels when Project tracking is configured.
+
+Fetch every published child and verify its assignees and, when configured, Project membership and expected Status. Report tracking failures separately with the existing issue URLs so retries update those issues instead of creating duplicates.
 
 For GitHub native sub-issues, verify the result before reporting publication complete: the parent’s `sub_issues` list must contain every child, and each child’s `parent` endpoint must point back to that parent. If attachment or verification fails because of permissions, tracker support, or an API/CLI error, report the concrete blocker instead of claiming the hierarchy was published.
 

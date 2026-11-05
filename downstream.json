@@ -10,7 +10,7 @@
         "sha": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
       },
       "syncPolicy": "manual",
-      "reason": "Requires a verified integration PR ready for review and keeps the spec/PRD and sub-issues open and outside terminal tracker states until the final PR is merged."
+      "reason": "Requires a verified ready integration PR, tracks ownership and Project progress, and keeps PRD and tickets non-terminal until the final PR is merged."
     },
     {
       "name": "implement",
@@ -22,7 +22,7 @@
         "sha": "6654f6b60cd9d5be8b54c6fafe44346dabeb3b76"
       },
       "syncPolicy": "manual",
-      "reason": "Adds standalone, gh-stack, and integration-branch delivery modes plus isolated implementer subagents and independent review while preserving the Matt implementation flow."
+      "reason": "Adds isolated implementation and independent review with standalone, stack, and integration delivery plus repository-configured ownership and Project progress."
     },
     {
       "name": "ask-matt",
@@ -46,7 +46,7 @@
         "sha": "6654f6b60cd9d5be8b54c6fafe44346dabeb3b76"
       },
       "syncPolicy": "manual",
-      "reason": "Keeps issue blockers authoritative while documenting optional stacked-PR delivery topology."
+      "reason": "Preserves authoritative issue blockers and delivery topology, requires native GitHub sub-issues, and inherits parent ownership with verified Project tracking."
     },
     {
       "name": "shadcn-dream",
@@ -59,6 +59,30 @@
       },
       "syncPolicy": "manual",
       "reason": "Adds shadcn-dream style in two cases: migrating a default shadcn project (migrate.md) and the adopt pass on every file the shadcn CLI writes (cva 1.0.0-beta.12 and cn via lib/cva, exported Props interfaces, export at declaration, no React namespace import, radix-ui via migrate radix, dream global CSS base layer), verified by scripts/dream-audit.mjs."
+    },
+    {
+      "name": "setup-matt-pocock-skills",
+      "localPath": "skills/setup-matt-pocock-skills",
+      "upstream": {
+        "repo": "mattpocock/skills",
+        "branch": "main",
+        "remotePath": "skills/engineering/setup-matt-pocock-skills",
+        "sha": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+      },
+      "syncPolicy": "manual",
+      "reason": "Discovers existing GitHub Projects and scaffolds repository ownership, Status mapping, native workflow, and final-PR completion policy while preserving other trackers and domain setup."
+    },
+    {
+      "name": "to-spec",
+      "localPath": "skills/to-spec",
+      "upstream": {
+        "repo": "mattpocock/skills",
+        "branch": "main",
+        "remotePath": "skills/engineering/to-spec",
+        "sha": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+      },
+      "syncPolicy": "manual",
+      "reason": "Assigns new PRDs to the driving developer, preserves existing issue identity and ownership, and verifies configured Project membership and initial Status."
     }
   ]
 }

@@ -33,6 +33,32 @@ stacks are linear: one branch has one parent and at most one child. A ticket
 graph with forks and joins needs integration delivery or ordinary dependent
 PRs.
 
+## Ownership and Project progress
+
+Run `/setup-matt-pocock-skills` to record the repository's existing Project,
+Status mapping, assignment policy, and final PR base in
+`docs/agents/issue-tracker.md`. The generated policy is authoritative for each
+publishing and implementation flow; a Project is optional, and its coordinates
+are repository configuration rather than hard-coded skill settings.
+
+`/to-spec` assigns a new PRD to the driving developer. `/to-tickets` inherits
+the parent's assignees for new children, unless ownership is explicitly divided.
+Both verify configured Project membership and initialize new work as Todo.
+Retries preserve existing assignments, progress, and issue identity.
+
+The implementation orchestrator marks started work In progress and final
+ready-for-review delivery Waiting validation. Integrated child commits remain
+non-terminal and can release dependents inside the integration run. A developer
+pauses work explicitly, records a checkpoint, and keeps ownership; returning
+work to the pool also removes their assignment and restores Todo.
+
+Project Status holds progress; labels retain readiness and scope. Native Project
+workflows can reflect issue closure as Done without Actions jobs. Closing
+references belong in final PR bodies targeting the actual default branch.
+When the integration branch (for example `staging`) is the default, GitHub
+can close the delivered issues on that merge while production remains on
+`main`. A different final base requires verified post-merge reconciliation.
+
 ## Implementation delegation
 
 `/implement` is the orchestrator. For each non-trivial ticket, it passes the
@@ -82,10 +108,12 @@ branch before starting the ticket:
  └── #184 → integration
 ```
 
-The final integration PR is the only PR that targets `main`. Its body should
-contain `Closes #<spec-number>` and can close any child tickets that remain
-open. Child PRs should use `Refs #<ticket-number>` so the umbrella issue is
-not closed before the complete feature is integrated.
+Here `main` is an example of the repository's configured final PR base; use
+`staging` when that is the configured integration base. The final integration
+PR is the only PR that targets that base. When it is also the actual default
+branch, include a separate `Closes #<number>` for each fully delivered issue,
+including the PRD only when its whole scope is accepted. Child PRs use
+`Refs #<ticket-number>` and remain open in the tracker until final delivery.
 
 This gives one final merge into trunk, although child PRs still merge into the
 integration branch as they are reviewed. That intermediate merging is what

@@ -6,6 +6,8 @@ disable-model-invocation: true
 
 Implement the work described by the user in the spec or tickets.
 
+Read `docs/agents/issue-tracker.md` before starting or resuming tracked work. Follow its assignment, Project mapping, pause/release procedure, and final PR policy. The orchestrator owns tracker updates; implementation subagents return evidence. If tracker configuration is absent, tell the user to run `/setup-matt-pocock-skills`.
+
 The main agent is the **orchestrator**. It owns the preflight, branch and
 worktree state, integration, validation, independent review, and delivery. An
 **implementer subagent** owns the code for one ticket in one isolated context.
@@ -20,10 +22,14 @@ point for review: the immediate parent branch for a stack, the integration
 branch for a child ticket, or the trunk/explicit parent for standalone work.
 If the seams are not settled, ask the user before dispatching implementation.
 
+Read current ownership, parent reservations, linked PRs, and configured Project state. Claim unassigned work for the driving developer according to the tracker policy; preserve existing assignees unless reassignment was requested. Another developer's reserved PRD is not an independently available pool of tickets. Reconstruct resumed progress before changing Status.
+
 This step is complete when the scope, seams, blockers, fixed point, target
 branch, and target worktree are all explicit.
 
 ### 2. Delegate implementation
+
+Set selected work to `in-progress` when implementation starts, using the tracker policy and configured Project Status field. Queued tickets retain their current state.
 
 For any ticket that crosses more than one layer, changes more than one file, or
 would benefit from a fresh context, dispatch one implementer subagent using the
@@ -73,6 +79,10 @@ Continue with the selected delivery mode below. The orchestrator owns the final
 Git history, branch/PR operations, merges, and the final report; the implementer
 subagent only supplies the committed implementation.
 
+When a standalone or stacked ticket PR is open and ready for review, set the delivered ticket to `waiting-validation` and verify its assignees, Project membership, and Status when configured. In integration delivery, child-branch integration remains non-terminal progress; move the PRD and delivered tickets to `waiting-validation` only when the final integration PR is ready. Review repairs return the affected scope to `in-progress`.
+
+Keep issues open and Project states non-terminal until their final delivery PR is verified merged into its intended base. Use closing references only in final PR bodies when the actual base supports them, and ordinary references elsewhere. Merging requires a separate user instruction. Report tracking failures separately from the implementation/PR result, retaining URLs for an idempotent retry.
+
 ## Delivery mode
 
 Choose the delivery mode from the user's instruction, the repository's `AGENTS.md`, or the current branch state. Do not infer stacked or integration delivery merely because a feature has multiple tickets.
@@ -84,7 +94,7 @@ Use standalone delivery by default when no stack has been requested:
 1. Prepare a new branch named `feat/implement-<short-description-of-work>` and
    assign its worktree to the implementer subagent.
 2. After independent review, push the branch and create a pull request against
-   the appropriate trunk or parent branch, closing the ticket or spec.
+   the configured final PR base, declaring the fully delivered ticket or spec for closure on merge where supported.
 
 ### Stacked delivery
 
@@ -107,7 +117,7 @@ The implementation, TDD loop, typechecking, full test suite, and independent rev
 
 At the end of a stacked layer:
 
-1. Include `Closes #<ticket-number>` in the commit body or edit the generated PR body afterwards. `gh stack submit --auto` derives PR metadata from commits.
+1. Use `Refs #<ticket-number>` in commits. After submission, include `Closes #<ticket-number>` in the final ticket PR body only when its actual base supports closure on merge; otherwise retain references and report the required post-merge reconciliation. `gh stack submit --auto` derives initial PR metadata from commits.
 2. Run `gh stack submit --auto --open` to push the stack and create or synchronize ready-for-review PRs.
 3. Run `gh stack view --json` and report the resulting stack and PR URLs.
 
