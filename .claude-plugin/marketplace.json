@@ -1,0 +1,157 @@
+{
+  "name": "leon",
+  "owner": {
+    "name": "fellipeutaka"
+  },
+  "plugins": [
+    {
+      "name": "frontend",
+      "description": "Skills for building, reviewing, and optimizing frontend interfaces.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/ai-sdk",
+        "./skills/baseline-ui",
+        "./skills/canvas-design",
+        "./skills/composition-patterns",
+        "./skills/denji",
+        "./skills/design-lab",
+        "./skills/fixing-accessibility",
+        "./skills/fixing-metadata",
+        "./skills/fixing-motion-performance",
+        "./skills/frontend-design",
+        "./skills/figma-raw-geometry",
+        "./skills/interface-design",
+        "./skills/interaction-design",
+        "./skills/kanpeki",
+        "./skills/motion",
+        "./skills/nuqs",
+        "./skills/paraglide-js",
+        "./skills/react-best-practices",
+        "./skills/react-hook-form-zod",
+        "./skills/react-native-skills",
+        "./skills/shadcn",
+        "./skills/shadcn-dream",
+        "./skills/tanstack-ai",
+        "./skills/tanstack-db",
+        "./skills/tanstack-form",
+        "./skills/tanstack-hotkeys",
+        "./skills/tanstack-query",
+        "./skills/tanstack-react-store",
+        "./skills/tanstack-router",
+        "./skills/tanstack-virtual",
+        "./skills/tanstack-pacer",
+        "./skills/tanstack-table",
+        "./skills/ui-ux-pro-max",
+        "./skills/web-design-guidelines",
+        "./skills/zustand"
+      ]
+    },
+    {
+      "name": "backend-systems",
+      "description": "Skills for backend APIs, authentication, databases, and systems programming.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/drizzle-orm",
+        "./skills/nestjs",
+        "./skills/better-auth",
+        "./skills/elysia",
+        "./skills/fastify",
+        "./skills/hono",
+        "./skills/password-storage",
+        "./skills/prisma",
+        "./skills/rust"
+      ]
+    },
+    {
+      "name": "full-stack-frameworks",
+      "description": "Skills for full-stack React frameworks and Next.js applications.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/next-best-practices",
+        "./skills/next-cache-components-optimizer",
+        "./skills/next-cache-components-adoption",
+        "./skills/next-upgrade",
+        "./skills/tanstack-start"
+      ]
+    },
+    {
+      "name": "software-design",
+      "description": "Principles and patterns for maintainable, well-tested software.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/clean-code",
+        "./skills/design-patterns",
+        "./skills/solid",
+        "./skills/system-design",
+        "./skills/tdd"
+      ]
+    },
+    {
+      "name": "devops",
+      "description": "Skills for containerization, deployment infrastructure, and web servers.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/docker",
+        "./skills/nginx"
+      ]
+    },
+    {
+      "name": "mobile",
+      "description": "Skills for building accessible, responsive mobile interfaces.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/swiftui-ui-patterns"
+      ]
+    },
+    {
+      "name": "validation-type-safety",
+      "description": "Skills for accessibility auditing and type-safe validation.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/wcag-audit-patterns",
+        "./skills/zod"
+      ]
+    },
+    {
+      "name": "engineering-workflows",
+      "description": "Issue-driven implementation, planning, and delivery workflows.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/ask-matt",
+        "./skills/implement",
+        "./skills/implement-spec",
+        "./skills/setup-matt-pocock-skills",
+        "./skills/to-spec",
+        "./skills/to-tickets"
+      ]
+    },
+    {
+      "name": "tooling",
+      "description": "Skills for agent tooling, testing, package management, and project automation.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/agent-browser",
+        "./skills/ai-repo-setup",
+        "./skills/commit-work",
+        "./skills/creating-a-changeset",
+        "./skills/gh-stack",
+        "./skills/playwright",
+        "./skills/react-email",
+        "./skills/bun",
+        "./skills/pnpm",
+        "./skills/seo-audit",
+        "./skills/tauri",
+        "./skills/turborepo"
+      ]
+    }
+  ]
+}

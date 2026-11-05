@@ -9,13 +9,14 @@
         "ai-sdk",
         "baseline-ui",
         "canvas-design",
-        "composition-patterns",
+        "vercel-composition-patterns",
         "denji",
         "design-lab",
         "fixing-accessibility",
         "fixing-metadata",
         "fixing-motion-performance",
         "frontend-design",
+        "figma-raw-geometry",
         "interface-design",
         "interaction-design",
         "kanpeki",
@@ -49,12 +50,12 @@
         "drizzle-orm",
         "nestjs",
         "better-auth",
-        "elysia",
-        "fastify",
+        "elysiajs",
+        "fastify-best-practices",
         "hono",
         "password-storage",
         "prisma",
-        "rust"
+        "rust-expert"
       ]
     },
     {
