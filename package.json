@@ -4,7 +4,10 @@
   "description": "Curated collection of Agent Skills for AI coding agents",
   "license": "MIT",
   "scripts": {
-    "sync": "bun run scripts/sync-upstream.ts"
+    "sync": "bun run scripts/sync-upstream.ts",
+    "catalog:generate": "node scripts/skill-catalog.mjs",
+    "catalog:check": "node scripts/skill-catalog.mjs --check",
+    "catalog:test": "node --test scripts/skill-catalog.test.mjs"
   },
   "devDependencies": {
     "@types/bun": "^1.3.9"

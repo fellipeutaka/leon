@@ -10,6 +10,37 @@ Skills follow the [Agent Skills](https://agentskills.io/) format.
 npx skills add fellipeutaka/leon
 ```
 
+## Skill categories on the website and in the CLI
+
+`skills.sh.json` is the source of categories for the skills.sh repository page.
+Its entries use each skill's frontmatter `name`, which can differ from the
+directory name. The skills CLI's interactive picker instead groups skills
+through `.claude-plugin/marketplace.json`, whose entries use directory paths.
+
+Keep the generated CLI manifest aligned with the website configuration:
+
+```bash
+npm run catalog:generate
+npm run catalog:check
+```
+
+Run generation after changing categories or skill names, and include the
+generated manifest in the commit. The checker rejects unknown skill names,
+duplicate assignments, and an outdated manifest. Automatic upstream sync may
+change frontmatter names; run the checker after syncing too.
+
+To try the local interactive picker from a regular terminal:
+
+```bash
+npx skills@latest add /Users/fellipeutaka/projects/personal/leon
+```
+
+For another checkout, replace that path with its location. `--list` prints a
+flat inventory rather than the interactive groups. Agent environments can
+automatically enable non-interactive installation; use a disposable working
+directory for installation tests. Remote installs use the published commit,
+so local configuration changes appear there only after publication.
+
 ## Upstream Sync
 
 Some skills are synced from external repos. Tracked in `upstream.json`.
