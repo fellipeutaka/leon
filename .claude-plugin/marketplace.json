@@ -143,6 +143,7 @@
         "./skills/ai-repo-setup",
         "./skills/commit-work",
         "./skills/creating-a-changeset",
+        "./skills/docs-lookup",
         "./skills/gh-stack",
         "./skills/playwright",
         "./skills/react-email",
