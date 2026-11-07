@@ -70,7 +70,7 @@
         "sha": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
       },
       "syncPolicy": "manual",
-      "reason": "Discovers existing GitHub Projects and scaffolds repository ownership, Status mapping, native workflow, and final-PR completion policy while preserving other trackers and domain setup."
+      "reason": "Discovers existing GitHub Projects and scaffolds repository ownership, Status mapping, native workflow, and final-PR completion policy while scaffolds AGENTS.md as the single instruction file with a CLAUDE.md symlink (or `@AGENTS.md` stub), preserving other trackers and domain setup."
     },
     {
       "name": "to-spec",
