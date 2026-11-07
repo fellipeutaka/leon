@@ -22,7 +22,8 @@ This is a prompt-driven skill, not a deterministic script. Explore, present the 
 Look at the current repo to understand its starting state. Read whatever exists; don't assume:
 
 - `git remote -v` and `.git/config`: is this a GitHub repo? Which one?
-- `AGENTS.md` and `CLAUDE.md` at the repo root: does either exist? Is there already an `## Agent skills` section in either?
+- `AGENTS.md` and `CLAUDE.md` at the repo root: does either exist? Is `CLAUDE.md` a symlink (`test -L`), and to what? Is there already an `## Agent skills` section in either?
+- `claude --version`: Claude Code reads `AGENTS.md` natively from 2.1.277. A missing command or unparsable output means no native-support claim.
 - `GLOSSARY.md` and `GLOSSARY-MAP.md` at the repo root, and the legacy `CONTEXT.md` / `CONTEXT-MAP.md`. If a legacy file exists, offer to `git mv` it to its `GLOSSARY` name and rewrite those names in `docs/agents/domain.md`.
 - `docs/adr/` and any `src/*/docs/adr/` directories
 - `docs/agents/`: does this skill's prior output already exist?
@@ -81,20 +82,28 @@ Offer **multi-context** (a root `GLOSSARY-MAP.md` pointing to per-context `GLOSS
 
 Show the user a draft of:
 
-- The `## Agent skills` block to add to whichever of `CLAUDE.md` / `AGENTS.md` is being edited (see step 4 for selection rules)
+- The `## Agent skills` block and the instruction-file layout (see step 4 for selection rules)
 - The contents of `docs/agents/issue-tracker.md`, `docs/agents/domain.md`, and `docs/agents/triage-labels.md` (the last when Section B runs)
 
 Apply decisions already approved in the session. Present unresolved choices before changing them. Replace seed placeholders with verified values; preserve unrelated repository-specific conventions.
 
 ### 4. Write
 
-**Pick the file to edit:**
+**Pick the file to edit.** `AGENTS.md` is the single source of truth; `CLAUDE.md` mirrors it.
 
-- If `CLAUDE.md` exists, edit it.
-- Else if `AGENTS.md` exists, edit it.
-- If neither exists, ask the user which one to create; don't pick for them.
+- `CLAUDE.md` is a symlink to `AGENTS.md`: edit `AGENTS.md`.
+- Only `AGENTS.md` exists: edit it, and offer (recommended) the `CLAUDE.md` link below.
+- Only `CLAUDE.md` exists as a real file: edit it in place, and offer (recommended) `git mv CLAUDE.md AGENTS.md` plus the link below. On a no, edit `CLAUDE.md` and move on.
+- Both exist as separate files: edit `CLAUDE.md`; merging is the user's call.
+- Neither exists: ask one question, recommended first.
 
-Never create `AGENTS.md` when `CLAUDE.md` already exists (or vice versa); always edit the one that's already there.
+  > Create `AGENTS.md` plus a `CLAUDE.md` symlink to it? Edits to `AGENTS.md` then reach `CLAUDE.md` automatically, on every Claude Code version and every other agent. (recommended: **yes**)
+
+  Alternatives when the user declines: `CLAUDE.md` containing only `@AGENTS.md`; `AGENTS.md` alone, offered only when `claude --version` is 2.1.277 or newer (teammates and CI may run older versions); `CLAUDE.md` alone.
+
+**Link `CLAUDE.md`** with `ln -s AGENTS.md CLAUDE.md`. When the symlink fails (e.g. Windows without symlink rights), write `CLAUDE.md` containing exactly `@AGENTS.md` and tell the user why. Once linked, the `## Agent skills` block lives only in `AGENTS.md`.
+
+Create a second instruction file only through the options above.
 
 If an `## Agent skills` block already exists in the chosen file, update its contents in-place rather than appending a duplicate. Don't overwrite user edits to the surrounding sections.
 
@@ -132,6 +141,6 @@ For "other" issue trackers, write `docs/agents/issue-tracker.md` from scratch us
 
 ### 5. Verify and report
 
-Read back the written tracker policy and the selected Project's fields and mappings. Verify only the remote changes actually made; report any pending auth, workflow, or UI steps separately. Setup is complete only when the selected configuration is written and the required remote configuration is verified. Issue-only tracking needs no Project verification.
+Confirm `CLAUDE.md` resolves to the `## Agent skills` block (`readlink CLAUDE.md`, or the `@AGENTS.md` stub). Read back the written tracker policy and the selected Project's fields and mappings. Verify only the remote changes actually made; report any pending auth, workflow, or UI steps separately. Setup is complete only when the selected configuration is written and the required remote configuration is verified. Issue-only tracking needs no Project verification.
 
 Tell the user which engineering skills will now read from these files. Mention they can edit `docs/agents/*.md` directly later; re-running this skill is only necessary if they want to switch issue trackers or restart from scratch.
