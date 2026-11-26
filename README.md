@@ -41,6 +41,15 @@ automatically enable non-interactive installation; use a disposable working
 directory for installation tests. Remote installs use the published commit,
 so local configuration changes appear there only after publication.
 
+## Skill maintenance
+
+Skills with custom instructions, best practices, do/don't rules, or an actionable
+workflow remain maintained, including library-specific skills and shadcn-dream.
+Documentation-only skills are reviewed against official alternatives before
+retirement. See the [review and policy](docs/skill-retirement-review.md) and
+[retirement record](skills/deprecated/README.md). Existing installations are not
+automatically removed when a skill leaves this repository.
+
 ## Upstream Sync
 
 Some skills are synced from external repos. Tracked in `upstream.json`.
@@ -127,7 +136,6 @@ npx skills add fellipeutaka/leon --skill clean-code commit-work docker nginx pas
 | [tanstack-ai](skills/tanstack-ai/) | Build AI-powered chat applications with TanStack AI and React | Curated |
 | [tanstack-db](skills/tanstack-db/) | TanStack DB local-first database with live queries and optimistic mutations | Curated |
 | [tanstack-form](skills/tanstack-form/) | TanStack Form type-safe form management, validation, and composition | Curated |
-| [tanstack-hotkeys](skills/tanstack-hotkeys/) | Type-safe keyboard shortcut management for React | Curated |
 | [tanstack-query](skills/tanstack-query/) | TanStack Query v5 data fetching, caching, and mutations | Curated |
 | [tanstack-react-store](skills/tanstack-react-store/) | Global state management in React apps using TanStack Store | Curated |
 | [tanstack-router](skills/tanstack-router/) | TanStack Router type-safe routing, search params, and data loading | Curated |
