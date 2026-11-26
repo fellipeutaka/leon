@@ -8,8 +8,8 @@ const target = join(root, '.claude-plugin/marketplace.json');
 
 try {
   const args = process.argv.slice(2);
-  if (args.some(arg => !['--check', '--stdout'].includes(arg))) {
-    throw new Error('Usage: node scripts/skill-catalog.mjs [--check | --stdout]');
+  if (args.length > 1 || args.some(arg => !['--check', '--stdout', '--wrapper'].includes(arg))) {
+    throw new Error('Usage: node scripts/skill-catalog.mjs [--check | --stdout | --wrapper]');
   }
   const config = JSON.parse(readFileSync(join(root, 'skills.sh.json'), 'utf8'));
   const paths = new Map();
@@ -38,7 +38,52 @@ try {
     return { name, description: group.description, source: './', strict: false, skills };
   });
   const output = JSON.stringify({ name: 'leon', owner: { name: 'fellipeutaka' }, plugins }, null, 2) + '\n';
-  if (args.includes('--stdout')) {
+  if (args.includes('--wrapper')) {
+    const { parse } = await import('yaml');
+    const readJson = file => JSON.parse(readFileSync(join(root, file), 'utf8'));
+    const upstream = new Map();
+    for (const { repo, branch, skills } of readJson('upstream.json').upstreams) {
+      for (const { localPath, remotePath } of skills) {
+        if (upstream.has(localPath)) throw new Error(`Duplicate upstream path: ${localPath}`);
+        upstream.set(localPath, { repo, path: remotePath, ref: branch.replace(/^refs\/tags\//, '') });
+      }
+    }
+    const variants = new Set(readJson('downstream.json').variants.map(({ localPath }) => localPath));
+    const overrides = readJson('cli/catalog-sources.json');
+    for (const name of Object.keys(overrides)) {
+      if (!paths.has(name)) throw new Error(`Unknown skill in CLI source overrides: ${name}`);
+    }
+
+    const groups = new Map(
+      config.groupings.flatMap(group => group.skills.map(name => [name, group.title]))
+    );
+    const catalog = [...paths].map(([name, relativePath]) => {
+      const path = relativePath.slice(2);
+      const file = readFileSync(join(root, path, 'SKILL.md'), 'utf8');
+      const { description } = parse(file.match(/^---\r?\n([\s\S]*?)\r?\n---/)[1]);
+      if (typeof description !== 'string' || !description.trim()) {
+        throw new Error(`Missing description: ${path}`);
+      }
+      const override = Object.hasOwn(overrides, name) ? overrides[name] : undefined;
+      const source = variants.has(path) || override?.localReason
+        ? undefined
+        : override ?? upstream.get(path);
+      return {
+        name,
+        group: groups.get(name) ?? 'Other',
+        description: description.replace(/\s+/g, ' ').trim(),
+        ...(source ?? { repo: 'fellipeutaka/leon', path }),
+      };
+    });
+    const groupOrder = config.groupings.map(group => group.title).sort((a, b) => a.localeCompare(b));
+    if (config.notGrouped === 'top') groupOrder.unshift('Other');
+    else groupOrder.push('Other');
+    catalog.sort((a, b) =>
+      groupOrder.indexOf(a.group) - groupOrder.indexOf(b.group) || a.name.localeCompare(b.name)
+    );
+    mkdirSync(join(root, 'dist'), { recursive: true });
+    writeFileSync(join(root, 'dist/catalog.json'), JSON.stringify(catalog));
+  } else if (args.includes('--stdout')) {
     process.stdout.write(output);
   } else if (args.includes('--check')) {
     if (!existsSync(target) || readFileSync(target, 'utf8') !== output) {

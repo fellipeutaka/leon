@@ -1,0 +1,32 @@
+{
+  "ai-sdk": {
+    "repo": "vercel/ai",
+    "path": "skills/ai-sdk"
+  },
+  "elysiajs": {
+    "localReason": "Leon prioritizes Standard Schema over TypeBox."
+  },
+  "frontend-design": {
+    "repo": "anthropics/skills",
+    "path": "skills/frontend-design"
+  },
+  "hono": {
+    "localReason": "Leon expanded the API reference. The original source path is no longer published."
+  },
+  "motion": {
+    "localReason": "The original skill lives on an archive branch. Leon carries its own version."
+  },
+  "next-best-practices": {
+    "localReason": "Vercel replaced this standalone skill with bundled Next.js docs."
+  },
+  "next-upgrade": {
+    "localReason": "Vercel replaced this standalone skill with bundled migration guides."
+  },
+  "react-hook-form-zod": {
+    "localReason": "Leon uses the full form object in its examples."
+  },
+  "ui-ux-pro-max": {
+    "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "path": ".claude/skills/ui-ux-pro-max"
+  }
+}
