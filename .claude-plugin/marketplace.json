@@ -35,7 +35,6 @@
         "./skills/tanstack-ai",
         "./skills/tanstack-db",
         "./skills/tanstack-form",
-        "./skills/tanstack-hotkeys",
         "./skills/tanstack-query",
         "./skills/tanstack-react-store",
         "./skills/tanstack-router",

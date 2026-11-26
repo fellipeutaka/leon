@@ -31,7 +31,6 @@
         "tanstack-ai",
         "tanstack-db",
         "tanstack-form",
-        "tanstack-hotkeys",
         "tanstack-query",
         "tanstack-react-store",
         "tanstack-router",

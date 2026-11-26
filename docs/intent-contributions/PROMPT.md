@@ -45,10 +45,22 @@ contexto de execução antes de investigar ou editar:
 5. Carregue para o contexto de execução, sem pedir confirmação manual:
    `repositoryId`, `REPOSITORY`, `REPOSITORY_DIR`, `targetIds`, `package`,
    `relatedPackages`, `leonSkillDir`, `leonSkillName`, `scope`, `status`,
-   `priority` e `notes`.
+   `priority`, `notes` e o campo opcional `leonSourceRevision`.
 
 Normalize `package` para uma lista, mesmo quando o JSON contiver uma string.
-Resolva `LEON_SKILL_DIR(S)` relativo a `LEON_ROOT`. Os valores do manifest são a
+Resolva `LEON_SKILL_DIR(S)` relativo a `LEON_ROOT`. Quando a contribuição tiver
+`leonSourceRevision`, use essa revisão histórica como referência: a skill foi
+aposentada e pode não existir na árvore ativa. Defina `LEON_SOURCE_REVISION`
+com esse campo e leia o conteúdo sem restaurá-lo no catálogo:
+
+```bash
+git -C "$LEON_ROOT" show "$LEON_SOURCE_REVISION:$LEON_SKILL_DIR/SKILL.md"
+git -C "$LEON_ROOT" ls-tree -r --name-only "$LEON_SOURCE_REVISION" -- "$LEON_SKILL_DIR"
+```
+
+Leia também as referências auxiliares nessa revisão com `git show`. Se o
+commit não estiver disponível localmente, obtenha o histórico necessário do
+remoto do Leon. Sem esse campo, leia a skill atual no diretório indicado. Os valores do manifest são a
 fonte de verdade para os dados estáveis da campanha; branch padrão, versão
 publicada, scripts, configuração e estado atual do GitHub devem ser conferidos
 no repositório e na API durante a execução.
@@ -255,7 +267,8 @@ resultado foi `BLOCKED`), o `SKILL.md` tem uma tarefa principal clara, todos os
 steps têm critérios verificáveis e a revisão final não encontra duplicação,
 sprawl ou referência sem condição de uso.
 
-1. Leia `LEON_SKILL_DIR(S)` apenas como referência de cobertura e lacunas. Não
+1. Leia `LEON_SKILL_DIR(S)` (na revisão `leonSourceRevision`, quando informada,
+   conforme a etapa 0) apenas como referência de cobertura e lacunas. Não
    copie texto, exemplos, nomes ou estrutura automaticamente. Extraia apenas
    conhecimento que possa ser confirmado no upstream.
 

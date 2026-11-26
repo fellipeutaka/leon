@@ -40,3 +40,15 @@ Some skills are synced from external repos. Tracked in `upstream.json`.
 - Keep standalone skills self-contained — no relative cross-skill dependencies.
   The Matt-derived flow variants listed in `downstream.json` may call their
   declared model-invoked dependencies through the Skill tool.
+
+## Skill Maintenance
+
+Keep skills that provide custom instructions, best practices, do/don't rules, or
+actionable workflows, even when they target a library. Review the main file and
+supporting rules, references, and scripts. shadcn-dream is an author-maintained
+style variant and remains active.
+
+For documentation-only skills, follow the ordered official-source checks in
+`docs/skill-retirement-review.md` before retirement. Record the evidence and
+migration in `skills/deprecated/README.md`; update catalogs and sync registrations
+so retired skills cannot be reintroduced by automatic sync.

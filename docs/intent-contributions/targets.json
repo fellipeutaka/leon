@@ -380,6 +380,7 @@
       "id": "tanstack-hotkeys",
       "leonSkillDir": "skills/tanstack-hotkeys",
       "leonSkillName": "tanstack-hotkeys",
+      "leonSourceRevision": "d0e756d2399e01a03d19b6b1bbe07329384cf71a",
       "package": "@tanstack/react-hotkeys",
       "repositoryId": "tanstack-hotkeys",
       "status": "candidate",
