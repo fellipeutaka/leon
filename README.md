@@ -6,15 +6,33 @@ Skills follow the [Agent Skills](https://agentskills.io/) format.
 
 ## Installation
 
+Run Leon from the project where you want to install skills. The picker uses the same terminal component as `skills add`, with expandable categories, category-wide selection, and a description pane that shows the source repository.
+
+```bash
+npx github:fellipeutaka/leon add
+```
+
+Leon installs curated upstream skills directly from their source repositories. Original skills, local variants such as `shadcn-dream`, and preserved copies such as `next-upgrade` come from `fellipeutaka/leon`. The Vercel installer records those sources in the project's `skills-lock.json`. If you previously installed these skills from Leon, select them again in the wrapper to record their curated sources.
+
+```bash
+npx github:fellipeutaka/leon add --list
+npx github:fellipeutaka/leon add --skill commit-work --skill shadcn-dream --agent codex
+npx skills update --project
+```
+
+Use `--global` to install for the selected agents across projects. The wrapper requires Node.js 22.20 or newer.
+
+The native command installs the copies published in this repository:
+
 ```bash
 npx skills add fellipeutaka/leon
 ```
 
 ## Skill categories on the website and in the CLI
 
-`skills.sh.json` is the source of categories for the skills.sh repository page.
+`skills.sh.json` is the source of categories for the skills.sh repository page and the Leon wrapper.
 Its entries use each skill's frontmatter `name`, which can differ from the
-directory name. The skills CLI's interactive picker instead groups skills
+directory name. The native skills CLI groups Leon's published copies
 through `.claude-plugin/marketplace.json`, whose entries use directory paths.
 
 Keep the generated CLI manifest aligned with the website configuration:
@@ -40,6 +58,8 @@ flat inventory rather than the interactive groups. Agent environments can
 automatically enable non-interactive installation; use a disposable working
 directory for installation tests. Remote installs use the published commit,
 so local configuration changes appear there only after publication.
+
+Run `bun install` and `npm run leon -- add --list` to preview the wrapper from a checkout. It takes upstream paths and refs from `upstream.json`, keeps the variants in `downstream.json` on Leon, and applies the overrides in `cli/catalog-sources.json` for moved sources and local copies. The package catalog is generated during `prepare`.
 
 ## Skill maintenance
 

@@ -1,15 +1,34 @@
 {
-  "name": "leon",
+  "name": "@fellipeutaka/leon",
   "version": "0.1.0",
   "description": "Curated collection of Agent Skills for AI coding agents",
   "license": "MIT",
+  "bin": {
+    "leon": "cli/leon.mjs"
+  },
+  "files": [
+    "cli/leon.mjs",
+    "cli/vendor",
+    "dist/catalog.json"
+  ],
+  "engines": {
+    "node": ">=22.20.0"
+  },
   "scripts": {
+    "prepare": "node scripts/skill-catalog.mjs --wrapper",
+    "leon": "npm run --silent prepare && node cli/leon.mjs",
     "sync": "bun run scripts/sync-upstream.ts",
     "catalog:generate": "node scripts/skill-catalog.mjs",
     "catalog:check": "node scripts/skill-catalog.mjs --check",
-    "catalog:test": "node --test scripts/skill-catalog.test.mjs"
+    "catalog:test": "node --test scripts/skill-catalog.test.mjs",
+    "cli:test": "npm run --silent prepare && node --test scripts/leon.test.mjs"
+  },
+  "dependencies": {
+    "picocolors": "1.1.1",
+    "skills": "1.9.0"
   },
   "devDependencies": {
-    "@types/bun": "^1.3.9"
+    "@types/bun": "^1.3.9",
+    "yaml": "2.9.1"
   }
 }
